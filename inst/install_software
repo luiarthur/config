@@ -1,0 +1,199 @@
+# Install matplotlib
+# bash:
+# 
+#     sudo apt-get install python-matplotlib
+
+# Install R
+# bash:
+#   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+#   sudo add-apt-repository -y "deb http://cran.rstudio.com/bin/linux/ubuntu $(lsb_release -s -c)/"
+#   sudo apt-get update -y
+#   sudo apt-get install -y r-base r-base-dev
+
+# Install Julia
+# Download binaries and add bin directory to search path
+# http://julialang.org/downloads/
+
+# Install RCall, PyPLot, Gadfly for Julia
+# julia
+#    Pkg.add("Gadfly")
+#    Pkg.add("PyPlot")
+#    Pkg.add("RCall")
+#    using Gadfly, PyPlot, RCall
+
+# Install jupyter through julia IJulia.jl and make serachable
+#Pkg.add("IJulia")
+#using IJulia
+#import Conda
+#x = Conda.SCRIPTDIR
+#;echo "" >> ~/.bashrc
+#;echo "# Making Jupyter path searchable" >> ~/.bashrc
+#;echo "export PATH=$x:\$PATH" >> ~/.bashrc
+#;echo "alias jn='jupyter-notebook'" >> ~/.bashrc
+
+# Installing jupyter-vim-bindings
+# https://github.com/lambdalisue/jupyter-vim-binding
+#
+#     mkdir -p $(jupyter --data-dir)/nbextensions
+#     cd $(jupyter --data-dir)/nbextensions
+#     git clone https://github.com/lambdalisue/jupyter-vim-binding vim_binding
+#     jupyter nbextension enable vim_binding/vim_binding
+
+# Install jupyter-themes
+# https://github.com/dunovank/jupyter-themes
+#
+# pip install --user git+https://github.com/dunovank/jupyter-themes.git
+# ln -s ~/.local/bin/jupyter-theme ~/bin
+#
+# TO see what themes are available:
+# jupyter-theme -l
+#
+# To install the theme: (e.g. oceans16)
+# jupyter-theme -t oceans16
+#
+# # Execute this to add customization to ~/.jupyter/custom/custom.css
+#cat  >> ~/.jupyter/custom/custom.css << EOF
+#/* Arthur Lui */
+#/*background for code*/
+#.CodeMirror-lines {background: #363D44;}
+#/*highlighter*/
+#.cm-s-ipython div.CodeMirror-selected {background: #184A7B !important;}
+#/*unrendered markdown*/
+#.text_cell.unrendered pre { background: rgba(0, 32, 34, 0.68); }
+#.text_cell.unrendered .CodeMirror-selected { background: rgb(51, 236, 249); }
+#.cm-s-default { color: white; }
+#.cm-s-default .cm-header { color: rgb(253, 231, 143); }
+#.cm-s-default .cm-variable-2 {color: #B0B9C1}
+#.cm-s-default .cm-link {color: #67CC00}
+#a:hover, a:focus {color: #A1D490}
+#EOF
+
+# Install ChoroplethMaps.jl 
+# https://github.com/penntaylor/ChoroplethMaps.jl
+# Follow the instructions there:
+#
+# Pkg.clone("https://github.com/FugroRoames/Proj4.jl.git")
+# Pkg.clone("https://github.com/penntaylor/DBaseReader.jl.git")
+# Pkg.clone("https://github.com/penntaylor/ChoroplethMaps.jl.git")
+# Pkg.add("ZipFile")
+# Pkg.update()
+# Pkg.build("Proj4")
+#
+# For some reason, can't use their choroplethmap function. But can call 
+# from Gadfly. Must be a missing dependency. Maybe Compose?
+#
+# using ChoroplethMaps, DataFrames, Gadfly
+# df = DataFrame(NAME=["Alabama", "Arkansas", "Louisiana", "Mississippi", "Tennessee"], PCT=[26.6673430422, 15.6204437142, 32.4899197277, 37.5052896066, 17.0874767458] )
+# 
+# plot(mapify(df, Provider.STATESUMMARY(), key=:NAME),
+#      x=:CM_X, y=:CM_Y, group=:NAME, color=:PCT,
+#      Geom.polygon(preserve_order=true, fill=true),
+#      Coord.cartesian(fixed=true))
+
+# Install Plots.jl, a good front end API for plotting
+# http://plots.readthedocs.io/en/latest/
+# use something else for backend (Gadfly)
+#
+# Pkg.add("Plots")
+# using Plots
+# gadfly()
+
+
+# I've decided. For Julia Plotting: Gadfly + PlotlyJS
+# Install PlotlyJS: 
+# https://github.com/spencerlyon2/PlotlyJS.jl
+# Pkg.add("PlotlyJS")
+# Pkg.add("Rsvg") # for saving plots as pdf, png, etc.
+# using Blink; Blink.AtomShell.install() # for opening graphics window
+#
+# # Additional things to add in the OLD WAY:
+# #Pkg.add("ImageMagick") # for saving graphs
+# #using PlotlyJS, ImageMagick
+#
+# Notes:
+# savefig(myplot, "output_filename.html") # to save as html
+# PlotlyJS.savefig3(myplot, "output_filename.pdf") # to save as pdf. Uses Rsvg.
+#
+# Example: 
+# using PlotlyJS, Rsvg
+# 
+# t1 = scatter(;x=[1, 2, 3, 4, 5], y=[1, 6, 3, 6, 1])
+#
+# # Prints to a device in a live Julia session
+# # Does not print if running Julia in BATCH mode 
+# # from terminal.
+# p = plot(t1)
+#
+# # Saves as a pdf:
+# PlotlyJS.savefig3(PlotlyJS.SyncPlot(p), "p.pdf")
+
+
+
+# To change R plot size in jupyter, go to 
+# ~/.julia/v0.4/RCall/src
+# and edit IJulia.jl
+# in function ijulia_init, replace with this:
+#
+#    #function ijulia_init()
+#    function ijulia_init(w=8,h=5)
+#        global const ijulia_file_dir = mktempdir()
+#        ijulia_file_fmt = joinpath(ijulia_file_dir,"rij_%03d")
+#        rcall(:options,rcalljl_filename=ijulia_file_fmt)
+#    
+#        #reval("options(device = function(filename=getOption('rcalljl_filename'),...) getOption('rcalljl_device')(filename,...))")
+#        reval("options(device = function(filename=getOption('rcalljl_filename'),...) getOption('rcalljl_device')(filename,width=$w,height=$h,...))")
+#    
+#        Main.IJulia.push_postexecute_hook(ijulia_displayplots)
+#        Main.IJulia.push_posterror_hook(ijulia_cleanup)
+#        #ijulia_setdevice(MIME"image/png"())
+#        ijulia_setdevice(MIME"image/svg+xml"())
+#    end
+#
+#Then, in RCall.jl, add ijulia_init, to the exports. Remember
+#the commas.
+
+# Install jupyter-scala and IRKernel
+# jupyter-scala
+#   https://github.com/alexarchambault/jupyter-scala
+#
+# 
+# IRKernel (Preferred Installation method. About 5 minutes)
+# http://irkernel.github.io/installation/#linux-panel
+# sudo apt-get install libzmq3-dev
+#R> install.packages(c('rzmq','repr','IRkernel','IRdisplay'),
+#                    repos = c('http://irkernel.github.io/', getOption('repos')),
+#                    type = 'source')
+#R> IRkernel::installspec()
+#
+# The following is an alternative way to install R and IRkernel through Conda, 
+# but can't choose version? (Not my preferred way)
+# conda install -c r r-essentials to install 
+
+# After Upgrading to Ubuntu 16.04 LTS
+# install openjdk-7-jdk (instead of 8) see the following
+# http://ubuntuhandbook.org/index.php/2015/01/install-openjdk-8-ubuntu-14-04-12-04-lts/
+# 
+#
+# my OpenBLAS needed to be reinstalled and recompiled. 
+# The warning in sbt (scala) was:
+# > WARN BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeSystemBLAS
+# > WARN BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeRefBLAS
+# > WARN LAPACK: Failed to load implementation from: com.github.fommil.netlib.NativeSystemLAPACK
+# > WARN LAPACK: Failed to load implementation from: com.github.fommil.netlib.NativeRefLAPACK
+#
+# sudo apt-get install libatlas3-base libopenblas-base
+# OR (I think it's better to do)
+# sudo apt-get install liblapack-dev libopenblas-base
+# OR (https://github.com/fommil/netlib-java) figure out how to link 
+#   $ mkdir tmpOB
+#   $ cd tmpOB
+#   $ git clone git://github.com/xianyi/OpenBLAS
+#   cd OpenBLAS
+#   make FC=gfortran
+#   sudo make install PREFIX=/path/to/OpenBLAS
+#   cd ..
+#   # rm -rf tmpOB
+#
+
+# Install Intellij from https://www.jetbrains.com/idea/
+# Vim and Scala plugins are available

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+### resets speed of keyboard mouse
+echo "Resetting keyboard mouse"
+
+xkbset ma 60 10 10 5 2
+#xkbset ma 60 5 5 5 2
+

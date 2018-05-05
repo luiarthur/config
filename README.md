@@ -1,11 +1,18 @@
 # config
 Configuration files for Unix-based systems
 
+## Dependencies
+
+- Git
+    - This repository assumes that git is already installed.
+- `~/repo/`
+    - This repository should reside in `~/repo/`.
+
 ## Directory Structure
 
-- ubuntu_18.04
-- linux_server
-- osx
-- inst (contains scripts for installations)
-- conf (contains configuration files e.g. bashrc, vimrc, tmux.conf, etc.)
-- scripts (typically files to place in ~/bin)
+- `os/`
+  - `ubuntu/` (for personal Ubuntu machines)
+  - `linux_server/` (for Linux servers)
+  - `osx/` (for Macs)
+- `conf/` (contains configuration files e.g. `bashrc`, `vimrc`, `tmux.conf`, etc.)
+- `bin/` (files to be placed in `~/bin/`)

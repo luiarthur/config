@@ -1,0 +1,9 @@
+[core]
+  excludesfile = ~/.gitignore_global
+[user]
+  email = luiarthur@gmail.com
+  name = Arthur Lui
+[push]
+	default = simple
+[diff]
+  tool = vimdiff

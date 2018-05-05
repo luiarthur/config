@@ -1,0 +1,78 @@
+\mode<presentation>
+
+
+% MY STYLES
+
+% References
+%http://tex.stackexchange.com/questions/105613/footer-in-beamer. Check this out. Frankfurt template.
+%http://tex.stackexchange.com/questions/39345/piecewise-highlighting-in-beamer-presentation
+%https://joerglenhard.wordpress.com/2011/08/01/beamer-customization-colors/
+
+%\geometry{vmargin=0.3in} % Formating the top bar
+\usepackage[UKenglish]{isodate} % for: \today 
+\cleanlookdateon                % for: \today
+
+%My Color Stuff
+\usepackage{caption}
+\usepackage{xcolor} % http://en.wikibooks.org/wiki/LaTeX/Colors
+                    % http://latexcolor.com/
+
+% Define Two Colors. Play around with this
+\definecolor{grey}{rgb}{0.15, 0.15, 0.15}
+\definecolor{pumpkin}{rgb}{1.0, 0.46, 0.09}
+% Call them Primary and Secondary
+\def\primaryColor{grey}
+\def\secondaryColor{pumpkin}
+
+% Item Colors
+\def\itemColor{\secondaryColor}
+\setbeamercolor{enumerate item}{fg=\itemColor}
+\setbeamercolor{enumerate subitem}{fg=\itemColor}
+\setbeamercolor{enumerate subsubitem}{fg=\itemColor}
+\setbeamercolor{itemize item}{fg=\itemColor}
+\setbeamercolor{itemize subitem}{fg=\itemColor}
+\setbeamercolor{itemize subsubitem}{fg=\itemColor}
+
+% Footline (at bottome of page)
+\setbeamercolor{footlinecolor}{bg=\primaryColor,fg=\secondaryColor}
+% Frametitle bar (at top of page)
+\setbeamercolor{frametitle}{fg=\secondaryColor, bg=\primaryColor}
+% Normal Text Color
+\setbeamercolor{normal text}{fg=\primaryColor}
+\setbeamercolor{titlepage}{fg=\secondaryColor, bg=\primaryColor}
+
+% titlepage
+\setbeamercolor{title}{fg=\secondaryColor}
+\setbeamercolor{author}{fg=\secondaryColor}
+\setbeamercolor{date}{fg=\secondaryColor}
+\setbeamercolor{institute}{fg=\secondaryColor}
+\def\hline{ \textcolor{\secondaryColor}{\hrulefill}\\ }
+
+% Captions
+\DeclareCaptionFont{figcol}{\color{\secondaryColor}}
+\captionsetup{ font=scriptsize,
+               labelfont={bf,figcol,scriptsize} }
+
+% See this for footline:
+%http://tex.stackexchange.com/questions/26476/add-footer-text-to-all-slides-in-beamer
+%http://tex.stackexchange.com/questions/105613/footer-in-beamer
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}{
+  \hbox{
+    \hspace{-.15cm}
+    \begin{beamercolorbox}[ht=2mm,dp=1mm,
+                           rightskip=.1cm,leftskip=.1cm]{footlinecolor} 
+      \insertshortauthor\hfill
+      \insertshorttitle\hfill
+      \insertframenumber/\inserttotalframenumber
+    \end{beamercolorbox}
+  } % end of hbox
+} % end of footline 
+
+%\let\oldTitlePage\titlepage
+%\renewcommand{\titlepage}{%
+%  \date{\today}
+%  \oldTitlePage
+%}
+
+\mode<all>

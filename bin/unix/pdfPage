@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# To install dependencies:
+# sudo apt-get install pdftk
+
+numargs=$#
+
+if [ $numargs -ne 2 ]
+then
+  echo "Usage:"
+  echo "        pdfPage  <original-pdf>  <page-num>"
+else
+  FILE=$1
+  PAGE=$2
+  FILE_NOEXT="${FILE%.*}"
+  pdftk $FILE cat $PAGE output ${FILE_NOEXT}_p${PAGE}.pdf
+fi

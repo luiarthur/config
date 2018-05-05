@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rm -rf ~/.sbt/0.13/staging

@@ -1,0 +1,78 @@
+#!/bin/bash
+
+# Installs stack (haskell build tool) which also inbstalls haskell WITHOUT ROOT PRIVILEGES
+
+# Original from: https://github.com/yantonov/install-ghc/blob/master/ubuntu/install-ghc-ubuntu.md
+# Modified by Arthur Lui on 20 October, 2017
+
+# settings
+PROFILE="$HOME/.bashrc"
+DOWNLOADS_DIR="$HOME/Downloads"
+STACK_ARCHITECTURE="x86_64"  
+STACK_PLATFORM="linux"  
+STACK_DIST_URL="https://www.stackage.org/stack/$STACK_PLATFORM-$STACK_ARCHITECTURE"
+STACK_INSTALL_DIR="$HOME/programs"
+CURL_CUTOFF_VERSION="7.21.2"
+CURL_VERSION=`curl -V | grep -oP "(?<=curl\s)\d+.\d+.\d+"`
+LIB="$HOME/lib"
+
+cd $DOWNLOADS_DIR
+
+if [ "$CURL_VERSION" \< "$CURL_CUTOFF_VERSION" ]
+then
+  echo "$CURL_VERSION < $CURL_CUTOFF_VERSION"
+  curl -OL $STACK_DIST_URL  
+else
+  echo "$CURL_VERSION >= $CURL_CUTOFF_VERSION"
+  curl -OJL $STACK_DIST_URL  
+fi
+
+STACK_DIST_FILENAME=`ls -1 | grep 'stack-.*\.tar\.gz'`
+STACK_VERSION=`echo $STACK_DIST_FILENAME | sed -E 's/stack-([.0-9]+)-.*/\1/'`
+STACK_TARGET_DIR="stack-$STACK_VERSION"
+echo "stack $STACK_VERSION will be installed"  
+
+tar xvf $STACK_DIST_FILENAME  
+STACK_DIST_UNZIPPED_DIR=`ls -d -1 stack-*/`
+
+# move to home development dir
+rm -rf $STACK_INSTALL_DIR/$STACK_TARGET_DIR  
+mkdir -p $STACK_INSTALL_DIR
+mv $STACK_DIST_UNZIPPED_DIR $STACK_INSTALL_DIR/$STACK_TARGET_DIR
+
+# sym link
+ln -s $STACK_INSTALL_DIR/$STACK_TARGET_DIR/stack ~/bin/stack  
+
+# clean up
+cd $DOWNLOADS_DIR
+rm -rf stack-$STACK_VERSION*
+
+echo "Completed installing stack."
+
+# Source bashrc
+source $PROFILE
+
+# Install libgmp3 if needed
+# see for newest version: https://gmplib.org/
+
+#GMP_VERSION="6.1.2"
+#curl -O https://gmplib.org/download/gmp/gmp-${GMP_VERSION}.tar.bz2
+#tar xfv `ls gmp*`
+#cd gmp*
+#mkdir -p $LIB
+#./configure --prefix=$LIB/libgmp
+#make 
+#make install
+#cd ..
+#rm -rf gmp*
+
+# Add THIS TO BASHRC
+#LIBGMP_HOME="$LIB/libgmp/lib"
+#export LD_LIBRARY_PATH=$LIBGMP_HOME:$LD_LIBRARY_PATH
+
+#
+echo "Now setting up stack."
+stack setup
+
+# run repl
+#stack ghci

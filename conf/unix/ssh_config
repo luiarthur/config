@@ -1,0 +1,16 @@
+#! This file belongs in ~/.ssh/config
+
+### Example for adding server name
+### Now you can ssh into server by 
+### $ ssh citrisdance 
+#
+#Host citrisdance
+#  HostName citrisdance.soe.ucsc.edu
+#  User alui2
+#  ForwardX11 yes
+
+
+### Example add my computer to authorized keys in servers
+
+#cat ~/.ssh/id_rsa.pub | ssh alui2@hyades.ucsc.edu 'cat >> ~/.ssh/authorized_keys2'
+#cat ~/.ssh/id_rsa.pub | ssh alui2@citrisdance.soe.ucsc.edu 'cat >> ~/.ssh/authorized_keys'
