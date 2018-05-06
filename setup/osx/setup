@@ -19,6 +19,7 @@ mkdir -p ~/.vim/colors
 mkdir -p ~/.R
 mkdir -p ~/Library/texmf/tex # for custom beamer theme
 mkdir -p ~/.vim/spell
+mkdir -p ~/.ssh
 touch ~/.pythonhistory
 
 # Copy configuration files
