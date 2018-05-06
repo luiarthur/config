@@ -1,0 +1,32 @@
+#!/bin/bash
+# Script to show my google calendar
+# See: http://wiki.bash-hackers.org/howto/getopts_tutorial
+
+MORNING=`date +"%m/%d/%yT00:00"`
+CURRENT_TIME=`date +"%m/%d/%yT%H:%M"`
+MIDNIGHT=`date +"%m/%d/%yT23:59"`
+#gcal | grep --color -C10 "$(date +"%l"):$(date +"%M" | awk '{if ($1 < 30) print "00"; else print "30";end;}')$(date +"%p" | sed 's/AM/am/' | sed 's/PM/pm/')"
+
+
+EXE="gcalcli agenda $CURRENT_TIME $MIDNIGHT"
+DONE="0"
+
+while getopts :d opt; do
+case $opt in
+d)
+gcalcli agenda $CURRENT_TIME $MIDNIGHT --detail_location --detail_length --detail_description
+DONE="1"
+;;
+\?)
+echo "Invalid option: -$OPTARG" >&2
+DONE="1"
+;;
+esac
+done
+
+if [ "$DONE" -eq "0" ]
+then
+gcalcli agenda $MORNING $MIDNIGHT
+fi
+
+exit 0
