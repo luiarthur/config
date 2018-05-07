@@ -24,7 +24,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight' " C++
 Plugin 'fatih/vim-go'            " Go-lang
 Plugin 'luiarthur/stan.vim'      " STAN modeling
 Plugin 'luiarthur/kotlin-vim'    " Kotlin
-Plugin 'tfnico/vim-gradel'       " Gradle
+Plugin 'tfnico/vim-gradle'       " Gradle
 Plugin 'luiarthur/bayes.vim'     " Bayes. My Thing.
 Plugin 'matze/vim-lilypond'      " Lilypond
 Plugin 'plasticboy/vim-markdown' " Markdown

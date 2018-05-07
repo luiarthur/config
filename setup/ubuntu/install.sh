@@ -1,26 +1,26 @@
 #!/bin/bash
 
 # For recompiling C / C++ (especially Rcpp)
-sudo apt get install ccache
+sudo apt install -y ccache
 
 # Install pip
 sudo apt update
-sudo apt install python-pip
+sudo apt install -y python-pip
 
 # Install Google Calendar Command-line Client
 pip install gcalcli
 
 # Pandoc
-sudo apt install pandoc
+sudo apt install -y pandoc
 
 # Latex
 ### Install Basic Latex ###
-sudo apt install texlive-latex-extra
+sudo apt install -y texlive-latex-extra
 ### Install special fonts (e.g. bbm.sty) ### 
-sudo apt install texlive-fonts-extra
+sudo apt install -y texlive-fonts-extra
 
 # R 
-sudo apt install r-base-core
+sudo apt install -y r-base-core
 
 # Java
 sudo apt install default-jre
