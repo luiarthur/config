@@ -60,4 +60,6 @@ ln -s ${BINDIR}/zyn ~/bin/zyn
 ln -s ${BINDIR}/audio-reset ~/bin/audio-reset
 
 
-
+# top
+# - To configure top to be human-readable, press `E` in top, then
+#   to save, hit `W`. 
