@@ -4,11 +4,14 @@
 sudo apt get install ccache
 
 # Install pip
-sudo apt get update
+sudo apt update
 sudo apt install python-pip
 
 # Install Google Calendar Command-line Client
 pip install gcalcli
+
+# Pandoc
+sudo apt install pandoc
 
 # Latex
 ### Install Basic Latex ###
