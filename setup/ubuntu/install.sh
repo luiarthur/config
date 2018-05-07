@@ -2,6 +2,10 @@
 
 sudo apt update
 
+# Install tlp for battery enhancement
+sudo apt install tlp tlp-rdw
+sudo tlp start
+
 # Gnome-tweaks (for system settings)
 sudo apt install -y gnome-tweaks
 
@@ -10,6 +14,7 @@ sudo apt install -y python-pip
 
 # Install Google Calendar Command-line Client
 pip install gcalcli
+# test with `gcalcli agenda`
 
 # Pandoc
 sudo apt install -y pandoc
