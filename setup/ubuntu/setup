@@ -15,8 +15,8 @@ mkdir -p ~/.ssh/
 
 
 # Basic Installations
-sudo apt-get install tmux
-sudo apt-get install vim-gnome
+sudo apt install tmux
+sudo apt install vim-gnome
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 
