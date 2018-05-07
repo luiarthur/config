@@ -27,7 +27,6 @@ Plugin 'luiarthur/kotlin-vim'    " Kotlin
 Plugin 'tfnico/vim-gradel'       " Gradle
 Plugin 'luiarthur/bayes.vim'     " Bayes. My Thing.
 Plugin 'matze/vim-lilypond'      " Lilypond
-Plugin 'matze/vim-lilypond'      " Bayes. My Thing.
 Plugin 'plasticboy/vim-markdown' " Markdown
 "Plugin 'vim-pandoc/vim-pandoc-syntax' " pandoc
 "Plugin 'vim-pandoc/vim-pandoc'        "pandoc
