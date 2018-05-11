@@ -13,6 +13,7 @@ mkdir -p ~/lib/R_lib/
 mkdir -p ~/.vim/colors/
 mkdir -p ~/.texmf-config/tex/ # for custom beamer theme
 mkdir -p ~/.R/
+mkdir -p ~/.ssh
 
 
 # Basic Installations

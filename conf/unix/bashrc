@@ -79,6 +79,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias rgrep='rgrep --color=auto'
 fi
 
 # some more ls aliases
@@ -185,3 +186,7 @@ export PATH=~/bin:$PATH
 # MUSICNB
 #export MUSICNB_HOME=$HOME/programs/music_nb/
 #export PATH=$MUSICNB_HOME/bin:$PATH
+
+# JAVA 
+### set heap space to 4GB ###
+#export _JAVA_OPTIONS=-Xmx4096m

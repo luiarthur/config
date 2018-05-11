@@ -20,8 +20,10 @@ brew install r # SLOW
 # At LLNL, behind firewall, need to add repo manually.
 # See https://stackoverflow.com/questions/18505176/unresolved-dependency-sbt-0-13-0-after-update
 # In file ~/.sbt/repositories, put this:
+#```bash
 #[repositories]
 #  local
 #  sbt-releases-repo: http://repo.typesafe.com/typesafe/ivy-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
 #  sbt-plugins-repo: http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
 #  maven-central: http://repo1.maven.org/maven2/
+#```

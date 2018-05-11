@@ -14,5 +14,5 @@ Configuration files for Unix-based systems
   - `ubuntu/` (for personal Ubuntu machines)
   - `linux_server/` (for Linux servers)
   - `osx/` (for Macs)
-- `conf/` (contains configuration files e.g. `bashrc`, `vimrc`, `tmux.conf`, etc.)
+- `conf/` (contains configuration files e.g. `bashrc`, `vimrc`, `tmux.conf`, `pythonrc`, etc.)
 - `bin/` (files to be placed in `~/bin/`)
