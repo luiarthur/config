@@ -1,8 +1,8 @@
-VER=
-CCACHE=ccache
-CC=$(CCACHE) gcc$(VER)
-CXX=$(CCACHE) g++$(VER)
-SHLIB_CXXLD=g++$(VER)
-FC=ccache gfortran$(VER)
-#FC=gfortran
-F77=$(CCACHE) gfortran$(VER)
+#VER=
+#CCACHE=ccache
+#CC=$(CCACHE) gcc$(VER)
+#CXX=$(CCACHE) g++$(VER)
+#SHLIB_CXXLD=g++$(VER)
+#FC=ccache gfortran$(VER)
+##FC=gfortran
+#F77=$(CCACHE) gfortran$(VER)
