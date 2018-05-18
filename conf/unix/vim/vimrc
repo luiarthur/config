@@ -131,5 +131,8 @@ nmap <C-S-p> "+p<CR>      " paste the contents of the buffer file
 "nmap <C-S-p> :r ~/.vbuf<CR>      " paste the contents of the buffer file
 
 " set colorscheme to redmagick
-colorscheme redmagick
+try
+  colorscheme redmagick
+catch
+endtry
 
