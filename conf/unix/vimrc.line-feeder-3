@@ -67,7 +67,6 @@ function! SourceFile()
   else
     %call LineFeederNextLine()
   endif
-
 endfunction
 
 

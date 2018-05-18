@@ -10,6 +10,8 @@
 
 " For colors, see: https://jonasjacek.github.io/colors/
 
+" Note: A black terminal background is most compatible.
+
 set background=dark
 hi clear
 
