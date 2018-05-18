@@ -11,14 +11,6 @@ let vimrcDir = fnamemodify($MYVIMRC, ':h') . "/"
 " Set my plugins directory
 let myPluginsDir = vimrcDir . "my-plugins/"
 
-" Add my Plugins
-try
-  for f in split(glob(myPluginsDir . "*"), '\n')
-    exec 'source' f
-  endfor
-catch
-endtry
-
 
 "######## Begin Vundle STUFF ################################
 " Vundle is used for installing vim plugins. I used this for go's syntax
@@ -46,6 +38,16 @@ call vundle#begin()
 call vundle#end()            " required
 filetype plugin indent on    " required
 "########End of Vundle STUFF###############################
+
+
+" Add my Plugins
+try
+  for f in split(glob(myPluginsDir . "*"), '\n')
+    exec 'source' f
+  endfor
+catch
+endtry
+
 
 " Basic stuff
 syntax enable               " Syntax highlighting
