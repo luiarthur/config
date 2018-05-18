@@ -2,6 +2,12 @@
 
 sudo apt update
 
+
+# Basic Installations
+sudo apt install tmux
+sudo apt install vim-gnome
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 # Install tlp for battery enhancement
 sudo apt install -y tlp tlp-rdw
 sudo tlp start

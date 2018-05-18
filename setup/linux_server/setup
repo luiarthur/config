@@ -16,9 +16,6 @@ mkdir -p ~/.R/
 mkdir -p ~/.ssh
 
 
-# Basic Installations
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
 
 # Copy these configuration files to the right place
 cp ${CONFDIR}/bashrc ~/.bashrc
@@ -31,8 +28,9 @@ cp ${CONFDIR}/Renviron ~/.Renviron
 cp ${CONFDIR}/Rprofile ~/.Rprofile
 cp ${CONFDIR}/ssh_config ~/.ssh/config
 cp ${CONFDIR}/tmux.conf ~/.tmux.conf
-cp ${CONFDIR}/vimrc ~/.vimrc
-cp ${CONFDIR}/vimrc.line-feeder-3 ~/.vimrc.line-feeder-3
+#cp ${CONFDIR}/vimrc ~/.vimrc
+#cp ${CONFDIR}/vimrc.line-feeder-3 ~/.vimrc.line-feeder-3
+cp -r ${CONFDIR}/vim/* ~/.vim/
 cp ${CONFDIR}/bashColors ~/.bashColors
 
 
@@ -47,5 +45,9 @@ ln -s ${BINDIR}/combineJars ~/bin/combineJars
 ln -s ${BINDIR}/pdfPage ~/bin/pdfPage
 ln -s ${BINDIR}/newH ~/bin/newH
 ln -s ${BINDIR}/zipit ~/bin/zipit
+
+
+# Basic Installations
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 
