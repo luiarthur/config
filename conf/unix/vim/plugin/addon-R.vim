@@ -4,5 +4,4 @@ function! MyRAddon() abort
   "syn match rOKeyword contained "@\(description\)"
 endfunction
 au BufRead *.R call MyRAddon()
-
-
+au BufRead *.Rmd set syntax=markdown
