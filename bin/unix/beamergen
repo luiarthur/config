@@ -135,8 +135,7 @@ Citation Teh [-@teh2007stick].
     fi
   fi
 
-  echo "---
-#!/bin/bash
+  echo "#!/bin/bash
 
 # -s        =>  create standalone file (in this case report.tex latex file)
 # --toc     =>  create table of contents
