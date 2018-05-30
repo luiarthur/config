@@ -18,14 +18,20 @@
                     % http://latexcolor.com/
 
 % Define Two Colors. Play around with this
-\definecolor{grey}{rgb}{0.15, 0.15, 0.15}
+\definecolor{darkGrey}{rgb}{0.15, 0.15, 0.15}
+\definecolor{grey}{rgb}{0.45, 0.45, 0.45}
 \definecolor{pumpkin}{rgb}{1.0, 0.46, 0.09}
+\definecolor{tan}{rgb}{0.93, 0.80, 0.68}
+\definecolor{liteGrey}{rgb}{0.90, 0.90, 0.90}
 % Call them Primary and Secondary
-\def\primaryColor{grey}
-\def\secondaryColor{pumpkin}
+\def\darkColorOne{darkGrey}
+%\def\darkColorTwo{pumpkin}
+\def\darkColorTwo{grey}
+%\def\liteColorOne{tan}
+\def\liteColorOne{liteGrey}
 
 % Item Colors
-\def\itemColor{\secondaryColor}
+\def\itemColor{\darkColorTwo}
 \setbeamercolor{enumerate item}{fg=\itemColor}
 \setbeamercolor{enumerate subitem}{fg=\itemColor}
 \setbeamercolor{enumerate subsubitem}{fg=\itemColor}
@@ -34,22 +40,22 @@
 \setbeamercolor{itemize subsubitem}{fg=\itemColor}
 
 % Footline (at bottome of page)
-\setbeamercolor{footlinecolor}{bg=\primaryColor,fg=\secondaryColor}
+\setbeamercolor{footlinecolor}{fg=\liteColorOne, bg=\darkColorOne}
 % Frametitle bar (at top of page)
-\setbeamercolor{frametitle}{fg=\secondaryColor, bg=\primaryColor}
+\setbeamercolor{frametitle}{fg=\liteColorOne, bg=\darkColorOne}
 % Normal Text Color
-\setbeamercolor{normal text}{fg=\primaryColor}
-\setbeamercolor{titlepage}{fg=\secondaryColor, bg=\primaryColor}
+\setbeamercolor{normal text}{fg=\darkColorOne}
+\setbeamercolor{titlepage}{fg=\liteColorOne, bg=\darkColorOne}
 
 % titlepage
-\setbeamercolor{title}{fg=\secondaryColor}
-\setbeamercolor{author}{fg=\secondaryColor}
-\setbeamercolor{date}{fg=\secondaryColor}
-\setbeamercolor{institute}{fg=\secondaryColor}
-\def\hline{ \textcolor{\secondaryColor}{\hrulefill}\\ }
+\setbeamercolor{title}{fg=\darkColorOne}
+\setbeamercolor{author}{fg=\darkColorOne}
+\setbeamercolor{date}{fg=\darkColorOne}
+\setbeamercolor{institute}{fg=\darkColorOne}
+\def\hline{ \textcolor{\darkColorTwo}{\hrulefill}\\ }
 
 % Captions
-\DeclareCaptionFont{figcol}{\color{\secondaryColor}}
+\DeclareCaptionFont{figcol}{\color{\darkColorTwo}}
 \captionsetup{ font=scriptsize,
                labelfont={bf,figcol,scriptsize} }
 
@@ -60,7 +66,7 @@
 \setbeamertemplate{footline}{
   \hbox{
     \hspace{-.15cm}
-    \begin{beamercolorbox}[ht=2mm,dp=1mm,
+    \begin{beamercolorbox}[ht=2.5mm,dp=1mm,
                            rightskip=.1cm,leftskip=.1cm]{footlinecolor} 
       \insertshortauthor\hfill
       \insertshorttitle\hfill
