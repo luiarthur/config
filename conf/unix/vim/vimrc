@@ -83,6 +83,10 @@ inoremap <tab> <c-r>=InsertTabWrapper ("forward")<cr>
 inoremap <s-tab> <c-r>=InsertTabWrapper ("backward")<cr>
 
 
+" Keybinding for word wrap for consequtive lines
+nnoremap <C-n> gqap
+
+
 " Switch to hex-editor. I'll probably never use this. But just in case...
 noremap <F8> :%!xxd<CR>
 " Switch back

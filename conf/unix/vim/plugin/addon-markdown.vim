@@ -2,6 +2,7 @@
 function! MyMkdAddOn() abort 
   if get(g:, 'vim_markdown_math', 0)
     syn region mkdMath start="\\begin{align\*}" end="\\end{align\*}" contains=@tex keepend
+    syn region mkdMath start="\\begin{minipage}" end="\\end{minipage}" contains=@tex keepend
   endif
   let g:tex_comment_nospell= 1
   syn match mkdRef '@\w\+'
