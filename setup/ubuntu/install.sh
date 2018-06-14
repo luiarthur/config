@@ -26,6 +26,9 @@ pip install gcalcli
 sudo apt install -y pandoc
 
 # Latex
+### Where style files are searched for:  kpsewhich -show-path=tex -progname=latex
+### See: http://tug.org/pipermail/tex-live/2009-November/023717.html
+###      https://tex.stackexchange.com/questions/71469/texmfhome-setting
 ### Install Basic Latex ###
 sudo apt install -y texlive-latex-extra
 ### Install special fonts (e.g. bbm.sty) ### 

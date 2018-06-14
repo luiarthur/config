@@ -144,7 +144,10 @@ PS1="\h:\W$ "
 export EDITOR=vim
 export PATH=~/bin:$PATH
 
-### R
+# TEXMF
+#export TEXMFHOME=$HOME/.texmf
+
+# R
 #export R_HISTFILE=~/.Rhistory
 
 # Julia
@@ -190,3 +193,5 @@ export PATH=~/bin:$PATH
 # JAVA 
 ### set heap space to 4GB ###
 #export _JAVA_OPTIONS=-Xmx4096m
+
+
