@@ -31,7 +31,7 @@ cp ${CONFDIR}/tmux.conf ~/.tmux.conf
 cp -r ${CONFDIR}/vim/* ~/.vim/
 cp ${CONFDIR}/bashColors ~/.bashColors
 ln -s ${CONFDIR}/beamerthemealui.sty ~/.texmf-config/tex/beamerthemealui.sty
-ln -s ${BINDIR}/asaproc.cls ~/.texmf-config/tex/asaproc.cls
+ln -s ${CONFDIR}/asaproc.cls ~/.texmf-config/tex/asaproc.cls
 
 
 # Copy these scripts to `~/bin`
