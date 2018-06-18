@@ -33,7 +33,7 @@ cp ${CONFDIR}/gitignore_global ~/.gitignore_global
 cp ${CONFDIR}/pythonrc ~/.pythonrc
 cp ${CONFDIR}/Rprofile ~/.Rprofile
 cp ${CONFDIR}/Renviron ~/.Renviron
-cp ${CONFDIR}/resources ~/bin/resources
+cp ${BINDIR}/resources ~/bin/resources
 cp ${CONFDIR}/ssh_config ~/.ssh/config
 ln -s ${CONFDIR}/bashColors ~/.bashColors
 ln -s ${CONFDIR}/asaproc.cls ~/Library/texmf/tex/asaproc.cls
