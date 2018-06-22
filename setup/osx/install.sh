@@ -16,6 +16,8 @@ brew install r # SLOW
 #brew install caskroom/cask/brew-cask
 #brew cask install MacTex
 #brew cask install texmaker
+### add Tex bin path to PATH
+#export PATH=/Library/Tex/texbin/:$PATH
 
 # At LLNL, behind firewall, need to add repo manually.
 # See https://stackoverflow.com/questions/18505176/unresolved-dependency-sbt-0-13-0-after-update
