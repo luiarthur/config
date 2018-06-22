@@ -8,4 +8,6 @@
 
 # Notes
 - `iterm2` has better colors and fonts
-- Can't change tmux panel size in default mac terminal, only in iTerm2.
+    - Can't change tmux panel size in default mac terminal, only in iTerm2.
+- `Spectacle` is free OSX software that let's you move and resize windows with ease.
+
