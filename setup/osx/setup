@@ -51,6 +51,7 @@ ln -s ${BINDIR}/combineJars ~/bin/combineJars
 ln -s ${BINDIR}/mdgen ~/bin/mdgen
 ln -s ${BINDIR}/beamergen ~/bin/beamergen
 ln -s ${BINDIR}/asamdgen ~/bin/asamdgen
+ln -s ${BINDIR}/ignoreall ~/bin/ignoreall
 
 
 # Install Basic Programs
