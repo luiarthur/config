@@ -21,7 +21,7 @@ endfunction
 function! LineFeederSetUp()
   let ext = expand("%:e")
   if ext == "R"
-    let cmd = "nice R"
+    let cmd = "R"
   elseif ext == "rb"
     let cmd = "irb"
   elseif ext == "jl"
