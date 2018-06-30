@@ -29,7 +29,7 @@ function! LineFeederSetUp()
   elseif ext == "scala"
     let cmd = "scala -Dscala.color -J-Xmx2g"
   elseif ext == "py"
-    let cmd = "python"
+    let cmd = "python3"
   else
     let cmd = "bash"
   endif
@@ -53,7 +53,10 @@ function! SourceFile()
   elseif ext == "scala"
     let cmd = ":load " . fn
   elseif ext == "py"
-    let cmd = "execfile('" . fn . "')"
+    " python2
+    "let cmd = "execfile('" . fn . "')"
+    " python3
+    let cmd = "exec(open('" . fn . "').read())"
   elseif ext == "sh"
     let cmd = "source " . fn
   elseif ext == "kt"
