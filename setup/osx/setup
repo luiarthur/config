@@ -41,7 +41,7 @@ ln -s ${CONFDIR}/beamerthemealui.sty ~/Library/texmf/tex/beamerthemealui.sty
 ln -s ${CONFDIR}/redmagick.vim ~/.vim/colors/redmagick.vim
 
 # Copy scripts
-ln -s ${BINDIR}/vulture ~/bin/vulture
+ln -s ${BINDIR}/vulture.py ~/bin/vulture
 ln -s ${BINDIR}/dirsize ~/bin/dirsize
 ln -s ${BINDIR}/gush ~/bin/gush
 ln -s ${BINDIR}/md ~/bin/md
