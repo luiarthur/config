@@ -193,5 +193,5 @@ export PATH=~/bin:$PATH
 # JAVA 
 ### set heap space to 4GB ###
 #export _JAVA_OPTIONS=-Xmx4096m
-
+#export CLASSPATH=$HOME/lib/scala_lib/*
 
