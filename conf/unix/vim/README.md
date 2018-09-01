@@ -17,6 +17,11 @@ pip install --user flake8
 
 ## To activate the linter
 Writing to the file in vim will activate the linter.
+In my vimrc, I added a few lines to disable syntax checking
+by default for scala, for speed in sbt checks. To re-enable in vim,
+do `ctrl-w E`.
 
 ## More
 For more, visit https://github.com/vim-syntastic/syntastic
+
+

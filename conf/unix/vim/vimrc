@@ -114,3 +114,10 @@ nmap <C-S-p> "+p<CR>      " paste the contents of the buffer file
 " For servers, replace the above few lines with these below:
 "vmap <C-S-y> :w! ~/.vbuf<CR>     " copy the current visual selection to ~/.vbuf
 "nmap <C-S-p> :r ~/.vbuf<CR>      " paste the contents of the buffer file
+
+" Turn off syntastic for these languages: Scala
+" Turn on syntax highlighting for scala with Ctrl-w E
+let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['scala']}
+nnoremap <C-w>E :SyntasticCheck<CR> 
+":SyntasticToggleMode<CR>
+let g:syntastic_aggregate_errors = 1
