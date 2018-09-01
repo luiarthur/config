@@ -6,7 +6,7 @@ programming language.
 - R: lintr
 - python: flake8
 - julia: Lint
-- scala: scala compiler (present when you install scala)
+- scala: scalastyle
 - C++: c++ compiler (no additional packages required)
 
 ## Installing the dependencies
