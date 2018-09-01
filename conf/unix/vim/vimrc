@@ -24,6 +24,7 @@ call vundle#begin()  " signal start of vundle script
   Plugin 'fatih/vim-go'                     " Go-lang
   Plugin 'luiarthur/kotlin-vim'             " Kotlin
   Plugin 'tfnico/vim-gradle'                " Gradle
+  Plugin 'vim-syntastic/syntastic'          " For vim linters
   "Plugin 'luiarthur/stan.vim'               " STAN modeling
   "Plugin 'rust-lang/rust.vim'               " Rust
   "Plugin 'luiarthur/bayes.vim'              " bayes. My thing.
