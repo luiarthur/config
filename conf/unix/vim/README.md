@@ -24,4 +24,7 @@ do `ctrl-w E`.
 ## More
 For more, visit https://github.com/vim-syntastic/syntastic
 
-
+## Scalastyle
+- Install from scalastyle.org.
+- Configure settings in plugin/addon-scala.vim
+- Add scalastyle-config.xml to an appropriate place.
