@@ -1,3 +1,4 @@
 #!/bin/bash
 
 rm -rf ~/.sbt/0.13/staging
+rm -rf ~/.sbt/1.0/staging
