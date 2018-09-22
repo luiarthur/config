@@ -65,9 +65,7 @@ header-includes:
 #}}}1
 ---
 
-[comment]: <> (%
-  These are comments
-%)
+<!-- These are comments -->
 
 
 [//]: # ( example image embedding
