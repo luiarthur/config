@@ -21,3 +21,19 @@ You should see `live-install` as one of the options.
 **Type** `live-install` and hit the `return` key.
 Your Ubuntu installation should then start.
 
+## JVM Certificate Issues
+Works for other jdk version but I'm using jdk8 throughout. 
+
+Stuff like this may happen when you install `openjdk-8-jdk` on ubuntu.
+```bash
+java.lang.RuntimeException: Unexpected error: java.security.InvalidAlgorithmParameterException: the trustAnchors parameter must be non-empty
+```
+That's due to the bad `cacerts` file in `openjdk`. There is a good one in Oracle. So,
+one could go to Oracle and download the `tar.gz` version of `jdk-8`. Then copy the cacerts file from that into `/etc/ssl/certs/java/cacerts`
+
+Or, 
+```bash
+sudo apt purge openjdk-8-jdk java-common
+sudo apt install openjdk-8-jdk
+```
+
