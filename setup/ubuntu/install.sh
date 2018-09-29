@@ -38,11 +38,12 @@ sudo apt install -y texlive-fonts-extra
 sudo apt install -y r-base-core
 
 # Java
-sudo apt install -y default-jre
-sudo apt install -y default-jdk
+#sudo apt install -y default-jre
+#sudo apt install -y default-jdk
+sudo apt install -y openjdk-8-jdk
 
 # Scala
-sudo apt install -y scala
+#sudo apt install -y scala
 
 # SBT
 echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
