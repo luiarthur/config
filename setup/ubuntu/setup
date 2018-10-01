@@ -52,6 +52,7 @@ ln -s ${BINDIR}/pdfPage ~/bin/pdfPage
 ln -s ${BINDIR}/newH ~/bin/newH
 ln -s ${BINDIR}/zipit ~/bin/zipit
 ln -s ${BINDIR}/ignoreall ~/bin/ignoreall
+ln -s ${BINDIR}/genGitignore ~/bin/genGitignore
 ### For midi keyboard / synthesizer / midiculous, etc ###
 ln -s ${BINDIR}/zyn ~/bin/zyn
 ln -s ${BINDIR}/audio-reset ~/bin/audio-reset
