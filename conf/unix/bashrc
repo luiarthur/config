@@ -174,8 +174,10 @@ export PATH=~/bin:$PATH
 #export OPENBLAS_NUM_THREADS=nproc
 
 # Go
-#export GOROOT=~/go # Creating a variable for the go path
-#export PATH=$GOROOT/bin:$PATH # For using go
+#export GOROOT=~/programs/go   # Creating a variable for the go path
+#export PATH=$GOROOT/bin:$PATH # Add go to path
+#export GOPATH=~/.go           # location to install go lib / bin
+#export PATH=$GOPATH/bin:$PATH # Add to path
 
 # gcalcli:
 #alias gcalqa="gcalcli quick --calendar='Personal' --duration 0"
