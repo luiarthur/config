@@ -121,3 +121,7 @@ let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': [], 'passive_f
 nnoremap <C-w>E :SyntasticCheck<CR> 
 " ":SyntasticToggleMode<CR>
 let g:syntastic_aggregate_errors = 1
+
+" Reset syntax highlight
+noremap <F12> <Esc>:syntax sync fromstart<CR>
+inoremap <F12> <C-o>:syntax sync fromstart<CR>
