@@ -10,6 +10,7 @@ mkdir -p ~/bin/
 mkdir -p ~/lib/R_lib/
 mkdir -p ~/.vim/colors/
 mkdir -p ~/.texmf/tex/ # for custom beamer theme
+mkdir -p ~/lib/tex_templates/tex/ # for default latex files
 mkdir -p ~/.R/
 mkdir -p ~/.ssh/
 
@@ -32,6 +33,8 @@ cp -r ${CONFDIR}/vim/* ~/.vim/
 cp ${CONFDIR}/bashColors ~/.bashColors
 ln -s ${CONFDIR}/beamerthemealui.sty ~/.texmf/tex/beamerthemealui.sty
 ln -s ${CONFDIR}/asaproc.cls ~/.texmf/tex/asaproc.cls
+ln -s ${CONFDIR}/template.tex ~/lib/tex_templates/tex/template.tex
+ln -s ${CONFDIR}/template_asa.tex ~/lib/tex_templates/tex/template_asa.tex
 
 
 # Copy these scripts to `~/bin`
@@ -54,6 +57,7 @@ ln -s ${BINDIR}/zipit ~/bin/zipit
 ln -s ${BINDIR}/ignoreall ~/bin/ignoreall
 ln -s ${BINDIR}/genGitignore ~/bin/genGitignore
 ln -s ${BINDIR}/internetSpeedTest ~/bin/internetSpeedTest
+ln -s ${BINDIR}/texgen ~/bin/texgen
 ### For midi keyboard / synthesizer / midiculous, etc ###
 ln -s ${BINDIR}/zyn ~/bin/zyn
 ln -s ${BINDIR}/audio-reset ~/bin/audio-reset
