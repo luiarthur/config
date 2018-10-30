@@ -4,6 +4,7 @@ sudo apt update
 
 
 # Basic Installations
+sudo apt install xclip
 sudo apt install -y tmux
 sudo apt install -y vim-gnome
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
