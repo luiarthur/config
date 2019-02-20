@@ -113,6 +113,7 @@ fi
 shopt -s extglob   # Enable extended globbing
 set -o noclobber   # Dont clobber existing files on redirection
 set -o vi
+bind -m vi-insert "\C-l":clear-screen # enable ctrl-l for clear screen in vi-insert mode
 
 # COMMENT IF NOT USING redmagick
 export TERM=xterm-256color
