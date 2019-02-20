@@ -19,6 +19,7 @@ mkdir -p ~/.ssh
 
 # Copy these configuration files to the right place
 cp ${CONFDIR}/bashrc ~/.bashrc
+cp ${CONFDIR}/git-prompt.sh ~/.git-prompt.sh
 cp ${CONFDIR}/gitconfig ~/.gitconfig
 cp ${CONFDIR}/gitignore_global ~/.gitignore_global
 cp ${CONFDIR}/pythonrc ~/.pythonrc

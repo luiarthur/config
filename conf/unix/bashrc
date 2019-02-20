@@ -139,7 +139,10 @@ alias chrome="google-chrome"
 alias amazon="ssh -i ~/bin/sonata.pem ubuntu@52.11.22.119"
 
 # Set-up prompt
-PS1="\h:\W$ "
+source ~/.git-prompt.sh
+PS1='\u@ucsc:\W$(__git_ps1 " (%s)")\$ ' # requires ~/.git-prompt.sh
+# PS1="\h:\W$ "
+
 # Basic
 export EDITOR=vim
 export PATH=~/bin:$PATH
