@@ -144,10 +144,9 @@ then
   source ~/.git-prompt.sh
   export GIT_PS1_SHOWCOLORHINTS=true
   export GIT_PS1_SHOWDIRTYSTATE=true
-  export PROMPT_COMMAND='__git_ps1 "\u@ucsc:\W" "\\\$ "' # requires ~/.git-prompt.sh
+  export PROMPT_COMMAND='__git_ps1 "\h:\W" "\\\$ "' # requires ~/.git-prompt.sh
 else
-  # PS1="\h:\W$ "
-  PS1="\u@ucsc:\W$ "
+  PS1="\h:\W$ "
 fi
 
 # Basic
