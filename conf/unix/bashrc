@@ -128,16 +128,23 @@ alias cp="/bin/cp -i"
 alias rm="/bin/rm -i"
 
 # Alias
-alias pdo="/usr/bin/pdflatex -output-directory=out"
-alias llp="cd ~/Lilypond"
 alias dir="ls -hla "
 alias taro="tar -zxf"
 alias tma="tmux attach -t"
 alias s="aspell --lang=en_GB -t -c"
 alias chrome="google-chrome"
 
-# Personal
-alias amazon="ssh -i ~/bin/sonata.pem ubuntu@52.11.22.119"
+# Print pretty git log. see: https://git-scm.com/docs/pretty-formats or `man git-log`
+# %h:  abbreviated commit hash
+# %ad: author date
+# %s:  subject line
+alias gitlog='git log --pretty="%ad %C(yellow)%h%Creset %C(cyan bold)%d%Creset %s" --date=short -20'
+
+# example pdflatex
+# alias pdo="/usr/bin/pdflatex -output-directory=out"
+
+# example aws ssh
+# alias amazon="ssh -i ~/bin/sonata.pem ubuntu@52.11.22.119"
 
 # Set-up prompt
 if [ -f ~/.git-prompt.sh ]
