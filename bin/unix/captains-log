@@ -1,0 +1,8 @@
+#!/bin/bash
+
+dmy=`date +"%d-%m-%Y"`
+fname="${dmy}.md"
+# echo $fname
+
+
+echo "# `date +"%-d %B, %Y"`" > $fname
