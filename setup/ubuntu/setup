@@ -62,6 +62,7 @@ ln -s ${BINDIR}/texgen ~/bin/texgen
 ### For midi keyboard / synthesizer / midiculous, etc ###
 ln -s ${BINDIR}/zyn ~/bin/zyn
 ln -s ${BINDIR}/audio-reset ~/bin/audio-reset
+ln -s ${BINDIR}/captainslog ~/bin/captainslog
 
 
 # top
