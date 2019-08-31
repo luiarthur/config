@@ -147,18 +147,8 @@ alias gitlog='git log --pretty="%ad %C(yellow)%h%Creset %C(cyan bold)%d%Creset %
 # alias amazon="ssh -i ~/bin/sonata.pem ubuntu@52.11.22.119"
 
 # Set-up prompt
-if [ -f ~/.git-prompt.sh ]
-then
-  source ~/.git-prompt.sh
-  export GIT_PS1_SHOWCOLORHINTS=true
-  export GIT_PS1_SHOWDIRTYSTATE=true
-  export GIT_PS1_SHOWUNTRACKEDFILES=true
-  export GIT_PS1_SHOWSTASHSTATE="auto"
-  export GIT_PS1_SHOWUPSTREAM="auto"
-  export PROMPT_COMMAND='__git_ps1 "[\h:\W" "] "' # requires ~/.git-prompt.sh
-else
-  PS1="\h:\W$ "
-fi
+PS1="\h:\W$ "
+source ~/.git-prompt.sh 2> /dev/null
 
 # Basic
 export EDITOR=vim
