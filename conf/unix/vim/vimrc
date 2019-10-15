@@ -25,6 +25,7 @@ call vundle#begin()  " signal start of vundle script
   Plugin 'luiarthur/kotlin-vim'             " Kotlin
   Plugin 'tfnico/vim-gradle'                " Gradle
   Plugin 'vim-syntastic/syntastic'          " For vim linters
+  Plugin 'Vimjas/vim-python-pep8-indent'    " Nicer python indentations
   "Plugin 'luiarthur/stan.vim'               " STAN modeling
   "Plugin 'rust-lang/rust.vim'               " Rust
   "Plugin 'luiarthur/bayes.vim'              " bayes. My thing.

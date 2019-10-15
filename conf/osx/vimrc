@@ -17,17 +17,18 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 " After adding a Plugin, go to vim and run
 "   :PluginInstall
-Plugin 'gmarik/Vundle.vim'       " Vim
-Plugin 'derekwyatt/vim-scala'    " Scala
-Plugin 'tmux-plugins/vim-tmux'   " tmux
-Plugin 'JuliaEditorSupport/julia-vim' "julia
-Plugin 'godlygeek/tabular'       " Auto Indent
-Plugin 'octol/vim-cpp-enhanced-highlight' " C++
-Plugin 'fatih/vim-go'            " Go-lang
-Plugin 'luiarthur/stan.vim'      " STAN modeling
-Plugin 'luiarthur/kotlin-vim'       " Kotlin
-"Plugin 'vim-pandoc/vim-pandoc-syntax' " pandoc
-"Plugin 'vim-pandoc/vim-pandoc'        "pandoc
+Plugin 'gmarik/Vundle.vim'                 " Vim
+Plugin 'derekwyatt/vim-scala'              " Scala
+Plugin 'tmux-plugins/vim-tmux'             " tmux
+Plugin 'JuliaEditorSupport/julia-vim'      "julia
+Plugin 'godlygeek/tabular'                 " Auto Indent
+Plugin 'octol/vim-cpp-enhanced-highlight'  " C++
+Plugin 'fatih/vim-go'                      " Go-lang
+Plugin 'luiarthur/stan.vim'                " STAN modeling
+Plugin 'luiarthur/kotlin-vim'              " Kotlin
+Plugin 'Vimjas/vim-python-pep8-indent'     " Nicer python indentations
+"Plugin 'vim-pandoc/vim-pandoc-syntax'      " pandoc
+"Plugin 'vim-pandoc/vim-pandoc'             " pandoc
 
 " For Markdown
 "set nofoldenable    " disable folding
