@@ -4,5 +4,10 @@ dmy=`date +"%d-%m-%Y"`
 fname="${dmy}.md"
 # echo $fname
 
-
-echo "# `date +"%-d %B, %Y"`" > $fname
+if [ -f "$fname" ]
+then
+  echo "$fname aldready exists. Not overwriting."
+else
+  echo "# `date +"%-d %B, %Y"`" > $fname
+  echo "Created $fname"
+fi
