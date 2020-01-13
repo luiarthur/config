@@ -53,6 +53,8 @@ endfunction
 
 " Color key
 let DeepPink4     = 125
+let HotPink1      = 168
+let HotPink3      = 132
 let LightGrey     = 249
 let Grey          = 245
 let DarkGrey      = 241 "238
@@ -70,7 +72,7 @@ let bold          = "bold"
 
 
 call ExecHi("ColorColumn",NONE,DarkGrey)
-call ExecHi("Comment",DeepPink4,NONE)
+call ExecHi("Comment",HotPink1,NONE)
 call ExecHi("Conditional",DarkGrey,NONE)
 call ExecHi("Constant",Red1,NONE)
 call ExecHi("Cursor",DarkGrey,NONE)
@@ -95,7 +97,7 @@ call ExecHi("Operator",DarkGrey,NONE)
 call ExecHi("PreProc",DarkOrange3,NONE,NONE,bold)
 call ExecHi("Repeat",DarkGrey,NONE)
 call ExecHi("Search",DarkRed,LightGrey,NONE,bold)
-call ExecHi("Special",DarkRed,NONE,NONE,bold)
+call ExecHi("Special",HotPink3,NONE,NONE,bold)
 call ExecHi("SpecialKey",DarkGrey,NONE)
 call ExecHi("Statement",DarkGrey,NONE,NONE,bold)
 call ExecHi("StatusLine",DarkGrey,NONE)
@@ -107,12 +109,12 @@ call ExecHi("Type",White,NONE,NONE,bold)
 call ExecHi("VertSplit",DarkGrey,NONE)
 call ExecHi("Visual",DarkGrey,LightGrey)
 call ExecHi("WarningMsg",DarkGrey,NONE)
-call ExecHi("LineNr",DarkRed,NONE)
+call ExecHi("LineNr",DarkRed,NONE,NONE,bold)
 call ExecHi("CursorLineNr",Black,DarkDarkGrey)
 
 call ExecHi("Pmenu",LightGrey,DarkDarkGrey)
-call ExecHi("PmenuSel",  DarkGrey,Green)
-call ExecHi("PmenuSbar", DarkGrey,Green)
+call ExecHi("PmenuSel",DarkGrey,Green)
+call ExecHi("PmenuSbar",DarkGrey,Green)
 call ExecHi("PmenuThumb",DarkGrey,Green)
 
 "call ExecHi("SpellBad",DarkRed,Green,NONE,bold)
