@@ -11,18 +11,21 @@ if len(sys.argv) < 3:
 
 fullpath = sys.argv[1]
 cmd = ' '.join(str(s) for s in sys.argv[2:])
-path = "." if os.path.dirname(fullpath) == "" else os.path.dirname(fullpath) + "/"
+path = ("." if os.path.dirname(fullpath) == ""
+        else os.path.dirname(fullpath) + "/")
 fname = os.path.basename(fullpath)
 ext = os.path.splitext(fname)[1]
 
 os.system (cmd)
-print("######################### Changes made at: "+ path + "/" + fname +" #########################")
+print("##### Changes made at: {}/{} #####".format(path, fname))
 
 class MyHandler(PatternMatchingEventHandler):
     patterns = ["*" + ext]
+    print(ext)
+    print(patterns)
     def on_created(self, event):
-        os.system (cmd)
-        print("######################### Changes made at: "+event.src_path +" #########################")
+        os.system(cmd)
+        print("##### Changes made at: {} #####".format(event.src_path))
 
 observer = Observer()
 observer.schedule(MyHandler(), path, recursive=False)
@@ -32,4 +35,5 @@ try:
         time.sleep(1)
 except KeyboardInterrupt:
     observer.stop()
+
 observer.join()
