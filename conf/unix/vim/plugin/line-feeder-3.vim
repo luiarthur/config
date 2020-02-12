@@ -49,6 +49,9 @@ function! SourceFile()
   if ext == "R"
     let cmd = "source('" . fn . "')"
   elseif ext == "jl"
+    " NOTE: `includet` depends on Revise.jl. Uncomment this and comment the
+    " next line to use this feature.
+    " let cmd = "includet(\"" . fn . "\")"
     let cmd = "include(\"" . fn . "\")"
   elseif ext == "scala"
     let cmd = ":load " . fn
