@@ -26,7 +26,7 @@ call vundle#begin()  " signal start of vundle script
   Plugin 'tfnico/vim-gradle'                " Gradle
   Plugin 'vim-syntastic/syntastic'          " For vim linters
   Plugin 'Vimjas/vim-python-pep8-indent'    " Nicer python indentations
-  Plugin 'vim-latex/vim-latex'              " LaTeX
+  " Plugin 'vim-latex/vim-latex'              " LaTeX -- causes issues with line feeder.
   "Plugin 'luiarthur/stan.vim'               " STAN modeling
   "Plugin 'rust-lang/rust.vim'               " Rust
   "Plugin 'luiarthur/bayes.vim'              " bayes. My thing.
