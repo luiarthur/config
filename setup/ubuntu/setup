@@ -13,6 +13,7 @@ mkdir -p ~/.texmf/tex/ # for custom beamer theme
 mkdir -p ~/lib/tex_templates/tex/ # for default latex files
 mkdir -p ~/.R/
 mkdir -p ~/.ssh/
+mkdir -p ~/.julia/config/
 
 
 
@@ -32,6 +33,7 @@ cp ${CONFDIR}/tmux.conf ~/.tmux.conf
 #cp ${CONFDIR}/vimrc.line-feeder-3 ~/.vim/vimrc.line-feeder-3
 cp -r ${CONFDIR}/vim/* ~/.vim/
 cp ${CONFDIR}/bashColors ~/.bashColors
+cp ${CONFDIR}/startup.jl ~/.julia/config/startup.jl
 ln -s ${CONFDIR}/beamerthemealui.sty ~/.texmf/tex/beamerthemealui.sty
 ln -s ${CONFDIR}/asaproc.cls ~/.texmf/tex/asaproc.cls
 ln -s ${CONFDIR}/template.tex ~/lib/tex_templates/tex/template.tex
