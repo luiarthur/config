@@ -25,7 +25,7 @@ function! LineFeederSetUp()
   elseif ext == "rb"
     let cmd = "irb"
   elseif ext == "jl"
-    let cmd = "$HOME/programs/julia-1.0.0/bin/julia"
+    let cmd = "julia"
   elseif ext == "scala"
     let cmd = "scala -Dscala.color -J-Xmx2g"
   elseif ext == "py"
