@@ -1,0 +1,170 @@
+%{{{1
+\documentclass[]{beamer}
+\usepackage[T1]{fontenc}
+
+% Used for this example. TODO: REMOVE ME.
+\usepackage{filecontents}
+
+%%% METROPOLIS THEME %%%
+\usepackage{caption} % For messing with caption setup
+\usetheme[numbering=fraction, progressbar=head]{metropolis}
+\setbeamerfont{title}{series=\mdseries, parent=structure, size=\Large}
+\setbeamerfont{frametitle}{series=\mdseries, parent=structure, size=\Large}
+\setbeamertemplate{itemize items}{\tiny$\bullet$}
+\captionsetup{font=scriptsize, labelfont={bf, scriptsize}}
+
+% Footer
+\setbeamerfont{page number in head/foot}{size=\tiny}
+\setbeamertemplate{footline}[page number]{}
+\usepackage{appendixnumberbeamer}
+
+% Date
+\usepackage[UKenglish]{isodate}  % used by \today 
+\cleanlookdateon  % used by \today
+%%% END METROPOLIS THEME %%%
+
+% Math packages
+\usepackage{amsmath} % for math
+\usepackage{amssymb} % e.g. \Rightarrow
+
+% Big display
+\newcommand{\ds}{\displaystyle}
+
+% Parenthesis
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\bk}[1]{\left[#1\right]}
+\newcommand{\bc}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left|#1\right|}
+
+% Derivatives
+\newcommand{\df}[2]{\frac{d#1}{d#2}}
+\newcommand{\ddf}[2]{\frac{d^2#1}{d{#2}^2}}
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pdd}[2]{\frac{\partial^2#1}{\partial{#2}^2}}
+
+% Distributions
+\newcommand{\Beta}{\text{Beta}}
+\newcommand{\Normal}{\text{Normal}}
+\newcommand{\Gam}{\text{Gamma}}
+\newcommand{\InvGamma}{\text{Inverse-Gamma}}
+\newcommand{\Uniform}{\text{Uniform}}
+\newcommand{\TruncNormal}{\text{TN}}
+
+% Statistics
+\newcommand{\E}{\text{E}}
+\newcommand{\iid}{\overset{iid}{\sim}}
+\newcommand{\ind}{\overset{ind}{\sim}}
+\def\given{~\bigg|~}
+
+% Graphics
+\usepackage{graphicx}  % for figures
+\usepackage{float} % Put figure exactly where I want [H]
+
+% Uncomment if using bibliography
+% Bibliography
+\usepackage{natbib}
+
+% Adds settings for hyperlinks. (Mainly for table of contents.)
+\usepackage{hyperref}
+\hypersetup{
+  pdfborder={0 0 0} % removes red box from links
+}
+
+\title[short title]{A Title Belongs Here}
+\author[A. Lui]{Arthur Lui \\ {\small Advisor$\colon$ Juhee Lee}}
+\institute{Department of Statistics\\ UC Santa Cruz}
+
+%}}}1
+\begin{document}
+
+\frame[noframenumbering, plain]{
+  \date{\today}
+  \titlepage
+}
+
+
+\begin{frame}{Introduction}
+  \begin{itemize}
+    \item
+      \textbf{Natural Killer cells} play a critical role in cancer immunosurveillance.
+    \item NK cell diversity affects antiviral response.
+    \item Drs. Thall and Rezvani, at MD Anderson Cancer
+      Center, have conducted clinical trials to study the potential clinical
+      efficacy of umbilical cord blood (UCB) transplantation as a therapy for
+      leukemia.
+    \item UCB NK cell therapy has the advantage of low risk of viral
+      transmission from donor to recipient ...
+    \item In the trials, leukemia patients received UCB cell transplants, and
+      NK cell surface markers are measured using mass cytometry.
+    % \item In the trials, leukemia patients received UCB cell transplants, and
+    %   NK cell surface markers are measured using mass cytometry.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{A slide}
+  \begin{itemize}
+    \item That's all for now folks ...
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{An Image}
+  Regular text.
+  \begin{figure}
+    \centering
+    \includegraphics[width=3cm]{example-image-b}
+    \caption{This is an image ...}
+  \end{figure}
+  Regular text.
+  Here's my paper \citep{lui2020bayesian}
+\end{frame}
+
+\begin{frame}{Another slide, very very very very very very very 
+  long long long long title ...}
+  \begin{itemize}
+    \item That's all for good folks ...
+      \begin{itemize}
+        \item That's all for good folks ...
+          \begin{itemize}
+            \item That's all for good folks ...
+          \end{itemize}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\appendix
+\setbeamerfont{page number in head/foot}{size=\tiny}
+\setbeamertemplate{footline}[page number]{}
+
+
+%%% References %%%
+% TODO: REMOVE THIS AND \usepackage{filecontents} at the beginning.
+\begin{filecontents}{fake.bib}
+@article{lui2020bayesian,
+  title={A Bayesian Feature Allocation Model for Identification of Cell
+         Subpopulations Using Cytometry Data},
+  author={Lui, Arthur and Lee, Juhee and Thall, Peter F and Daher, May and
+          Rezvani, Katy and Barar, Rafet},
+  journal={arXiv preprint arXiv:2002.08609},
+  year={2020}
+}
+}
+\end{filecontents}
+
+\begin{frame}[allowframebreaks]
+  \bibliographystyle{plainnat}
+  \bibliography{fake.bib}  % use path to bib
+\end{frame}
+% %%% End of References %%%
+
+
+\begin{frame}{Backup slide 1}
+  This is a backup slide.
+\end{frame}
+
+\begin{frame}{Backup slide 2}
+  This is another a backup slide.
+\end{frame}
+
+
+\end{document}
