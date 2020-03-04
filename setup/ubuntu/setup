@@ -61,6 +61,7 @@ ln -s ${BINDIR}/ignoreall ~/bin/ignoreall
 ln -s ${BINDIR}/genGitignore ~/bin/genGitignore
 ln -s ${BINDIR}/internetSpeedTest ~/bin/internetSpeedTest
 ln -s ${BINDIR}/texgen ~/bin/texgen
+ln -s ${BINDIR}/metrogen ~/bin/metrogen
 ### For midi keyboard / synthesizer / midiculous, etc ###
 ln -s ${BINDIR}/zyn ~/bin/zyn
 ln -s ${BINDIR}/audio-reset ~/bin/audio-reset

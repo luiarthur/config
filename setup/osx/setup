@@ -53,6 +53,7 @@ ln -s ${BINDIR}/mdgen ~/bin/mdgen
 ln -s ${BINDIR}/beamergen ~/bin/beamergen
 ln -s ${BINDIR}/asamdgen ~/bin/asamdgen
 ln -s ${BINDIR}/ignoreall ~/bin/ignoreall
+ln -s ${BINDIR}/metrogen ~/bin/metrogen
 
 
 # Install Basic Programs
