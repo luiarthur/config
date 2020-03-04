@@ -16,6 +16,20 @@
 % For narrower banner
 \makeatletter \setlength{\metropolis@frametitle@padding}{1.2ex} \makeatother
 
+% Bibliography
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+
+% For adjusting bibliography frames
+\newif\ifbibliography
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
 
 % Footer
 \setbeamerfont{page number in head/foot}{size=\tiny}
@@ -64,10 +78,6 @@
 % Graphics
 \usepackage{graphicx}  % for figures
 \usepackage{float} % Put figure exactly where I want [H]
-
-% Uncomment if using bibliography
-% Bibliography
-\usepackage{natbib}
 
 % Adds settings for hyperlinks. (Mainly for table of contents.)
 \usepackage{hyperref}
@@ -140,7 +150,6 @@
 \setbeamerfont{page number in head/foot}{size=\tiny}
 \setbeamertemplate{footline}[page number]{}
 
-
 %%% References %%%
 % TODO: REMOVE THIS AND \usepackage{filecontents} at the beginning.
 \begin{filecontents}{fake.bib}
@@ -155,9 +164,9 @@
 }
 \end{filecontents}
 
-\begin{frame}[allowframebreaks]{}
-  \bibliographystyle{plainnat}
-  \bibliography{fake.bib}  % use path to bib
+\begin{frame}[allowframebreaks]{References}
+  \bibliographytrue
+  \bibliography{fake.bib} % TODO: use path to bib
 \end{frame}
 % %%% End of References %%%
 
@@ -169,6 +178,5 @@
 \begin{frame}{Backup slide 2}
   This is another a backup slide.
 \end{frame}
-
 
 \end{document}
