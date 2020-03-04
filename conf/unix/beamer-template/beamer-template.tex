@@ -13,6 +13,10 @@
 \setbeamertemplate{itemize items}{\tiny$\bullet$}
 \captionsetup{font=scriptsize, labelfont={bf, scriptsize}}
 
+% For narrower banner
+\makeatletter \setlength{\metropolis@frametitle@padding}{1.2ex} \makeatother
+
+
 % Footer
 \setbeamerfont{page number in head/foot}{size=\tiny}
 \setbeamertemplate{footline}[page number]{}
@@ -151,7 +155,7 @@
 }
 \end{filecontents}
 
-\begin{frame}[allowframebreaks]
+\begin{frame}[allowframebreaks]{}
   \bibliographystyle{plainnat}
   \bibliography{fake.bib}  % use path to bib
 \end{frame}
