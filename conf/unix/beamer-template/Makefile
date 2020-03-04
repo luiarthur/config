@@ -11,4 +11,4 @@ clean:
 
 cleanall:
 	latexmk -C
-	rm -f *.snm *.nav *.bbl *.bib
+	rm -f *.snm *.nav *.bbl fake.bib *.log

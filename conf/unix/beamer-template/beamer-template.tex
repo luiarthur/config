@@ -8,13 +8,16 @@
 %%% METROPOLIS THEME %%%
 \usepackage{caption} % For messing with caption setup
 \usetheme[numbering=fraction, progressbar=head]{metropolis}
+
+% FONTS
+% \usepackage[sfdefault, extralight]{FiraSans}
 \setbeamerfont{title}{series=\mdseries, parent=structure, size=\Large}
 \setbeamerfont{frametitle}{series=\mdseries, parent=structure, size=\Large}
-\setbeamertemplate{itemize items}{\tiny$\bullet$}
 \captionsetup{font=scriptsize, labelfont={bf, scriptsize}}
+\setbeamertemplate{itemize items}{\tiny$\bullet$}
 
 % For narrower banner
-\makeatletter \setlength{\metropolis@frametitle@padding}{1.2ex} \makeatother
+\makeatletter \setlength{\metropolis@frametitle@padding}{1.5ex} \makeatother
 
 % Bibliography
 \usepackage{natbib}
@@ -92,22 +95,24 @@
 %}}}1
 \begin{document}
 
+% Title Frame
 \frame[noframenumbering, plain]{
   \date{\today}
   \titlepage
 }
 
-
 \begin{frame}{Introduction}
   \begin{itemize}
+    \setlength\itemsep{1em}
+
     \item
-      \textbf{Natural Killer cells} play a critical role in cancer immunosurveillance.
+      \textbf{Natural Killer cells} play a critical role in \textbf{cancer} immunosurveillance.
     \item NK cell diversity affects antiviral response.
-    \item Drs. Thall and Rezvani, at MD Anderson Cancer
+    \item Drs. Thall and Rezvani, at \textbf{MD} Anderson Cancer
       Center, have conducted clinical trials to study the potential clinical
       efficacy of umbilical cord blood (UCB) transplantation as a therapy for
       leukemia.
-    \item UCB NK cell therapy has the advantage of low risk of viral
+    \item UCB NK cell therapy has the \textbf{advantage} of low risk of viral
       transmission from donor to recipient ...
     \item In the trials, leukemia patients received UCB cell transplants, and
       NK cell surface markers are measured using mass cytometry.
@@ -124,12 +129,14 @@
 
 \begin{frame}{An Image}
   Regular text.
+  Have some \textbf{bold text here}.
   \begin{figure}
     \centering
     \includegraphics[width=3cm]{example-image-b}
     \caption{This is an image ...}
   \end{figure}
-  Regular text.
+  $E = mc^2$
+  $$ E = mc^2 $$
   Here's my paper \citep{lui2020bayesian}
 \end{frame}
 
