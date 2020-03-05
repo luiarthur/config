@@ -35,9 +35,11 @@ sudo apt install -y pandoc
 ###      https://tex.stackexchange.com/questions/71469/texmfhome-setting
 ###
 ### Install Basic Latex ###
-sudo apt install -y texlive-latex-extra
+# sudo apt install -y texlive-latex-extra
 ### Install special fonts (e.g. bbm.sty) ### 
-sudo apt install -y texlive-fonts-extra
+# sudo apt install -y texlive-fonts-extra
+### Install Everything LaTeX
+sudo apt install texlive-full
 
 # R 
 sudo apt install -y r-base-core
