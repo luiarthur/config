@@ -12,10 +12,17 @@
 % FONTS
 \captionsetup{font=scriptsize, labelfont={bf, scriptsize}}
 % NOTE: If Fira Sans can't be installed, uncomment this.
-% \setbeamerfont{title}{series=\mdseries, parent=structure, size=\Large}
-% \setbeamerfont{frametitle}{series=\mdseries, parent=structure, size=\Large}
-% \setbeamertemplate{itemize items}{\tiny$\bullet$}
+% \usepackage[sfdefault, light]{FiraSans}
+% \setbeamerfont{title}{series=\firabook, parent=structure, size=\Large}
+% \setbeamerfont{frametitle}{series=\firabook, parent=structure, size=\Large}
+% \usepackage{fontspec}
+% \setsansfont{Fira Sans}[%
+%      ItalicFont     = {Fira Sans Book Italic},
+%      BoldFont       = {Fira Sans Book},
+%      BoldItalicFont = {Fira Sans Book Italic}]
 
+% For changing bullets
+% \setbeamertemplate{itemize items}{\tiny$\bullet$}
 
 % For narrower banner
 \makeatletter \setlength{\metropolis@frametitle@padding}{1.2ex} \makeatother
