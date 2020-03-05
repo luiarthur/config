@@ -48,15 +48,19 @@ sudo apt install -y pandoc
 sudo apt install texlive-science
 
 ### Install Fira Sans font for metropolis theme ###
-mkdir tmp-fira-sans
-cd tmp-fira-sans
-wget https://github.com/luiarthur/FiraSans/archive/master.zip
-unzip master.zip
-sudo mkdir -p /usr/share/fonts/opentype/fira
-sudo mkdir -p /usr/share/fonts/truetype/fira
-sudo find FiraSans-master/ -name "*.otf" -exec cp {} /usr/share/fonts/opentype/fira/ \;
-sudo find FiraSans-master/ -name "*.ttf" -exec cp {} /usr/share/fonts/truetype/fira/ \;
-cd ../ && rm -rf tmp-fira-sans
+function install_fira_sans_fonts() {
+  mkdir tmp-fira-sans
+  cd tmp-fira-sans
+  wget https://github.com/luiarthur/FiraSans/archive/master.zip
+  unzip master.zip
+  local PATH_TO_FONTS="$HOME/.fonts"
+  mkdir -p $PATH_TO_FONTS/opentype/fira
+  mkdir -p $PATH_TO_FONTS/truetype/fira
+  find FiraSans-master/ -name "*.otf" -exec cp {} $PATH_TO_FONTS/opentype/fira/ \;
+  find FiraSans-master/ -name "*.ttf" -exec cp {} $PATH_TO_FONTS/truetype/fira/ \;
+  cd ../ && rm -rf tmp-fira-sans
+}
+install_fira_sans_fonts
 ########################### LATEX ###################################
 
 # R 
