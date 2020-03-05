@@ -1,10 +1,10 @@
 all: build
 
 build:
-	latexmk -pdf
+	latexmk -pdf -xelatex
 
 watch:
-	latexmk -pdf -pvc
+	latexmk -pdf -pvc -xelatex
 
 clean:
 	latexmk -c

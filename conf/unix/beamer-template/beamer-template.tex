@@ -10,14 +10,15 @@
 \usetheme[numbering=fraction, progressbar=head]{metropolis}
 
 % FONTS
-% \usepackage[sfdefault, extralight]{FiraSans}
-\setbeamerfont{title}{series=\mdseries, parent=structure, size=\Large}
-\setbeamerfont{frametitle}{series=\mdseries, parent=structure, size=\Large}
 \captionsetup{font=scriptsize, labelfont={bf, scriptsize}}
-\setbeamertemplate{itemize items}{\tiny$\bullet$}
+% NOTE: If Fira Sans can't be installed, uncomment this.
+% \setbeamerfont{title}{series=\mdseries, parent=structure, size=\Large}
+% \setbeamerfont{frametitle}{series=\mdseries, parent=structure, size=\Large}
+% \setbeamertemplate{itemize items}{\tiny$\bullet$}
+
 
 % For narrower banner
-\makeatletter \setlength{\metropolis@frametitle@padding}{1.5ex} \makeatother
+\makeatletter \setlength{\metropolis@frametitle@padding}{1.2ex} \makeatother
 
 % Bibliography
 \usepackage{natbib}
@@ -132,12 +133,11 @@
   Have some \textbf{bold text here}.
   \begin{figure}
     \centering
-    \includegraphics[width=3cm]{example-image-b}
+    \includegraphics[width=5cm]{example-image-b}
     \caption{This is an image ...}
   \end{figure}
-  $E = mc^2$
+  Here's my paper \citep{lui2020bayesian}.  $E = mc^2$
   $$ E = mc^2 $$
-  Here's my paper \citep{lui2020bayesian}
 \end{frame}
 
 \begin{frame}{Another slide, very very very very very very very 
