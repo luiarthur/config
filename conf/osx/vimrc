@@ -142,6 +142,9 @@ set number
 " disable F1 for help
 nmap <F1> <nop>
 
+" Remap 'Ctrl + [' to 'Esc'. This is especially for Macbook Pro touchpad.
+imap <C-[> <Esc>
+
 " Change the color of PreProc's like 'include' in C
 highlight Preproc ctermfg=magenta
 highlight Special ctermfg=magenta

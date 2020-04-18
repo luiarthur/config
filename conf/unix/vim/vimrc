@@ -107,6 +107,8 @@ nnoremap <F9> za
 onoremap <F9> <C-C>za
 vnoremap <F9> zf
 
+" Remap 'Ctrl + [' to 'Esc'
+imap <C-[> <Esc>
 
 " Copy and paste between vim sessions
 " Copy the current visual selection to ~/.vbuf
