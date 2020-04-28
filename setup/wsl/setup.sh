@@ -1,8 +1,14 @@
 #!/bin/bash
 
-CONFDIR="$PWD/../../conf/unix/"
-WSLCONFDIR="$PWD/../../conf/wsl/"
-BINDIR="$PWD/../../bin/unix/"
+export CONFDIR="$PWD/../../conf/unix/"
+export WSLCONFDIR="$PWD/../../conf/wsl/"
+export BINDIR="$PWD/../../bin/unix/"
+
+# NOTE: Fixes default permissions of new directories in WSL.
+# Source: https://www.turek.dev/post/fix-wsl-file-permissions/
+if [[ "$(umask)" = "0000" ]]; then
+  umask 0022
+fi
 
 # Make the following directories if they do not yet exist
 mkdir -p ~/bin/
