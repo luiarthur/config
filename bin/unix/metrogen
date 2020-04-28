@@ -9,7 +9,7 @@ then
   echo "  and generates a new metropolis beamer document template"
   echo
   echo "  Usage:"
-  echo "        $ beamergen nameOfNewBeamerDocument"
+  echo "        $ metrogen nameOfNewBeamerDocument"
   echo
 else
   fname="$1"
