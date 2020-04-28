@@ -20,6 +20,8 @@ function install_latex_stuff() {
   sudo apt install -y texlive-science
   # Install fira fonts
   install_fira_sans_fonts
+  # Install latexmk
+  sudo apt install -y latexmk
 }
 
 install_latex_stuff
