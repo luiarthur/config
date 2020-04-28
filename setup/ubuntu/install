@@ -45,7 +45,7 @@ sudo apt install -y pandoc
 # sudo apt install texlive-full
 
 ### Or Install science stuff ###
-sudo apt install texlive-science
+sudo apt install -y texlive-science
 
 ### Install Fira Sans font for metropolis theme ###
 function install_fira_sans_fonts() {
