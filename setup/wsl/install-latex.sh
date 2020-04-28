@@ -16,8 +16,8 @@ function install_fira_sans_fonts() {
 
 # Function to install latex and desired fonts
 function install_latex_stuff() {
-  # Install Latex science
-  sudo apt install -y texlive-science
+  # Install Latex science, xetex, extra fonts
+  sudo apt install -y texlive-science texlive-xetex texlive-fonts-extra
   # Install fira fonts
   install_fira_sans_fonts
   # Install latexmk
