@@ -210,3 +210,9 @@ export PYTHONSTARTUP=~/.pythonrc
 
 # For VcXsrv (WSL)
 export DISPLAY=0:0
+
+# NOTE: Fixes default permissions of new directories in WSL.
+# Source: https://www.turek.dev/post/fix-wsl-file-permissions/
+if [[ "$(umask)" = "0000" ]]; then
+  umask 0022
+fi
