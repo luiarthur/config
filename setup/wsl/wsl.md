@@ -7,6 +7,17 @@
     - Needs a system reboot.
 - add `export DISPLAY=localhost:0.0` to `~/.bashrc`
 - [install nodejs for jupyterlab][2]
+    ```bash
+    # Install nodejs using package manage
+    # https://computingforgeeks.com/how-to-install-latest-nodejs-on-ubuntu-debian-linux/
+    curl -sL https://deb.nodesource.com/setup_13.x | sudo bash -
+    sudo apt-get install -y nodejs
+    node -v
+
+    # Install NPM
+    curl -L https://npmjs.org/install.sh | sudo sh
+    npm -v
+    ```
 - [accessing linux file system from Windows][3]
     - Pin the WSL directory to Quick access. This makes uploading/downloading
       WSL files using a Windows browser more convenient.
