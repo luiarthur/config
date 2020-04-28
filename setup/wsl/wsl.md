@@ -13,10 +13,6 @@
     curl -sL https://deb.nodesource.com/setup_13.x | sudo bash -
     sudo apt-get install -y nodejs
     node -v
-
-    # Install NPM
-    curl -L https://npmjs.org/install.sh | sudo sh
-    npm -v
     ```
 - [accessing linux file system from Windows][3]
     - Pin the WSL directory to Quick access. This makes uploading/downloading
