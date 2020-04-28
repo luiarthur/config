@@ -13,6 +13,7 @@ mkdir -p ~/lib/tex_templates/tex/ # for default latex files
 mkdir -p ~/.R/
 mkdir -p ~/.ssh/
 mkdir -p ~/.julia/config/
+mkdir -p ~/programs
 
 # Copy these configuration files to the right place
 cp ${WSLCONFDIR}/bashrc ~/.bashrc
