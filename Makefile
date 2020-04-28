@@ -12,5 +12,5 @@ ubuntu:
 osx:
 	cd setup/osx && ./setup && ./install
 
-windows:
-	echo "look in `setup/windows/`"
+wsl:
+	cd setup/wsl && ./setup.sh && ./install.sh
