@@ -34,6 +34,7 @@ cp ${CONFDIR}/Rprofile ~/.Rprofile
 cp ${CONFDIR}/ssh_config ~/.ssh/config
 cp ${WSLCONFDIR}/tmux.conf ~/.tmux.conf
 cp -r ${CONFDIR}/vim/* ~/.vim/
+cp -r ${WSLCONFDIR}/vimrc ~/.vim
 cp ${CONFDIR}/bashColors ~/.bashColors
 cp ${CONFDIR}/startup.jl ~/.julia/config/startup.jl
 ln -s ${CONFDIR}/beamerthemealui.sty ~/.texmf/tex/beamerthemealui.sty

@@ -135,6 +135,9 @@ alias tma="tmux attach -t"
 alias s="aspell --lang=en_GB -t -c"
 alias chrome="google-chrome"
 
+# Jupyter alias for WSL
+alias jupyter-notebook="~/.local/bin/jupyter-notebook --no-browser"
+
 # Print pretty git log. see: https://git-scm.com/docs/pretty-formats or `man git-log`
 # %h:  abbreviated commit hash
 # %ad: author date
