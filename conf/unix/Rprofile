@@ -2,7 +2,7 @@
 
 # For package generatrion
 options(
-  repos=structure(c(CRAN="https://cran.cnr.berkeley.edu/")),
+  repos=structure(c(CRAN="https://cloud.r-project.org/")),
   # devtools
   devtools.name="Arthur Lui",
   devtools.desc.author="Arthur Lui <luiarthur@ucsc.edu> [aut, cre]"
