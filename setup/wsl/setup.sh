@@ -20,7 +20,7 @@ mkdir -p ~/.R/
 mkdir -p ~/.ssh/
 mkdir -p ~/.julia/config/
 mkdir -p ~/programs
-mkdir -p ~/.screen
+mkdir -p ~/.screen && chmod 700 ~/.screen
 
 # Copy these configuration files to the right place
 cp ${WSLCONFDIR}/bashrc ~/.bashrc
