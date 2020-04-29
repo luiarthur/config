@@ -24,6 +24,7 @@ mkdir -p ~/.screen && chmod 700 ~/.screen
 
 # Copy these configuration files to the right place
 cp ${WSLCONFDIR}/bashrc ~/.bashrc
+cp ${WSLCONFDIR}/screenrc ~/.screenrc
 cp ${CONFDIR}/git-prompt.sh ~/.git-prompt.sh
 cp ${CONFDIR}/gitconfig ~/.gitconfig
 cp ${CONFDIR}/gitignore_global ~/.gitignore_global
