@@ -10,9 +10,10 @@ shelltitle 'local'
 # KW -- default background (K: grey), foreground (W: white)
 # WK -- current window background (W: White), foreground (k: black)
 # %n: -- window number followed by colon
-hardstatus string "%{.KW}%-w%{.Wk}%n:%t%{-}%+w"
+hardstatus string "%{.kW}%-w%{.Wk}%n:%t%{-}%+w"
 
 # NOTE: Other things tried:
+# hardstatus string "%{.KW}%-w%{.Wk}%n:%t%{-}%+w"
 # hardstatus string "%{.Kk}%-w%{.WK}%n %t%{-}%+w"
 # hardstatus string '%{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}]'
 # hardstatus string '%{gk}[%{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}][%{d}%l%{g}][ %{= w}%Y/%m/%d %0C:%s%a%{g} ]%{W}'
