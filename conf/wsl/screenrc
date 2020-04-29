@@ -4,7 +4,7 @@ autodetach on
 startup_message off
 # hardstatus alwayslastline 
 hardstatus alwaysfirstline 
-shelltitle 'bash'
+shelltitle 'local'
 
 # NOTE:
 # KW -- default background (K: grey), foreground (W: white)
