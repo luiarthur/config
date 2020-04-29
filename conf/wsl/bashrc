@@ -158,6 +158,18 @@ source ~/.git-prompt.sh 2> /dev/null
 export EDITOR=vim
 export PATH=~/bin:$PATH
 
+# For VcXsrv (WSL)
+export DISPLAY=0:0
+
+# NOTE: Fixes default permissions of new directories in WSL.
+# Source: https://www.turek.dev/post/fix-wsl-file-permissions/
+if [[ "$(umask)" = "0000" ]]; then
+  umask 0022
+fi
+
+# For screen
+export SCREENDIR=$HOME/.screen
+
 # TEXMF
 export TEXMFHOME=$HOME/.texmf
 
@@ -211,11 +223,4 @@ export PYTHONSTARTUP=~/.pythonrc
 #export _JAVA_OPTIONS=-Xmx4096m
 #export CLASSPATH=$HOME/lib/scala_lib/*
 
-# For VcXsrv (WSL)
-export DISPLAY=0:0
 
-# NOTE: Fixes default permissions of new directories in WSL.
-# Source: https://www.turek.dev/post/fix-wsl-file-permissions/
-if [[ "$(umask)" = "0000" ]]; then
-  umask 0022
-fi
