@@ -65,6 +65,14 @@
         - Slot 16: R: 242, G: 242, Blue: 242
     - Change:
         - Slot 10: R:  59, G: 120, Blue: 255
+- Or install Windows Terminal (preview)
+    - This has better support for glyphs and weird fonts for julia
+    - Put this under `profiles.defaults`:
+        ```
+        "cursorShape": "filledBox",
+        "fontSize": 12,
+        "fontFace": "Mono"
+        ```
 
 # Troubleshoot
 - Jupyter, python.http.server
