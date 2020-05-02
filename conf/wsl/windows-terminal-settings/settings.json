@@ -31,9 +31,10 @@
             // Put settings here that you want to apply to all profiles.
 
             // Arthur Lui:
+            "padding": "0, 0, 0, 0",
             "cursorShape": "filledBox",
             "fontSize": 12,
-            "fontFace": "Cascadia Code",
+            "fontFace": "Consolas",
             "closeOnExit" : true
         },
         "list":
@@ -42,6 +43,7 @@
                 "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
                 "hidden": false,
                 "name": "Ubuntu",
+                "colorScheme": "Tango Dark",
                 "source": "Windows.Terminal.Wsl",
                 "startingDirectory" : "//wsl$/Ubuntu/home/luiarthur"
             },
@@ -70,7 +72,31 @@
 
     // Add custom color schemes to this array.
     // To learn more about color schemes, visit https://aka.ms/terminal-color-schemes
-    "schemes": [],
+    // https://www.nextofwindows.com/windows-terminal-preview-hands-on-change-color-theme
+    "schemes": [
+        {
+            "name": "Ubuntu", // Modified from Tango Dark
+            "foreground": "#D3D7CF",
+            "background": "#000000",
+            "cursorColor": "#FFFFFF",
+            "black": "#000000",
+            "red": "#CC0000",
+            "green": "#4E9A06",
+            "yellow": "#C4A000",
+            "blue": "#3465A4",
+            "purple": "#75507B",
+            "cyan": "#06989A",
+            "white": "#D3D7CF",
+            "brightBlack": "#555753",
+            "brightRed": "#EF2929",
+            "brightGreen": "#8AE234",
+            "brightYellow": "#FCE94F",
+            "brightBlue": "#729FCF",
+            "brightPurple": "#AD7FA8",
+            "brightCyan": "#34E2E2",
+            "brightWhite": "#EEEEEC"
+        }
+    ],
 
     // Add custom keybindings to this array.
     // To unbind a key combination from your defaults.json, set the command to "unbound".
