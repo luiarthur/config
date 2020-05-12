@@ -3,11 +3,18 @@
 ### Example for adding server name
 ### Now you can ssh into server by 
 ### $ ssh citrisdance 
-#
-#Host citrisdance
-#  HostName citrisdance.soe.ucsc.edu
-#  User alui2
-#  ForwardX11 yes
+
+# Host citrisdance
+# HostName citrisdance.soe.ucsc.edu
+# User alui2
+# ForwardX11 yes
+
+# Host my-aws-instance
+# HostName 13.57.215.115
+# User ubuntu
+# ForwardX11 yes
+# IdentityFile path-to-my.pem
+# LocalForward 8002:localhost 8002  # anything on host:8002 will be on localhost:8002
 
 
 ### Example add my computer to authorized keys in servers
