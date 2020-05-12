@@ -29,7 +29,7 @@ cp ${CONFDIR}/git-prompt.sh ~/.git-prompt.sh
 cp ${CONFDIR}/gitconfig ~/.gitconfig
 cp ${CONFDIR}/gitignore_global ~/.gitignore_global
 cp ${CONFDIR}/pythonrc ~/.pythonrc
-ln -s ${CONFDIR}/redmagick.vim  ~/.vim/colors
+ln -s ${WSLCONFDIR}/redmagick.vim  ~/.vim/colors
 cp ${CONFDIR}/R-Makevars ~/.R/Makevars
 cp ${CONFDIR}/Renviron ~/.Renviron
 cp ${CONFDIR}/Rprofile ~/.Rprofile
