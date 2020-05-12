@@ -10,11 +10,16 @@
 # ForwardX11 yes
 
 # Host my-aws-instance
-# HostName 13.57.215.115
+# HostName <public-ip-address-of-aws-instance>
 # User ubuntu
 # ForwardX11 yes
 # IdentityFile path-to-my.pem
-# LocalForward 8002:localhost 8002  # anything on host:8002 will be on localhost:8002
+# LocalForward 8004 localhost:8004  # anything on host:8004 will be on localhost:8004
+# PermitLocalCommand yes
+# LocalCommand echo "Forwarding host:8004 to localhost:8004"
+
+
+
 
 
 ### Example add my computer to authorized keys in servers
