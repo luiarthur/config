@@ -62,7 +62,8 @@ let DarkDarkGrey  = 236
 let DarkOrange3   = 166
 let Red1          = 196 "bright
 let Red3          = 160 "brown
-let DarkRed       = 197 "52
+let DarkRed       = 88 "52
+let LineNr        = 197
 let Green         = 2 "46
 let Black         = 0
 let White         = 194
@@ -104,12 +105,12 @@ call ExecHi("StatusLine",DarkGrey,NONE)
 call ExecHi("String",Red3,NONE)
 call ExecHi("TabLineSel",LightGrey,NONE)
 call ExecHi("Title",DarkOrange3,NONE)
-call ExecHi("Todo",DarkRed,Green)
+call ExecHi("Todo",Black,Green)
 call ExecHi("Type",White,NONE,NONE,bold)
 call ExecHi("VertSplit",DarkGrey,NONE)
 call ExecHi("Visual",DarkGrey,LightGrey)
 call ExecHi("WarningMsg",DarkGrey,NONE)
-call ExecHi("LineNr",DarkRed,NONE,NONE,bold)
+call ExecHi("LineNr",LineNr,NONE,NONE,bold)
 call ExecHi("CursorLineNr",Black,DarkDarkGrey)
 
 call ExecHi("Pmenu",LightGrey,DarkDarkGrey)
