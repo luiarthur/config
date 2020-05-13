@@ -1,6 +1,4 @@
-" ┏━┓┏━╸┏━┓   ┏┳┓┏━┓┏━╸╻┏━╸╻┏ 
-" ┣┻┓┣╸ ┃ ┃   ┃┃┃┣━┫┃╺┓┃┃  ┣┻┓
-" ╹ ┗┗━╸┗━┛   ╹ ╹╹ ╹┗━┛╹┗━╸╹ ╹
+" RED MAGICK
 " original blaque magick by xero harrison (http://blaquemagick.xero.nu)
 " https://github.com/xero/blaquemagick.vim
 " red magick version by Arthur Lui
