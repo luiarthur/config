@@ -8,13 +8,6 @@
     - [VcXsrv needs to be run with `-ac` option. Then restarted. Can do from GUI.][6]
 - add `export DISPLAY=localhost:0.0` to `~/.bashrc`
 - [install nodejs for jupyterlab][2]
-    ```bash
-    # Install nodejs using package manage
-    # https://computingforgeeks.com/how-to-install-latest-nodejs-on-ubuntu-debian-linux/
-    curl -sL https://deb.nodesource.com/setup_13.x | sudo bash -
-    sudo apt-get install -y nodejs
-    node -v
-    ```
 - [accessing linux file system from Windows][3]
     - Pin the WSL directory to Quick access. This makes uploading/downloading
       WSL files using a Windows browser more convenient.
@@ -45,28 +38,7 @@
             - Turn of automatic backup of Documents, Desktop, and Pictures. I
               want to be explicit about what I store in OneDrive, so as to
               avoid conflicts, and save space.
-- Change terminal colors (tedious)
-    - https://medium.com/better-programming/make-bash-on-ubuntu-on-windows-10-look-like-the-ubuntu-terminal-f7566008c5c2
-    - Default colors:
-        - Slot 1:  R:  12, G:  12, Blue:  12
-        - Slot 2:  R:  52, G: 101, Blue: 165
-        - Slot 3:  R:  19, G: 161, Blue:  14
-        - Slot 4:  R:  58, G: 150, Blue: 221
-        - Slot 5:  R: 197, G:  15, Blue:  31
-        - Slot 6:  R: 136, G:  23, Blue: 152
-        - Slot 7:  R: 193, G: 156, Blue:   0
-        - Slot 8:  R: 204, G: 204, Blue: 204
-        - Slot 9:  R: 118, G: 118, Blue: 118
-        - Slot 10: R:   0, G:  55, Blue: 218
-        - Slot 11: R:  22, G: 198, Blue:  12
-        - Slot 12: R:  97, G: 214, Blue: 214
-        - Slot 13: R: 231, G:  72, Blue:  86
-        - Slot 14: R: 180, G:   0, Blue: 158
-        - Slot 15: R: 249, G: 241, Blue: 165
-        - Slot 16: R: 242, G: 242, Blue: 242
-    - Change:
-        - Slot 10: R:  59, G: 120, Blue: 255
-- Or install Windows Terminal (preview)
+- Install Windows Terminal (preview)
     - This has better support for glyphs and weird fonts for julia
     - Put this under `profiles.defaults`:
         ```
