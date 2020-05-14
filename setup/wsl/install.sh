@@ -30,6 +30,15 @@ sudo apt install -y r-base-core
 echo "ccache installations ..."
 sudo apt install -y ccache
 
+# Install nodejs
+echo "nodejs installations ..."
+source install-nodejs.sh
+
+# NOTE: Needs to be run line-by-line
+# Install jupyter
+# echo "jupyter installations ..."
+# source install-jupyter.sh
+
 # Install scala
 # echo "scala installations ..."
 # source install-scala.sh
