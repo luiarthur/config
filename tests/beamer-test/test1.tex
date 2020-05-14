@@ -1,0 +1,197 @@
+%{{{1
+\documentclass[]{beamer}  % available font sizes: 9pt - 13pt
+\usepackage[T1]{fontenc}
+
+% Used for this example. TODO: REMOVE ME.
+\usepackage{filecontents}
+
+%%% METROPOLIS THEME %%%
+\usepackage{caption} % For messing with caption setup
+\usetheme[numbering=fraction, progressbar=head]{metropolis}
+
+
+% FONTS
+\captionsetup{font=scriptsize, labelfont={bf, scriptsize}}
+% NOTE: If Fira Sans can't be installed, uncomment this.
+% \usepackage[sfdefault, light]{FiraSans}
+% \setbeamerfont{title}{series=\firabook, parent=structure, size=\Large}
+% \setbeamerfont{frametitle}{series=\firabook, parent=structure, size=\Large}
+% \usepackage{fontspec}
+% \setsansfont{Fira Sans}[%
+%      ItalicFont     = {Fira Sans Book Italic},
+%      BoldFont       = {Fira Sans Book},
+%      BoldItalicFont = {Fira Sans Book Italic}]
+
+% For changing bullets
+% \setbeamertemplate{itemize items}{\tiny$\bullet$}
+
+% For narrower banner
+\makeatletter \setlength{\metropolis@frametitle@padding}{1.2ex} \makeatother
+
+% Bibliography
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+
+% For adjusting bibliography frames
+\newif\ifbibliography
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+
+% Footer
+\setbeamerfont{page number in head/foot}{size=\tiny}
+\setbeamertemplate{footline}[page number]{}
+\usepackage{appendixnumberbeamer}
+
+% Date
+\usepackage[UKenglish]{isodate}  % used by \today 
+\cleanlookdateon  % used by \today
+%%% END METROPOLIS THEME %%%
+
+% Math packages
+\usepackage{amsmath} % for math
+\usepackage{amssymb} % e.g. \Rightarrow
+
+% Big display
+\newcommand{\ds}{\displaystyle}
+
+% Parenthesis
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\p}[1]{\left(#1\right)}
+\newcommand{\bk}[1]{\left[#1\right]}
+\newcommand{\bc}[1]{\left\{#1\right\}}
+\newcommand{\abs}[1]{\left|#1\right|}
+
+% Derivatives
+\newcommand{\df}[2]{\frac{d#1}{d#2}}
+\newcommand{\ddf}[2]{\frac{d^2#1}{d{#2}^2}}
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+\newcommand{\pdd}[2]{\frac{\partial^2#1}{\partial{#2}^2}}
+
+% Distributions
+\newcommand{\Beta}{\text{Beta}}
+\newcommand{\Normal}{\text{Normal}}
+\newcommand{\Gam}{\text{Gamma}}
+\newcommand{\InvGamma}{\text{Inverse-Gamma}}
+\newcommand{\Uniform}{\text{Uniform}}
+\newcommand{\TruncNormal}{\text{TN}}
+
+% Statistics
+\newcommand{\E}{\text{E}}
+\newcommand{\iid}{\overset{iid}{\sim}}
+\newcommand{\ind}{\overset{ind}{\sim}}
+\def\given{~\bigg|~}
+
+% Graphics
+\usepackage{graphicx}  % for figures
+\usepackage{float} % Put figure exactly where I want [H]
+
+% Adds settings for hyperlinks. (Mainly for table of contents.)
+\usepackage{hyperref}
+\hypersetup{
+  pdfborder={0 0 0} % removes red box from links
+}
+
+\title[short title]{A Title Belongs Here}
+\author[A. Lui]{Arthur Lui \\ {\small Advisor$\colon$ Juhee Lee}}
+\institute{Department of Statistics\\ UC Santa Cruz}
+
+%}}}1
+\begin{document}
+
+% Title Frame
+\frame[noframenumbering, plain]{
+  \date{\today}
+  \titlepage
+}
+
+\begin{frame}{Introduction}
+  \begin{itemize}
+    \setlength\itemsep{1em}
+
+    \item
+      \textbf{Natural Killer cells} play a critical role in \textbf{cancer} immunosurveillance.
+    \item NK cell diversity affects antiviral response.
+    \item Drs. Thall and Rezvani, at \textbf{MD} Anderson Cancer
+      Center, have conducted clinical trials to study the potential clinical
+      efficacy of umbilical cord blood (UCB) transplantation as a therapy for
+      leukemia.
+    \item UCB NK cell therapy has the \textbf{advantage} of low risk of viral
+      transmission from donor to recipient ...
+    \item In the trials, leukemia patients received UCB cell transplants, and
+      NK cell surface markers are measured using mass cytometry.
+    % \item In the trials, leukemia patients received UCB cell transplants, and
+    %   NK cell surface markers are measured using mass cytometry.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{A slide}
+  \begin{itemize}
+    \item That's all for now folks ...
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{An Image}
+  Regular text.
+  Have some \textbf{bold text here}.
+  \begin{figure}
+    \centering
+    \includegraphics[width=5cm]{example-image-b}
+    \caption{This is an image ...}
+  \end{figure}
+  Here's my paper \citep{lui2020bayesian}.  $E = mc^2$
+  $$ E = mc^2 $$
+\end{frame}
+
+\begin{frame}{Another slide, very very very very very very very 
+  long long long long title ...}
+  \begin{itemize}
+    \item That's all for good folks ...
+      \begin{itemize}
+        \item That's all for good folks ...
+          \begin{itemize}
+            \item That's all for good folks ...
+          \end{itemize}
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\appendix
+\setbeamerfont{page number in head/foot}{size=\tiny}
+\setbeamertemplate{footline}[page number]{}
+
+%%% References %%%
+% TODO: REMOVE THIS AND \usepackage{filecontents} at the beginning.
+\begin{filecontents}{fake.bib}
+@article{lui2020bayesian,
+  title={A Bayesian Feature Allocation Model for Identification of Cell
+         Subpopulations Using Cytometry Data},
+  author={Lui, Arthur and Lee, Juhee and Thall, Peter F and Daher, May and
+          Rezvani, Katy and Barar, Rafet},
+  journal={arXiv preprint arXiv:2002.08609},
+  year={2020}
+}
+}
+\end{filecontents}
+
+\begin{frame}[allowframebreaks]{References}
+  \bibliographytrue
+  \bibliography{fake.bib} % TODO: use path to bib
+\end{frame}
+% %%% End of References %%%
+
+
+\begin{frame}{Backup slide 1}
+  This is a backup slide.
+\end{frame}
+
+\begin{frame}{Backup slide 2}
+  This is another a backup slide.
+\end{frame}
+
+\end{document}
