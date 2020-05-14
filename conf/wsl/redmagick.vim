@@ -55,7 +55,7 @@ let HotPink1      = 168
 let HotPink3      = 132
 let LightGrey     = 249
 let Grey          = 245
-let DarkGrey      = 103 "Grey63
+let DarkGrey      = 103 " Light Slate Grey
 let DarkDarkGrey  = 236
 let DarkOrange3   = 166
 let Red1          = 196 "bright
@@ -106,7 +106,7 @@ call ExecHi("Title",DarkOrange3,NONE)
 call ExecHi("Todo",Black,Green)
 call ExecHi("Type",White,NONE,NONE,bold)
 call ExecHi("VertSplit",DarkGrey,NONE)
-call ExecHi("Visual",DarkGrey,LightGrey)
+call ExecHi("Visual",Black,LightGrey)
 call ExecHi("WarningMsg",DarkGrey,NONE)
 call ExecHi("LineNr",LineNr,NONE,NONE,NONE)
 call ExecHi("CursorLineNr",Black,DarkDarkGrey)
