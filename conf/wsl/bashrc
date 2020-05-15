@@ -158,8 +158,12 @@ source ~/.git-prompt.sh 2> /dev/null
 export EDITOR=vim
 export PATH=~/bin:$PATH
 
-# For VcXsrv (WSL)
-export DISPLAY=0:0
+# For VcXsrv (WSL1)
+# export DISPLAY=0:0
+
+# For VcXsrv (WSL2)
+LOCAL_IP=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+export DISPLAY=$LOCAL_IP:0
 
 # NOTE: Fixes default permissions of new directories in WSL.
 # Source: https://www.turek.dev/post/fix-wsl-file-permissions/
