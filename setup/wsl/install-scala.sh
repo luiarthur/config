@@ -2,7 +2,7 @@
 
 function install_scala() {
   # Install java 8
-  sudo apt install -y openjdk-8-jdk
+  sudo apt install -y openjdk-11-jdk
 
   # Install scala
   sudo apt install -y scala
