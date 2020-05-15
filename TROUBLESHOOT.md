@@ -36,4 +36,8 @@ Or,
 sudo apt purge openjdk-8-jdk java-common
 sudo apt install openjdk-8-jdk
 ```
+## Creating a subdirectory in `/scratch/` that only user can access
+- To create a subdir in `/scratch/` that only a user has access to,
+  create a dir with the user's name, then do 
+  `sudo chown -R <username> <username>/`
 
