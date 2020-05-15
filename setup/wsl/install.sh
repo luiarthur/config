@@ -11,7 +11,8 @@ test -f ~/.tmux.conf && tmux source ~/.tmux.conf
 
 # Install better vim
 echo "Vim installations ..."
-sudo apt install -y vim-gnome
+# sudo apt install -y vim-gnome  # for Ubuntu <= 18.04
+sudo apt install -y vim-gtk  # for Ubuntu >= 20.04
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Install pip

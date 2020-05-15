@@ -5,6 +5,7 @@
     - Save config file to Startup. See [vim/tmux for wsl][1].
     - Also need to configure firewall settings.
     - Needs a system reboot.
+    - [VcXsrv needs to be run with `-ac` option. Then restarted. Can do from GUI.][6]
 - add `export DISPLAY=localhost:0.0` to `~/.bashrc`
 - [install nodejs for jupyterlab][2]
     ```bash
@@ -87,3 +88,4 @@
 [3]: https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/
 [4]: https://www.cnet.com/how-to/8-ways-you-can-take-screenshots-in-windows-10/
 [5]: https://support.office.com/en-us/article/what-do-the-onedrive-icons-mean-11143026-8000-44f8-aaa9-67c985aa49b3
+[6]: https://github.com/microsoft/WSL/issues/4106
