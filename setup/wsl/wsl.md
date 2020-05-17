@@ -54,6 +54,8 @@
       Select `allow on public network`, and not `private networks`.
       This should be the default.
     - Needs a system reboot.
+- GUI apps from WSL (1,2) may be blurry if Windows Display Settings `Scale and
+  layout` is set above 100%.  I added a fix [here][7].
 
 [1]: https://www.youtube.com/watch?v=_MgrjgQqDcE&list=WL
 [2]: https://www.devroom.io/2011/10/24/installing-node-js-and-npm-on-ubuntu-debian/
@@ -61,3 +63,4 @@
 [4]: https://www.cnet.com/how-to/8-ways-you-can-take-screenshots-in-windows-10/
 [5]: https://support.office.com/en-us/article/what-do-the-onedrive-icons-mean-11143026-8000-44f8-aaa9-67c985aa49b3
 [6]: https://github.com/microsoft/WSL/issues/4106
+[7]: https://github.com/luiarthur/config/issues/1
