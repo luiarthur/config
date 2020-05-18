@@ -27,11 +27,6 @@ println(benchmarkmsg("Single-core speed", singlecore_times, digits=5))
 
 # Multi-core test
 _ = multicore_test(reps=2)
-mc_times = multicore_test(reps=50)
-println(benchmarkmsg("Multi-core speed", mc_times))
-
-# Times:
-# 18 May 2020 | Ubuntu 18.04 | Single-core speed: 0.0128 (0.01251, 0.01309)
-# 18 May 2020 | Ubuntu 18.04 | 8-core speed:      0.091  (0.08100, 0.10100)
-
+mc_times = multicore_test(reps=200)
+println(benchmarkmsg("Multi-core speed", mc_times, digits=5))
 
