@@ -20,13 +20,12 @@ end
 
 # Single-core test
 _ = singlecore_test(reps=2);
-single_reps = 100
-singlecore_times = singlecore_test(reps=single_reps)
+singlecore_times = singlecore_test(reps=100)
 println(benchmarkmsg("Single-core speed", singlecore_times, digits=5))
 
 
 # Multi-core test
 _ = multicore_test(reps=2)
-mc_times = multicore_test(reps=200)
+mc_times = multicore_test(reps=100)
 println(benchmarkmsg("Multi-core speed", mc_times, digits=5))
 
