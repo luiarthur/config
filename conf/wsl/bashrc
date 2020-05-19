@@ -164,6 +164,7 @@ export PATH=~/bin:$PATH
 # For VcXsrv (WSL2)
 LOCAL_IP=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
 export DISPLAY=$LOCAL_IP:0
+export LIBGL_ALWAYS_INDIRECT=1
 
 # NOTE: Fixes default permissions of new directories in WSL.
 # Source: https://www.turek.dev/post/fix-wsl-file-permissions/
@@ -227,4 +228,8 @@ export PYTHONSTARTUP=~/.pythonrc
 #export _JAVA_OPTIONS=-Xmx4096m
 #export CLASSPATH=$HOME/lib/scala_lib/*
 
-
+# NOTE: If Windows Scale and layout is not 100%, then 
+# 1. Vcxsrv: In additional parameters, add "-ac -dpip 120" (no quotes).
+# 2. Mess with the following env vars.
+# export GDK_DPI_SCALE=1.25
+# export GDK_SCALE=1
