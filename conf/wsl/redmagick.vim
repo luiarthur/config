@@ -53,7 +53,7 @@ endfunction
 let DeepPink4     = 125
 let HotPink1      = 168
 let HotPink3      = 132
-let LightGrey     = 249
+let LightGrey     = 252
 let Grey          = 245
 let DarkGrey      = 103 " Light Slate Grey
 let DarkDarkGrey  = 236
