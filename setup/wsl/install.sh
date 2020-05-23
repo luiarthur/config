@@ -33,6 +33,8 @@ sudo apt install -y ccache
 
 # Install nodejs
 echo "nodejs installations ..."
+source install-nvm.sh
+source $HOME/.bashrc
 source install-nodejs.sh
 
 # NOTE: Needs to be run line-by-line

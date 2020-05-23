@@ -1,13 +1,29 @@
 #!/bin/bash
 
-# NOTE: This script installs latest nodejs and npm. Installation time is
-# relatively short because pre-built binaries are installed.
+# NOTE This script is taken from:
+# https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-18-04#removing-nodejs
 
-# NOTE: May need change this link to get latest nodejs / npm
-curl -sL https://deb.nodesource.com/setup_13.x | sudo bash -
+# NOTE: This script installs latest nodejs and npm using nvm. Installation time
+# is relatively short because pre-built binaries are installed.
 
-# This installs nodejs and npm.
-sudo apt-get install -y nodejs
+# NOTE: Use `nvm ls-remote` to find "Latest LTS" version of nodejs.
+# Change the following accordingly
+# nvm ls-remote
 
-# Check if version is latest
+# Latest nodejs version
+# TODO: Change this accordingly, after inspecting output of
+#       `nvm ls-remote`
+latest_nodejs_version=12.16.3  
+
+# Install latest nodejs version
+nvm install $latest_nodejs_version
+
+# Usually, nvm will switch to use the most recently installed version. You can
+# tell nvm to use the version you just downloaded by typing:
+nvm use $latest_nodejs_version
+
+# See latest node version
 node -v
+
+# See latest npm version
+npm -v
