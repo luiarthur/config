@@ -10,3 +10,7 @@ curl -sL \
 bash install_nvm_tmp.sh
 
 rm -f install_nvm_tmp.sh
+
+# Source bashrc
+echo "Sourcing $HOME/.bashrc"
+source $HOME/.bashrc

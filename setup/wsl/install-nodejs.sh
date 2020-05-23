@@ -23,7 +23,7 @@ nvm install $latest_nodejs_version
 nvm use $latest_nodejs_version
 
 # See latest node version
-node -v
+echo "node version: " `node -v`
 
 # See latest npm version
-npm -v
+echo "npm version" `npm -v`
