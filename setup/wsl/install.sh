@@ -23,7 +23,7 @@ sudo apt install -y ccache
 # Install nodejs
 echo "nodejs installations ..."
 source install-nvm.sh
-source install-nodejs.sh
+source install-nodejs.sh  # TODO: change latest_version in this script 
 
 # NOTE: Needs to be run line-by-line
 # Install jupyter
