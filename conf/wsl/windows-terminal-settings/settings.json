@@ -44,6 +44,7 @@
                 "hidden": false,
                 "name": "Ubuntu",
                 "colorScheme": "Tango Dark",
+                "fontFace": "Ubuntu Mono",  // needs to be installed
                 "source": "Windows.Terminal.Wsl",
                 "startingDirectory" : "//wsl$/Ubuntu/home/luiarthur"
             },
