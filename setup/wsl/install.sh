@@ -4,17 +4,6 @@
 echo "Preparing for installs"
 sudo apt update && sudo apt upgrade
 
-# Install tmux related plugins. tmux ships with wsl.
-echo "tmux installations ..."
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-test -f ~/.tmux.conf && tmux source ~/.tmux.conf
-
-# Install better vim
-echo "Vim installations ..."
-# sudo apt install -y vim-gnome  # for Ubuntu <= 18.04
-sudo apt install -y vim-gtk  # for Ubuntu >= 20.04
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
 # Install pip
 echo "pip installations ..."
 sudo apt install -y python3-pip

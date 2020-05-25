@@ -60,6 +60,19 @@ ln -s ${BINDIR}/texgen ~/bin/texgen
 ln -s ${BINDIR}/metrogen ~/bin/metrogen
 ln -s ${BINDIR}/captainslog ~/bin/captainslog
 
+# Install tmux related plugins. tmux ships with wsl.
+echo "tmux installations ..."
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+test -f ~/.tmux.conf && tmux source ~/.tmux.conf
+
+# Install Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# Install better vim
+echo "Vim installations ..."
+sudo apt update && sudo apt upgrade
+sudo apt install -y vim-gtk  # for clipboard support
+
 # top
 # - To configure top to be human-readable, press `E` in top, then
 #   to save, hit `W`. 
