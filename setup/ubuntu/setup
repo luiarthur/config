@@ -1,9 +1,8 @@
 #!/bin/bash
 
-
 CONFDIR="$PWD/../../conf/unix/"
+WSLCONFDIR="$PWD/../../conf/wsl/"
 BINDIR="$PWD/../../bin/unix/"
-
 
 # Make the following directories if they do not yet exist
 mkdir -p ~/bin/
@@ -14,8 +13,7 @@ mkdir -p ~/lib/tex_templates/tex/ # for default latex files
 mkdir -p ~/.R/
 mkdir -p ~/.ssh/
 mkdir -p ~/.julia/config/
-
-
+mkdir -p ~/programs
 
 # Copy these configuration files to the right place
 cp ${CONFDIR}/bashrc ~/.bashrc
@@ -23,14 +21,12 @@ cp ${CONFDIR}/git-prompt.sh ~/.git-prompt.sh
 cp ${CONFDIR}/gitconfig ~/.gitconfig
 cp ${CONFDIR}/gitignore_global ~/.gitignore_global
 cp ${CONFDIR}/pythonrc ~/.pythonrc
-ln -s ${CONFDIR}/redmagick.vim  ~/.vim/colors
+ln -s ${WSLCONFDIR}/redmagick.vim  ~/.vim/colors
 cp ${CONFDIR}/R-Makevars ~/.R/Makevars
 cp ${CONFDIR}/Renviron ~/.Renviron
 cp ${CONFDIR}/Rprofile ~/.Rprofile
 cp ${CONFDIR}/ssh_config ~/.ssh/config
-cp ${CONFDIR}/tmux.conf ~/.tmux.conf
-#cp ${CONFDIR}/vimrc ~/.vim/vimrc
-#cp ${CONFDIR}/vimrc.line-feeder-3 ~/.vim/vimrc.line-feeder-3
+cp ${WSLCONFDIR}/tmux3.conf ~/.tmux.conf
 cp -r ${CONFDIR}/vim/* ~/.vim/
 cp ${CONFDIR}/bashColors ~/.bashColors
 cp ${CONFDIR}/startup.jl ~/.julia/config/startup.jl
@@ -39,13 +35,10 @@ ln -s ${CONFDIR}/asaproc.cls ~/.texmf/tex/asaproc.cls
 ln -s ${CONFDIR}/template.tex ~/lib/tex_templates/tex/template.tex
 ln -s ${CONFDIR}/template_asa.tex ~/lib/tex_templates/tex/template_asa.tex
 
-
 # Copy these scripts to `~/bin`
 cp ${BINDIR}/resources ~/bin
 ln -s ${BINDIR}/mouse-reset ~/bin
 ln -s ${BINDIR}/dirsize ~/bin/dirsize
-ln -s ${BINDIR}/vulture.py ~/bin/vulture
-ln -s ${BINDIR}/md-include.py ~/bin/md-include
 ln -s ${BINDIR}/gush ~/bin/gush
 ln -s ${BINDIR}/md ~/bin/md
 ln -s ${BINDIR}/sbtgen ~/bin/sbtgen
@@ -57,15 +50,26 @@ ln -s ${BINDIR}/asamdgen ~/bin/asamdgen
 ln -s ${BINDIR}/pdfPage ~/bin/pdfPage
 ln -s ${BINDIR}/newH ~/bin/newH
 ln -s ${BINDIR}/zipit ~/bin/zipit
-ln -s ${BINDIR}/ignoreall ~/bin/ignoreall
-ln -s ${BINDIR}/genGitignore ~/bin/genGitignore
-ln -s ${BINDIR}/internetSpeedTest ~/bin/internetSpeedTest
 ln -s ${BINDIR}/texgen ~/bin/texgen
 ln -s ${BINDIR}/metrogen ~/bin/metrogen
+ln -s ${BINDIR}/captainslog ~/bin/captainslog
+
 ### For midi keyboard / synthesizer / midiculous, etc ###
 ln -s ${BINDIR}/zyn ~/bin/zyn
 ln -s ${BINDIR}/audio-reset ~/bin/audio-reset
-ln -s ${BINDIR}/captainslog ~/bin/captainslog
+
+# Install tmux related plugins. tmux ships with wsl.
+echo "tmux installations ..."
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+test -f ~/.tmux.conf && tmux source ~/.tmux.conf
+
+# Install Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# Install better vim
+echo "Vim installations ..."
+sudo apt update && sudo apt upgrade
+sudo apt install -y vim-gtk  # for clipboard support
 
 
 # top
