@@ -49,7 +49,7 @@ set expandtab               " Use softtabs
 set tabstop=2 shiftwidth=2  " Set tab width
 set background=light        " Assume a light background (dark is the other option)
 set autoindent
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 
 " set colorscheme to redmagick
