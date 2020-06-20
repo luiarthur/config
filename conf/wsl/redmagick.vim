@@ -112,9 +112,9 @@ call ExecHi("LineNr",LineNr,NONE,NONE,NONE)
 call ExecHi("CursorLineNr",Black,DarkDarkGrey)
 
 call ExecHi("Pmenu",LightGrey,DarkDarkGrey)
-call ExecHi("PmenuSel",DarkGrey,Green)
-call ExecHi("PmenuSbar",DarkGrey,Green)
-call ExecHi("PmenuThumb",DarkGrey,Green)
+call ExecHi("PmenuSel",Black,Green)
+call ExecHi("PmenuSbar",Black,Green)
+call ExecHi("PmenuThumb",Black,Green)
 
 "call ExecHi("SpellBad",DarkRed,Green,NONE,bold)
 call ExecHi("SpellBad",White,Red3,NONE,bold)
