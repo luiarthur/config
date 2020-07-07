@@ -18,6 +18,17 @@ let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
 "let g:vim_markdown_folding_disabled = 1
 
+function MathToggle()
+  if get(g:, 'vim_markdown_math', 0)
+    let g:vim_markdown_math = 0
+    echo "Hi"
+  else
+    let g:vim_markdown_math = 1
+    echo "bye"
+  endif
+  syntax enable
+endfunction
+
 " Load my Markdown addons
 au BufRead *.md call MyMkdAddOn()
 
@@ -29,5 +40,3 @@ au BufRead *.md setlocal spell
 
 " use a special latex dictionary for markdown
 au BufRead *.md setlocal spellfile=~/.vim/spell/tex.utf-8.add
-
-
