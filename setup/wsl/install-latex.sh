@@ -18,8 +18,12 @@ function install_fira_sans_fonts() {
 function install_latex_stuff() {
   # Install Latex science, xetex, extra fonts
   sudo apt install -y texlive-science texlive-xetex texlive-fonts-extra
-  # Install fira fonts
-  install_fira_sans_fonts
+
+  # NOTE: Uncomment this to use Fira fonts for metropolis theme.
+  # But I prefer the regular font.
+  #
+  # install_fira_sans_fonts
+
   # Install latexmk
   sudo apt install -y latexmk
 }
