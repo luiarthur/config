@@ -1,6 +1,4 @@
-" ┏━┓┏━╸┏━┓   ┏┳┓┏━┓┏━╸╻┏━╸╻┏ 
-" ┣┻┓┣╸ ┃ ┃   ┃┃┃┣━┫┃╺┓┃┃  ┣┻┓
-" ╹ ┗┗━╸┗━┛   ╹ ╹╹ ╹┗━┛╹┗━╸╹ ╹
+" RED MAGICK
 " original blaque magick by xero harrison (http://blaquemagick.xero.nu)
 " https://github.com/xero/blaquemagick.vim
 " red magick version by Arthur Lui
@@ -55,14 +53,15 @@ endfunction
 let DeepPink4     = 125
 let HotPink1      = 168
 let HotPink3      = 132
-let LightGrey     = 249
+let LightGrey     = 252
 let Grey          = 245
-let DarkGrey      = 241 "238
+let DarkGrey      = 103 " Light Slate Grey
 let DarkDarkGrey  = 236
 let DarkOrange3   = 166
 let Red1          = 196 "bright
 let Red3          = 160 "brown
 let DarkRed       = 88 "52
+let LineNr        = 8
 let Green         = 2 "46
 let Black         = 0
 let White         = 194
@@ -104,18 +103,18 @@ call ExecHi("StatusLine",DarkGrey,NONE)
 call ExecHi("String",Red3,NONE)
 call ExecHi("TabLineSel",LightGrey,NONE)
 call ExecHi("Title",DarkOrange3,NONE)
-call ExecHi("Todo",DarkRed,Green)
+call ExecHi("Todo",Black,Green)
 call ExecHi("Type",White,NONE,NONE,bold)
 call ExecHi("VertSplit",DarkGrey,NONE)
-call ExecHi("Visual",DarkGrey,LightGrey)
+call ExecHi("Visual",Black,LightGrey)
 call ExecHi("WarningMsg",DarkGrey,NONE)
-call ExecHi("LineNr",DarkRed,NONE,NONE,bold)
+call ExecHi("LineNr",LineNr,NONE,NONE,NONE)
 call ExecHi("CursorLineNr",Black,DarkDarkGrey)
 
 call ExecHi("Pmenu",LightGrey,DarkDarkGrey)
-call ExecHi("PmenuSel",DarkGrey,Green)
-call ExecHi("PmenuSbar",DarkGrey,Green)
-call ExecHi("PmenuThumb",DarkGrey,Green)
+call ExecHi("PmenuSel",Black,Green)
+call ExecHi("PmenuSbar",Black,Green)
+call ExecHi("PmenuThumb",Black,Green)
 
 "call ExecHi("SpellBad",DarkRed,Green,NONE,bold)
 call ExecHi("SpellBad",White,Red3,NONE,bold)
