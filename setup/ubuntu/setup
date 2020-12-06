@@ -53,6 +53,7 @@ ln -s ${BINDIR}/zipit ~/bin/zipit
 ln -s ${BINDIR}/texgen ~/bin/texgen
 ln -s ${BINDIR}/metrogen ~/bin/metrogen
 ln -s ${BINDIR}/captainslog ~/bin/captainslog
+ln -s ${BINDIR}/jltag ~/bin/jltag
 
 ### For midi keyboard / synthesizer / midiculous, etc ###
 ln -s ${BINDIR}/zyn ~/bin/zyn
