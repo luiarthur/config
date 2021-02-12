@@ -135,3 +135,5 @@ hi! link Question        DiffChange
 hi! link TabLine         StatusLineNC
 hi! link TabLineFill     StatusLineNC
 hi! link VimHiGroup      VimGroup
+
+hi Normal ctermbg=233
