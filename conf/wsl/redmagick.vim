@@ -66,7 +66,8 @@ let DarkRed       = 88 "52
 let LineNr        = 8
 let Green         = 2 "46
 let Black         = 0
-let White         = 215
+let White         = 253
+let Peach         = 215
 let LightBlue     = 75
 let NONE          = "NONE"
 let bold          = "bold"
@@ -106,7 +107,7 @@ call ExecHi("String",Red3,NONE)
 call ExecHi("TabLineSel",LightGrey,NONE)
 call ExecHi("Title",DarkOrange3,NONE)
 call ExecHi("Todo",Black,Green)
-call ExecHi("Type",White,NONE,NONE,NONE)
+call ExecHi("Type",Peach,NONE,NONE,NONE)
 call ExecHi("VertSplit",DarkGrey,NONE)
 call ExecHi("Visual",Black,LightGrey)
 call ExecHi("WarningMsg",DarkGrey,NONE)
