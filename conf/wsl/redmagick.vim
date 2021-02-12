@@ -8,7 +8,8 @@
 
 " For colors, see: https://jonasjacek.github.io/colors/
 
-" Note: A black terminal background is most compatible.
+" Note: A black (high contrast) or #141414 (lower contrast) terminal
+"       background is most compatible.
 
 set background=dark
 hi clear
@@ -58,13 +59,14 @@ let Grey          = 245
 let DarkGrey      = 103 " Light Slate Grey
 let DarkDarkGrey  = 236
 let DarkOrange3   = 166
+let IndianRed1    = 203
 let Red1          = 196 "bright
 let Red3          = 160 "brown
 let DarkRed       = 88 "52
 let LineNr        = 8
 let Green         = 2 "46
 let Black         = 0
-let White         = 194
+let White         = 215
 let LightBlue     = 75
 let NONE          = "NONE"
 let bold          = "bold"
@@ -93,7 +95,7 @@ call ExecHi("NonText",DarkGrey,NONE)
 call ExecHi("Normal",LightGrey,NONE)
 call ExecHi("Number",Red1,NONE)
 call ExecHi("Operator",DarkGrey,NONE)
-call ExecHi("PreProc",DarkOrange3,NONE,NONE,bold)
+call ExecHi("PreProc",IndianRed1,NONE,NONE,NONE)
 call ExecHi("Repeat",DarkGrey,NONE)
 call ExecHi("Search",DarkRed,LightGrey,NONE,bold)
 call ExecHi("Special",HotPink3,NONE,NONE,bold)
