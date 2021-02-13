@@ -18,10 +18,10 @@ let g:colors_name="mcmc"
 
 " Function for executing hilight
 function! ExecHi(att, dict)
-  if has_key(a:dict, 'fg') | let fg = a:dict['fg'] | else | let fg = 'None' | end
-  if has_key(a:dict, 'bg') | let bg = a:dict['bg'] | else | let bg = 'None' | end
-  if has_key(a:dict, 'mterm') | let mterm = a:dict['mterm'] | else | let mterm = 'None' | end
-  if has_key(a:dict, 'cterm') | let cterm = a:dict['cterm'] | else | let cterm = 'None' | end
+  if has_key(a:dict, 'fg') | let fg = a:dict['fg'] | else | let fg = 'None' | endif
+  if has_key(a:dict, 'bg') | let bg = a:dict['bg'] | else | let bg = 'None' | endif
+  if has_key(a:dict, 'mterm') | let mterm = a:dict['mterm'] | else | let mterm = 'None' | endif
+  if has_key(a:dict, 'cterm') | let cterm = a:dict['cterm'] | else | let cterm = 'None' | endif
   execute 'hi ' . a:att 'ctermfg=' . fg 'ctermbg=' . bg 'term=' . mterm 'cterm=' . cterm
 endfunction
 
@@ -91,14 +91,13 @@ call ExecHi("Visual", {'fg': 0, 'bg': 7})
 call ExecHi("WarningMsg", {'fg': SlateGrey})
 call ExecHi("LineNr", {'fg': 243})
 call ExecHi("CursorLineNr", {'fg': Black, 'bg': DarkGrey})
+call ExecHi("SpellCap", {'fg': DarkRed, 'bg': LiteBlue, 'cterm': bold})
   
 call ExecHi("Pmenu", {'fg': LightGrey, 'bg': DarkGrey})
 call ExecHi("PmenuSel", {'fg': Black, 'bg': Green})
 call ExecHi("PmenuSbar", {'fg': Black, 'bg': Green})
 call ExecHi("PmenuThumb", {'fg': Black, 'bg': Green})
   
-call ExecHi("SpellBad", {'fg': White, 'bg': Red3, 'cterm': bold})
-call ExecHi("SpellCap", {'fg': DarkRed, 'bg': LiteBlue, 'cterm': bold})
 
 hi Underlined term=underline cterm=underline ctermfg=NONE ctermbg=NONE
 

@@ -30,9 +30,7 @@ function! ExecHi(...) " att, ctermfg, ctermbg, term, cterm
   let mterm = "NONE"
   let mcterm = "NONE"
 
-  if numArgs >=3
-    let fg = a:2
-  endif
+  if numArgs >=3 | let fg = a:2 | endif
 
   if numArgs >= 3
     let bg = a:3
@@ -53,30 +51,29 @@ endfunction
 " Color key
 let DeepPink4     = 125
 let HotPink1      = 168
-let HotPink3      = 132
+let HotPink3      = 132 
 let LightGrey     = 252
 let Grey          = 245
-let DarkGrey      = 103 " Light Slate Grey
+let DarkGrey      = 103  " Light Slate Grey
 let DarkDarkGrey  = 236
-let DarkOrange3   = 166
+let DarkOrange    = 166
 let IndianRed1    = 203
-let Red1          = 196 "bright
-let Red3          = 160 "brown
-let DarkRed       = 88 "52
-let LineNr        = 8
-let Green         = 2 "46
+let Red           = 196  " 160, 196
+let DarkRed       = 88  "52
+let Comment       = 8
+let Green         = 2  "46
 let Black         = 0
 let White         = 253
-let Peach         = 215
+let Peach         = 137  " 137, 215
 let LightBlue     = 75
 let NONE          = "NONE"
 let bold          = "bold"
 
 
 call ExecHi("ColorColumn",NONE,DarkGrey)
-call ExecHi("Comment",HotPink1,NONE)
+call ExecHi("Comment", Comment, NONE)
 call ExecHi("Conditional",DarkGrey,NONE)
-call ExecHi("Constant",Red1,NONE)
+call ExecHi("Constant",IndianRed1,NONE)
 call ExecHi("Cursor",DarkGrey,NONE)
 call ExecHi("CursorLine",NONE,NONE)
 call ExecHi("DiffAdd",DarkGrey,NONE)
@@ -84,43 +81,38 @@ call ExecHi("DiffChange",NONE,DeepPink4)
 call ExecHi("DiffDelete",LightGrey,Green)
 call ExecHi("DiffText",LightGrey,Grey)
 call ExecHi("Directory",Grey,Black)
-call ExecHi("Error",White,Red1,NONE,bold)
+call ExecHi("Error",White,IndianRed1,NONE,bold)
 call ExecHi("ErrorMsg",Green,NONE)
 call ExecHi("FoldColumn",DarkGrey,NONE)
 call ExecHi("Folded",DarkGrey,NONE)
-call ExecHi("Function",DarkOrange3,NONE)
-call ExecHi("Identifier",Red3,NONE)
-call ExecHi("IncSearch",DarkRed,DarkOrange3,NONE,bold)
+call ExecHi("Function",DarkOrange,NONE)
+call ExecHi("Identifier", HotPink3,NONE)
+call ExecHi("IncSearch",DarkRed,DarkOrange,NONE,bold)
 call ExecHi("NonText",DarkGrey,NONE)
 call ExecHi("Normal",LightGrey,NONE)
-call ExecHi("Number",Red1,NONE)
+call ExecHi("Number",IndianRed1,NONE)
 call ExecHi("Operator",DarkGrey,NONE)
-call ExecHi("PreProc",IndianRed1,NONE,NONE,NONE)
+call ExecHi("PreProc",Red,NONE,NONE,NONE)
 call ExecHi("Repeat",DarkGrey,NONE)
 call ExecHi("Search",DarkRed,LightGrey,NONE,bold)
 call ExecHi("Special",HotPink3,NONE,NONE,bold)
 call ExecHi("SpecialKey",DarkGrey,NONE)
 call ExecHi("Statement",DarkGrey,NONE,NONE,bold)
 call ExecHi("StatusLine",DarkGrey,NONE)
-call ExecHi("String",Red3,NONE)
 call ExecHi("TabLineSel",LightGrey,NONE)
-call ExecHi("Title",DarkOrange3,NONE)
-call ExecHi("Todo",Black,Green)
+call ExecHi("Title",DarkOrange,NONE)
+call ExecHi("Todo", 15, 8)
 call ExecHi("Type",Peach,NONE,NONE,NONE)
 call ExecHi("VertSplit",DarkGrey,NONE)
 call ExecHi("Visual",Black,LightGrey)
 call ExecHi("WarningMsg",DarkGrey,NONE)
-call ExecHi("LineNr",LineNr,NONE,NONE,NONE)
 call ExecHi("CursorLineNr",Black,DarkDarkGrey)
+call ExecHi("SpellCap",DarkRed,LightBlue,NONE,bold)
 
 call ExecHi("Pmenu",LightGrey,DarkDarkGrey)
 call ExecHi("PmenuSel",Black,Green)
 call ExecHi("PmenuSbar",Black,Green)
 call ExecHi("PmenuThumb",Black,Green)
-
-"call ExecHi("SpellBad",DarkRed,Green,NONE,bold)
-call ExecHi("SpellBad",White,Red3,NONE,bold)
-call ExecHi("SpellCap",DarkRed,LightBlue,NONE,bold)
 
 hi Underlined term=underline cterm=underline ctermfg=NONE ctermbg=NONE
 
@@ -134,5 +126,8 @@ hi! link Question        DiffChange
 hi! link TabLine         StatusLineNC
 hi! link TabLineFill     StatusLineNC
 hi! link VimHiGroup      VimGroup
+hi! link String          Number
+hi! link SpellBad        Todo
+hi! link LineNr          Comment
 
 hi Normal ctermbg=232
