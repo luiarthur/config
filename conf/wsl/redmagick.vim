@@ -102,14 +102,14 @@ call ExecHi("Statement", LiteGrey, NONE, NONE, bold)
 call ExecHi("StatusLine", LiteGrey, NONE)
 call ExecHi("TabLineSel", LightGrey, NONE)
 call ExecHi("Title", DarkOrange, NONE)
-call ExecHi("Todo", 15, 8)
+call ExecHi("Todo", 15, DarkGrey, NONE, NONE)
 call ExecHi("Type", Peach, NONE, NONE, NONE)
 call ExecHi("VertSplit", LiteGrey, NONE)
 call ExecHi("Visual", Black, LightGrey)
 call ExecHi("WarningMsg", LiteGrey, NONE)
 call ExecHi("CursorLineNr",Black, DarkGrey)
 call ExecHi("SpellCap", DarkRed, LightBlue, NONE, bold)
-call ExecHi("Pmenu", LightGrey, DarkGrey)
+call ExecHi("Pmenu", LightGrey, Black)
 hi! link PmenuSel        Todo
 hi! link PmenuSbar       Todo
 hi! link PmenuThumb      Todo
