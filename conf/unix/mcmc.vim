@@ -53,7 +53,7 @@ let bold          = "bold"
 
 " Syntax highlighting colors.
 call ExecHi("ColorColumn", {'bg': SlateGrey})
-call ExecHi('Comment', {'fg': 100})
+call ExecHi('Comment', {'fg': 6})
 call ExecHi("Conditional", {'fg': SlateGrey})
 call ExecHi("Constant", {'fg': Peach})
 call ExecHi("Cursor", {'fg': 232, 'bg': 15, 'mterm': bold, 'cterm': bold})
