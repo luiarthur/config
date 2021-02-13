@@ -64,7 +64,9 @@ let DarkRed       = 88  "52
 let Comment       = 8
 let Green         = 2  "46
 let Black         = 0
+let PitchBlack    = 16
 let White         = 253
+let BrightWhite   = 15
 let Peach         = 137  " 137, 215
 let LightBlue     = 75
 let NONE          = "NONE"
@@ -88,39 +90,42 @@ call ExecHi("FoldColumn", LiteGrey, NONE)
 call ExecHi("Folded", LiteGrey, NONE)
 call ExecHi("Function", DarkOrange, NONE)
 call ExecHi("Identifier", HotPink3, NONE)
-call ExecHi("IncSearch", DarkRed, DarkOrange, NONE, bold)
+call ExecHi("IncSearch", PitchBlack, DarkOrange)
 call ExecHi("NonText", LiteGrey, NONE)
 call ExecHi("Normal", LightGrey, NONE)
 call ExecHi("Number", IndianRed1, NONE)
 call ExecHi("Operator", LiteGrey, NONE)
 call ExecHi("PreProc", Red,NONE,NONE, NONE)
 call ExecHi("Repeat", LiteGrey, NONE)
-call ExecHi("Search", DarkRed, LightGrey, NONE, bold)
+call ExecHi("Search", PitchBlack, LightGrey)
 call ExecHi("Special", HotPink3, NONE, NONE, bold)
 call ExecHi("SpecialKey", LiteGrey, NONE)
 call ExecHi("Statement", LiteGrey, NONE, NONE, bold)
 call ExecHi("StatusLine", LiteGrey, NONE)
 call ExecHi("TabLineSel", LightGrey, NONE)
 call ExecHi("Title", DarkOrange, NONE)
-call ExecHi("Todo", 15, DarkGrey, NONE, NONE)
-call ExecHi("Type", Peach, NONE, NONE, NONE)
+call ExecHi("Todo", PitchBlack, IndianRed1)
+call ExecHi("Type", Peach, NONE)
 call ExecHi("VertSplit", LiteGrey, NONE)
 call ExecHi("Visual", Black, LightGrey)
 call ExecHi("WarningMsg", LiteGrey, NONE)
 call ExecHi("CursorLineNr",Black, DarkGrey)
 call ExecHi("SpellCap", DarkRed, LightBlue, NONE, bold)
+
 call ExecHi("Pmenu", LightGrey, Black)
-hi! link PmenuSel        Todo
-hi! link PmenuSbar       Todo
-hi! link PmenuThumb      Todo
+call ExecHi("PmenuSel", DarkRed, LightGrey)
+hi! link PmenuSbar       PmenuSel
+hi! link PmenuThumb      PmenuSel
+
+"TODO: This is a test.
 
 hi Underlined term=underline cterm=underline ctermfg=NONE ctermbg=NONE
+hi Normal ctermbg=232
 
 hi! link diffAdded       DiffAdd
 hi! link diffRemoved     DiffDelete
 hi! link diffChanged     DiffChange
 hi! link StatusLineNC    StatusLine
-" hi! link Title           Normal
 hi! link MoreMsg         Normal
 hi! link Question        DiffChange
 hi! link TabLine         StatusLineNC
@@ -130,4 +135,3 @@ hi! link String          Number
 hi! link SpellBad        Todo
 hi! link LineNr          Comment
 
-hi Normal ctermbg=232
