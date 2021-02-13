@@ -27,6 +27,7 @@ endfunction
 
 " Color key
 " TODO: Refine and remove unused colors. Use as few colors as possible.
+let Olive         = 94
 let DeepPink4     = 125
 let HotPink3      = 132
 let LightGrey     = 252
@@ -53,7 +54,7 @@ let bold          = "bold"
 
 " Syntax highlighting colors.
 call ExecHi("ColorColumn", {'bg': SlateGrey})
-call ExecHi('Comment', {'fg': 6})
+call ExecHi('Comment', {'fg': Olive})
 call ExecHi("Conditional", {'fg': SlateGrey})
 call ExecHi("Constant", {'fg': Peach})
 call ExecHi("Cursor", {'fg': 232, 'bg': 15, 'mterm': bold, 'cterm': bold})
