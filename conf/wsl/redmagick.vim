@@ -22,6 +22,7 @@ let g:colors_name="redmagick"
 
 
 " execute hilight
+" TODO: Refactor like mcmc.vim
 function! ExecHi(...) " att, ctermfg, ctermbg, term, cterm
   let numArgs = a:0
   let att = a:1
@@ -54,8 +55,8 @@ let HotPink1      = 168
 let HotPink3      = 132 
 let LightGrey     = 252
 let Grey          = 245
-let DarkGrey      = 103  " Light Slate Grey
-let DarkDarkGrey  = 236
+let LiteGrey      = 103  " Light Slate Grey
+let DarkGrey      = 236
 let DarkOrange    = 166
 let IndianRed1    = 203
 let Red           = 196  " 160, 196
@@ -70,49 +71,48 @@ let NONE          = "NONE"
 let bold          = "bold"
 
 
-call ExecHi("ColorColumn",NONE,DarkGrey)
+call ExecHi("ColorColumn", NONE, LiteGrey)
 call ExecHi("Comment", Comment, NONE)
-call ExecHi("Conditional",DarkGrey,NONE)
-call ExecHi("Constant",IndianRed1,NONE)
-call ExecHi("Cursor",DarkGrey,NONE)
-call ExecHi("CursorLine",NONE,NONE)
-call ExecHi("DiffAdd",DarkGrey,NONE)
-call ExecHi("DiffChange",NONE,DeepPink4)
-call ExecHi("DiffDelete",LightGrey,Green)
-call ExecHi("DiffText",LightGrey,Grey)
-call ExecHi("Directory",Grey,Black)
-call ExecHi("Error",White,IndianRed1,NONE,bold)
-call ExecHi("ErrorMsg",Green,NONE)
-call ExecHi("FoldColumn",DarkGrey,NONE)
-call ExecHi("Folded",DarkGrey,NONE)
-call ExecHi("Function",DarkOrange,NONE)
-call ExecHi("Identifier", HotPink3,NONE)
-call ExecHi("IncSearch",DarkRed,DarkOrange,NONE,bold)
-call ExecHi("NonText",DarkGrey,NONE)
-call ExecHi("Normal",LightGrey,NONE)
-call ExecHi("Number",IndianRed1,NONE)
-call ExecHi("Operator",DarkGrey,NONE)
-call ExecHi("PreProc",Red,NONE,NONE,NONE)
-call ExecHi("Repeat",DarkGrey,NONE)
-call ExecHi("Search",DarkRed,LightGrey,NONE,bold)
-call ExecHi("Special",HotPink3,NONE,NONE,bold)
-call ExecHi("SpecialKey",DarkGrey,NONE)
-call ExecHi("Statement",DarkGrey,NONE,NONE,bold)
-call ExecHi("StatusLine",DarkGrey,NONE)
-call ExecHi("TabLineSel",LightGrey,NONE)
-call ExecHi("Title",DarkOrange,NONE)
+call ExecHi("Conditional", LiteGrey, NONE)
+call ExecHi("Constant", IndianRed1, NONE)
+call ExecHi("Cursor", LiteGrey, NONE)
+call ExecHi("CursorLine", NONE, NONE)
+call ExecHi("DiffAdd", LiteGrey, NONE)
+call ExecHi("DiffChange", NONE, DeepPink4)
+call ExecHi("DiffDelete", LightGrey, Green)
+call ExecHi("DiffText", LightGrey, Grey)
+call ExecHi("Directory", Grey, Black)
+call ExecHi("Error", White, IndianRed1, NONE, bold)
+call ExecHi("ErrorMsg", Green, NONE)
+call ExecHi("FoldColumn", LiteGrey, NONE)
+call ExecHi("Folded", LiteGrey, NONE)
+call ExecHi("Function", DarkOrange, NONE)
+call ExecHi("Identifier", HotPink3, NONE)
+call ExecHi("IncSearch", DarkRed, DarkOrange, NONE, bold)
+call ExecHi("NonText", LiteGrey, NONE)
+call ExecHi("Normal", LightGrey, NONE)
+call ExecHi("Number", IndianRed1, NONE)
+call ExecHi("Operator", LiteGrey, NONE)
+call ExecHi("PreProc", Red,NONE,NONE, NONE)
+call ExecHi("Repeat", LiteGrey, NONE)
+call ExecHi("Search", DarkRed, LightGrey, NONE, bold)
+call ExecHi("Special", HotPink3, NONE, NONE, bold)
+call ExecHi("SpecialKey", LiteGrey, NONE)
+call ExecHi("Statement", LiteGrey, NONE, NONE, bold)
+call ExecHi("StatusLine", LiteGrey, NONE)
+call ExecHi("TabLineSel", LightGrey, NONE)
+call ExecHi("Title", DarkOrange, NONE)
 call ExecHi("Todo", 15, 8)
-call ExecHi("Type",Peach,NONE,NONE,NONE)
-call ExecHi("VertSplit",DarkGrey,NONE)
-call ExecHi("Visual",Black,LightGrey)
-call ExecHi("WarningMsg",DarkGrey,NONE)
-call ExecHi("CursorLineNr",Black,DarkDarkGrey)
-call ExecHi("SpellCap",DarkRed,LightBlue,NONE,bold)
-
-call ExecHi("Pmenu",LightGrey,DarkDarkGrey)
-call ExecHi("PmenuSel",Black,Green)
-call ExecHi("PmenuSbar",Black,Green)
-call ExecHi("PmenuThumb",Black,Green)
+call ExecHi("Type", Peach, NONE, NONE, NONE)
+call ExecHi("VertSplit", LiteGrey, NONE)
+call ExecHi("Visual", Black, LightGrey)
+call ExecHi("WarningMsg", LiteGrey, NONE)
+call ExecHi("CursorLineNr",Black, DarkGrey)
+call ExecHi("SpellCap", DarkRed, LightBlue, NONE, bold)
+call ExecHi("Pmenu", LightGrey, DarkGrey)
+hi! link PmenuSel        Todo
+hi! link PmenuSbar       Todo
+hi! link PmenuThumb      Todo
 
 hi Underlined term=underline cterm=underline ctermfg=NONE ctermbg=NONE
 
