@@ -69,6 +69,7 @@ let White         = 253
 let BrightWhite   = 15
 let Peach         = 137  " 137, 215
 let LightBlue     = 75
+let Lavender      = 139
 let NONE          = "NONE"
 let bold          = "bold"
 
@@ -84,7 +85,7 @@ call ExecHi("DiffChange", NONE, DeepPink4)
 call ExecHi("DiffDelete", LightGrey, Green)
 call ExecHi("DiffText", LightGrey, Grey)
 call ExecHi("Directory", Grey, Black)
-call ExecHi("Error", White, IndianRed1, NONE, bold)
+call ExecHi("Error", PitchBlack, Lavender)
 call ExecHi("ErrorMsg", Green, NONE)
 call ExecHi("FoldColumn", LiteGrey, NONE)
 call ExecHi("Folded", LiteGrey, NONE)
@@ -104,7 +105,6 @@ call ExecHi("Statement", LiteGrey, NONE, NONE, bold)
 call ExecHi("StatusLine", LiteGrey, NONE)
 call ExecHi("TabLineSel", LightGrey, NONE)
 call ExecHi("Title", DarkOrange, NONE)
-call ExecHi("Todo", PitchBlack, IndianRed1)
 call ExecHi("Type", Peach, NONE)
 call ExecHi("VertSplit", LiteGrey, NONE)
 call ExecHi("Visual", Black, LightGrey)
@@ -132,6 +132,7 @@ hi! link TabLine         StatusLineNC
 hi! link TabLineFill     StatusLineNC
 hi! link VimHiGroup      VimGroup
 hi! link String          Number
-hi! link SpellBad        Todo
+hi! link Todo            Error
+hi! link SpellBad        Error
 hi! link LineNr          Comment
 
