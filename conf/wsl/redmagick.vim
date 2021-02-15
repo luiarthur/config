@@ -1,15 +1,19 @@
 " RED MAGICK
-" original blaque magick by xero harrison (http://blaquemagick.xero.nu)
-" https://github.com/xero/blaquemagick.vim
-" red magick version by Arthur Lui
-
-" in vim, see more options by:
+"
+" Author: Arthur Lui
+" Repo: https://github.com/luiarthur/config/blob/master/conf/wsl/redmagick.vim
+"
+" Original: Based on original blaque magick by xero harrison (http://blaquemagick.xero.nu)
+" Origin: https://github.com/xero/blaquemagick.vim
+"
+" In vim, see more options by (for example):
 " :h hl-SpellBad
-
-" For colors, see: https://jonasjacek.github.io/colors/
-
+"
+" For colors, see: https://github.com/luiarthur/config/blob/master/bin/unix/color.sh
+"
 " Note: A black (high contrast) or #141414 (lower contrast) terminal
 "       background is most compatible.
+
 
 set background=dark
 hi clear
@@ -53,13 +57,13 @@ endfunction
 let DeepPink4     = 125
 let HotPink1      = 168
 let HotPink3      = 132 
-let LightGrey     = 252
+let LiteGrey      = 252
 let Grey          = 245
-let LiteGrey      = 103  " Light Slate Grey
+let BlueGrey      = 103
 let DarkGrey      = 236
-let DarkOrange    = 166
-let IndianRed1    = 203
-let Red           = 196  " 160, 196
+let Orange        = 166
+let LiteRed       = 203
+let Red           = 9  " 160, 196
 let DarkRed       = 88  "52
 let Comment       = 8
 let Green         = 2  "46
@@ -68,55 +72,53 @@ let PitchBlack    = 16
 let White         = 253
 let BrightWhite   = 15
 let Peach         = 137  " 137, 215
-let LightBlue     = 75
+let LiteBlue      = 75
 let Lavender      = 139
 let NONE          = "NONE"
 let bold          = "bold"
 
 
-call ExecHi("ColorColumn", NONE, LiteGrey)
+call ExecHi("ColorColumn", NONE, BlueGrey)
 call ExecHi("Comment", Comment, NONE)
-call ExecHi("Conditional", LiteGrey, NONE)
-call ExecHi("Constant", IndianRed1, NONE)
-call ExecHi("Cursor", LiteGrey, NONE)
+call ExecHi("Conditional", BlueGrey, NONE)
+call ExecHi("Constant", LiteRed, NONE)
+call ExecHi("Cursor", BlueGrey, NONE)
 call ExecHi("CursorLine", NONE, NONE)
-call ExecHi("DiffAdd", LiteGrey, NONE)
+call ExecHi("DiffAdd", BlueGrey, NONE)
 call ExecHi("DiffChange", NONE, DeepPink4)
-call ExecHi("DiffDelete", LightGrey, Green)
-call ExecHi("DiffText", LightGrey, Grey)
+call ExecHi("DiffDelete", LiteGrey, Green)
+call ExecHi("DiffText", LiteGrey, Grey)
 call ExecHi("Directory", Grey, Black)
 call ExecHi("Error", PitchBlack, Lavender)
 call ExecHi("ErrorMsg", Green, NONE)
-call ExecHi("FoldColumn", LiteGrey, NONE)
-call ExecHi("Folded", LiteGrey, NONE)
-call ExecHi("Function", DarkOrange, NONE)
+call ExecHi("FoldColumn", BlueGrey, NONE)
+call ExecHi("Folded", BlueGrey, NONE)
+call ExecHi("Function", Orange, NONE)
 call ExecHi("Identifier", HotPink3, NONE)
-call ExecHi("IncSearch", PitchBlack, DarkOrange)
-call ExecHi("NonText", LiteGrey, NONE)
-call ExecHi("Normal", LightGrey, NONE)
-call ExecHi("Number", IndianRed1, NONE)
-call ExecHi("Operator", LiteGrey, NONE)
-call ExecHi("PreProc", Red,NONE,NONE, NONE)
-call ExecHi("Repeat", LiteGrey, NONE)
-call ExecHi("Search", PitchBlack, LightGrey)
+call ExecHi("IncSearch", PitchBlack, Orange)
+call ExecHi("NonText", BlueGrey, NONE)
+call ExecHi("Normal", LiteGrey, NONE)
+call ExecHi("Number", LiteRed, NONE)
+call ExecHi("Operator", BlueGrey, NONE)
+call ExecHi("PreProc", Red, NONE, NONE, NONE)
+call ExecHi("Repeat", BlueGrey, NONE)
+call ExecHi("Search", PitchBlack, LiteGrey)
 call ExecHi("Special", HotPink3, NONE, NONE, bold)
-call ExecHi("SpecialKey", LiteGrey, NONE)
-call ExecHi("Statement", LiteGrey, NONE, NONE, bold)
-call ExecHi("StatusLine", LiteGrey, NONE)
-call ExecHi("TabLineSel", LightGrey, NONE)
-call ExecHi("Title", DarkOrange, NONE)
+call ExecHi("SpecialKey", BlueGrey, NONE)
+call ExecHi("Statement", BlueGrey, NONE, NONE, bold)
+call ExecHi("StatusLine", BlueGrey, NONE)
+call ExecHi("TabLineSel", LiteGrey, NONE)
+call ExecHi("Title", Orange, NONE)
 call ExecHi("Type", Peach, NONE)
-call ExecHi("VertSplit", LiteGrey, NONE)
-call ExecHi("Visual", Black, LightGrey)
-call ExecHi("WarningMsg", LiteGrey, NONE)
+call ExecHi("VertSplit", BlueGrey, NONE)
+call ExecHi("Visual", Black, LiteGrey)
+call ExecHi("WarningMsg", BlueGrey, NONE)
 call ExecHi("CursorLineNr",Black, DarkGrey)
-call ExecHi("SpellCap", DarkRed, LightBlue, NONE, bold)
+call ExecHi("SpellCap", DarkRed, LiteBlue, NONE, bold)
 
-call ExecHi("Pmenu", LightGrey, Black)
-call ExecHi("PmenuSel", DarkRed, LightGrey)
-hi! link PmenuSbar       PmenuSel
-hi! link PmenuThumb      PmenuSel
-
+call ExecHi("Pmenu", LiteGrey, Black)
+call ExecHi("PmenuSel", DarkRed, LiteGrey)
+"
 "TODO: This is a test.
 
 hi Underlined term=underline cterm=underline ctermfg=NONE ctermbg=NONE
@@ -135,4 +137,5 @@ hi! link String          Number
 hi! link Todo            Error
 hi! link SpellBad        Error
 hi! link LineNr          Comment
-
+hi! link PmenuSbar       PmenuSel
+hi! link PmenuThumb      PmenuSel
