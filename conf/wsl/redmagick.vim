@@ -74,6 +74,7 @@ let BrightWhite   = 15
 let Peach         = 137  " 137, 215
 let LiteBlue      = 75
 let Lavender      = 139
+let LiteGreen     = 79
 let NONE          = "NONE"
 let bold          = "bold"
 
@@ -111,7 +112,7 @@ call ExecHi("TabLineSel", LiteGrey, NONE)
 call ExecHi("Title", Orange, NONE)
 call ExecHi("Type", Peach, NONE)
 call ExecHi("VertSplit", BlueGrey, NONE)
-call ExecHi("Visual", Black, LiteGrey)
+call ExecHi("Visual", Black, LiteGreen)
 call ExecHi("WarningMsg", BlueGrey, NONE)
 call ExecHi("CursorLineNr",Black, DarkGrey)
 call ExecHi("SpellCap", DarkRed, LiteBlue, NONE, bold)
