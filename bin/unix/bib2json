@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import bibtexparser
 import sys
+import json
 
 if __name__ == '__main__':
     if len(sys.argv) == 0:
@@ -14,6 +15,8 @@ if __name__ == '__main__':
         with open(path_to_bib) as f:
             bib_database = bibtexparser.load(f)
 
-        # This is json.
-        bib = bib_database.entries_dict
-        print(bib)
+        # Get bib as dictionary
+        bib_dict = bib_database.entries_dict
+
+        # Print bib as json
+        print(json.dumps(bib_dict))
