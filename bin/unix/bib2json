@@ -4,8 +4,8 @@ import sys
 
 if __name__ == '__main__':
     if len(sys.argv) == 0:
-        print "Usage: "
-        print "    bib2json path/to/my.bib"
+        print("Usage: ")
+        print("    bib2json path/to/my.bib")
     else:
         # Get path to bib.
         path_to_bib = sys.argv[1]
