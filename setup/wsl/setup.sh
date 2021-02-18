@@ -59,6 +59,7 @@ ln -s ${BINDIR}/zipit ~/bin/zipit
 ln -s ${BINDIR}/texgen ~/bin/texgen
 ln -s ${BINDIR}/metrogen ~/bin/metrogen
 ln -s ${BINDIR}/captainslog ~/bin/captainslog
+ln -s ${BINDIR}/bib2json ~/bin/bib2json
 
 # Install tmux related plugins. tmux ships with wsl.
 echo "tmux installations ..."
