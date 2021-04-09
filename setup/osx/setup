@@ -30,7 +30,7 @@ touch ~/.pythonhistory
 cp ${CONFOSXDIR}/profile ~/.profile
 cp ${CONFOSXDIR}/tmux.conf ~/.tmux.conf
 cp -r ${CONFDIR}/vim/* ~/.vim/
-cp -f ${CONFOSXDIR}/vimrc ~/.vimrc
+# cp -f ${CONFOSXDIR}/vimrc ~/.vimrc
 cp ${CONFDIR}/git-prompt.sh ~/.git-prompt.sh
 cp ${CONFDIR}/gitconfig ~/.gitconfig
 cp ${CONFDIR}/gitignore_global ~/.gitignore_global
