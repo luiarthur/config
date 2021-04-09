@@ -1,5 +1,8 @@
+#!/bin/bash
+
 # Apperance
 export CLICOLOR=1
+
 # Comment if not using redmagick
 export TERM=xterm-256color
 
@@ -28,7 +31,8 @@ export PATH=$HOME/programs/homebrew/bin:$PATH
 export PYTHONSTARTUP=~/.pythonrc
 
 # MacVim
-alias vi="mvim -v"
-alias vim="mvim -v"
+# alias vi="mvim -v"
+# alias vim="mvim -v"
 
-
+# Makefile completion.
+complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' ?akefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
