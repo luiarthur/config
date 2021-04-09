@@ -8,18 +8,22 @@ CONFDIR="$PWD/../../conf/unix/"
 BINOSXDIR="$PWD/../../bin/osx/"
 CONFOSXDIR="$PWD/../../conf/osx/"
 
-# Make a programs dir
-mkdir -p ~/programs
-mkdir -p ~/.ssh
-
-# Create directories
+# Create directories if needed.
 mkdir -p ~/bin
 mkdir -p ~/lib/R_lib
 mkdir -p ~/.vim/colors
-mkdir -p ~/.R
-mkdir -p ~/Library/texmf/tex # for custom beamer theme
 mkdir -p ~/.vim/spell
 mkdir -p ~/.ssh
+mkdir -p ~/.vim/colors
+mkdir -p ~/.R
+mkdir -p ~/Library/texmf/tex # for custom beamer theme
+mkdir -p ~/lib/tex_templates/tex/ # for default latex files
+mkdir -p ~/.ssh
+mkdir -p ~/templates  # templates from GitHub
+mkdir -p ~/programs
+mkdir -p ~/.julia/config
+
+# Create the following files>
 touch ~/.pythonhistory
 
 # Copy configuration files
@@ -42,7 +46,6 @@ ln -s ${CONFDIR}/beamerthemealui.sty ~/Library/texmf/tex/beamerthemealui.sty
 ln -s ${CONFDIR}/redmagick.vim ~/.vim/colors/redmagick.vim
 
 # Copy scripts
-ln -s ${BINDIR}/vulture.py ~/bin/vulture
 ln -s ${BINDIR}/dirsize ~/bin/dirsize
 ln -s ${BINDIR}/gush ~/bin/gush
 ln -s ${BINDIR}/md ~/bin/md
@@ -54,6 +57,8 @@ ln -s ${BINDIR}/beamergen ~/bin/beamergen
 ln -s ${BINDIR}/asamdgen ~/bin/asamdgen
 ln -s ${BINDIR}/ignoreall ~/bin/ignoreall
 ln -s ${BINDIR}/metrogen ~/bin/metrogen
+ln -s ${BINDIR}/captainslog ~/bin/captainslog
+ln -s ${BINDIR}/bib2json ~/bin/bib2json
 
 
 # Install Basic Programs
