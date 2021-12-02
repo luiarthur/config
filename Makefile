@@ -14,3 +14,10 @@ osx:
 
 wsl:
 	cd setup/wsl && ./setup.sh && ./install.sh
+
+install-tmux3.0a-appimage:
+	wget https://github.com/tmux/tmux/releases/download/3.0a/tmux-3.0a-x86_64.AppImage
+	mkdir -p ~/bin
+	mv tmux-3.0a-x86_64.AppImage ~/bin
+	chmod +x ~/bin/tmux-3.0a-x86_64.AppImage
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
