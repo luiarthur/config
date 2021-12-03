@@ -1,0 +1,52 @@
+#!/bin/bash
+
+
+CONFDIR="$PWD/../../conf/unix/"
+BINDIR="$PWD/../../bin/unix/"
+CONFSERVERDIR="$PWD/../../conf/linux_server/"
+
+
+# Make the following directories if they do not yet exist
+mv ~/.bashrc ~/.bashrc.old
+mkdir -p ~/bin/
+mkdir -p ~/lib/R_lib/
+mkdir -p ~/.vim/colors/
+mkdir -p ~/.texmf-config/tex/ # for custom beamer theme
+mkdir -p ~/.R/
+mkdir -p ~/.ssh
+
+
+
+# Copy these configuration files to the right place
+cp ${CONFDIR}/bashrc ~/.bashrc
+wget https://gist.githubusercontent.com/luiarthur/a309ea94ef03cb0302027205ea328f77/raw/afc57775b8eb550a50a677308b9014f3d1896e68/git-prompt.sh -O ~/.git-prompt.sh
+cp ${CONFDIR}/gitconfig ~/.gitconfig
+cp ${CONFDIR}/gitignore_global ~/.gitignore_global
+cp ${CONFDIR}/pythonrc ~/.pythonrc
+ln -s ${CONFDIR}/redmagick.vim  ~/.vim/colors
+cp ${CONFDIR}/R-Makevars ~/.R/Makevars
+cp ${CONFDIR}/Renviron ~/.Renviron
+cp ${CONFDIR}/Rprofile ~/.Rprofile
+cp ${CONFDIR}/ssh_config ~/.ssh/config
+cp ${CONFDIR}/tmux.conf ~/.tmux.conf
+#cp ${CONFDIR}/vimrc ~/.vimrc
+#cp ${CONFDIR}/vimrc.line-feeder-3 ~/.vimrc.line-feeder-3
+cp -r ${CONFDIR}/vim/* ~/.vim/
+cp ${CONFDIR}/bashColors ~/.bashColors
+
+
+# Copy these scripts to `~/bin`
+cp ${BINDIR}/resources ~/bin
+ln -s ${BINDIR}/dirsize ~/bin/dirsize
+ln -s ${BINDIR}/vulture.py ~/bin/vulture
+ln -s ${BINDIR}/gush ~/bin/gush
+ln -s ${BINDIR}/sbtgen ~/bin/sbtgen
+ln -s ${BINDIR}/sbt-cleanstage ~/bin/sbt-cleanstage
+ln -s ${BINDIR}/combineJars ~/bin/combineJars
+ln -s ${BINDIR}/pdfPage ~/bin/pdfPage
+ln -s ${BINDIR}/newH ~/bin/newH
+ln -s ${BINDIR}/zipit ~/bin/zipit
+
+
+# Basic Installations
+#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim

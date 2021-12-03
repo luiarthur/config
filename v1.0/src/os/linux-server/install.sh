@@ -1,3 +1,5 @@
+current_dir=$PWD
+
 # Install conda if not installed.
 if [[ `which conda` == "" ]]
 then
@@ -16,3 +18,14 @@ fi
 
 # Install neovim if not installed.
 [[ `which neovim` ]] || conda install -c conda-forge neovim
+
+# Download nvim-config and setup.
+git clone https://github.com/luiarthur/nvim-config ~/repo/nvim-config
+cd ~/repo/nvim-config && make install
+cd $current_dir
+
+# Install tmux if not installed.
+[[ `which tmux` ]] || conda install -c conda-forge tmux
+
+# Install tmux plugin manager.
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
