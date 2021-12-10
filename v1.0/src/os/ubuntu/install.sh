@@ -12,21 +12,23 @@ install_conda() {
   echo "Conda not installed. Installing Conda."
   
   # Do things in ~/tmp.
-  cd ~/tmp
+  cd ~/tmp && {
+    # Script name.
+    fname=Miniconda3-latest-Linux-x86_64.sh
 
-  # Script name.
-  fname=Miniconda3-latest-Linux-x86_64.sh
+    # Download installation script.
+    echo "Downloading installation script."
+    wget https://repo.anaconda.com/miniconda/${fname}
 
-  # Download installation script.
-  echo "Downloading installation script."
-  wget https://repo.anaconda.com/miniconda/${fname}
+    # Run installation script.
+    echo "Installing Conda."
+    bash ${fname}
 
-  # Run installation script.
-  echo "Installing Conda."
-  bash ${fname}
+    # Remove install script.
+    rm ~/tmp/${fname}
 
-  # Remove install script.
-  rm ~/tmp/${fname}
+    cd -
+  }
 }
 
 # Install conda if needed.
