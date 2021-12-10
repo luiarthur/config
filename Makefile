@@ -10,7 +10,7 @@ ubuntu:
 	cd setup/ubuntu && ./setup && ./install
 
 osx:
-	cd setup/osx && ./setup && ./install
+	cd setup/osx && bash setup.sh && bash install.sh
 
 wsl:
 	cd setup/wsl && ./setup.sh && ./install.sh

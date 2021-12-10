@@ -16,14 +16,18 @@ alias rm="/bin/rm -i"
 
 # Alias
 alias dir="ls -hla"
-alias taro="tar -zxvf"
+alias taro="tar -zxf"
 alias tma="tmux attach -t"
+alias vi="nvim"
 
 # Set-up prompt
 PS1="\h:\W$ "
 
+# Git prompt
+source ~/.git-prompt.sh
+
 # Default Editor
-export EDITOR=vim
+export EDITOR=nvim
 
 # Search Paths
 export PATH=~/bin:$PATH

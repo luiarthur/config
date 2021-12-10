@@ -20,7 +20,7 @@ mkdir -p ~/Library/texmf/tex # for custom beamer theme
 mkdir -p ~/lib/tex_templates/tex/ # for default latex files
 mkdir -p ~/.ssh
 mkdir -p ~/templates  # templates from GitHub
-mkdir -p ~/programs
+mkdir -p ~/lib
 mkdir -p ~/.julia/config
 
 # Create the following files>
@@ -62,22 +62,22 @@ ln -s ${BINDIR}/bib2json ~/bin/bib2json
 
 # Install Basic Programs
 # Install brew
-# git clone https://github.com/mxcl/homebrew.git ~/programs/homebrew
+# git clone https://github.com/mxcl/homebrew.git ~/lib/homebrew
 # curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-mkdir -p ~/homebrew && cd ~/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-cd
+# mkdir -p ~/homebrew && cd ~/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+# cd
 
 # Install Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Install gnu-sed for gush
 # If gnu-sed is previously installed,
 # brew uninstall gnu-sed
-brew install gnu-sed --with-default-names
+# brew install gnu-sed --with-default-names
 
 # Install TMUX
 # Note in osx, to change pane size: Ctrl-b (release) + Option + Arrow
-brew install tmux 
+# brew install tmux 
 
 # Install this so that `open` can be used in tmux
 # brew install reattach-to-user-namespace
