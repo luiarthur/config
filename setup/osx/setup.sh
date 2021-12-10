@@ -58,30 +58,3 @@ ln -s ${BINDIR}/ignoreall ~/bin/ignoreall
 ln -s ${BINDIR}/metrogen ~/bin/metrogen
 ln -s ${BINDIR}/captainslog ~/bin/captainslog
 ln -s ${BINDIR}/bib2json ~/bin/bib2json
-
-
-# Install Basic Programs
-# Install brew
-# git clone https://github.com/mxcl/homebrew.git ~/lib/homebrew
-# curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-# mkdir -p ~/lib/homebrew && cd ~/lib/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar -xz --strip 1 -C homebrew
-# cd
-
-# Install Vundle
-# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-# Install gnu-sed for gush
-# If gnu-sed is previously installed,
-# brew uninstall gnu-sed
-# brew install gnu-sed --with-default-names
-
-# Install TMUX
-# Note in osx, to change pane size: Ctrl-b (release) + Option + Arrow
-# brew install tmux 
-
-# Install this so that `open` can be used in tmux
-# brew install reattach-to-user-namespace
-# brew upgrade reattach-to-user-namespace
-
-# Install vim for mac
-# brew install MacVim

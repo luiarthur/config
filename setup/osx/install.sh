@@ -32,7 +32,7 @@ done
 # Install neovim
 if [[ `which nvim` == "" ]]
 then
-  curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
+  curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-macos.tar.gz
   mv nvim-macos.tar.gz ~/tmp
   cd ~/tmp && tar xzf nvim-macos.tar.gz
   mv nvim-osx64 ~/lib
@@ -53,3 +53,14 @@ fi
 
 # Install R.
 # conda install -c r
+
+# Install brew
+# mkdir -p ~/lib/homebrew && cd ~/lib/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar -xz --strip 1 -C homebrew
+# cd
+
+# Install gnu-sed for gush
+# brew install gnu-sed
+
+# Install this so that `open` can be used in tmux
+# brew install reattach-to-user-namespace
+# brew upgrade reattach-to-user-namespace
