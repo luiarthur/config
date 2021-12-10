@@ -13,7 +13,7 @@ mkdir -p ~/.ssh/
 mkdir -p ~/.julia/config/
 
 # Copy these configuration files to the right place
-cp ${CONFDIR}/bashrc ~/.bashrc
+cp conf/profile ~/.profile
 cp ${CONFDIR}/git-prompt.sh ~/.git-prompt.sh
 cp ${CONFDIR}/gitconfig ~/.gitconfig
 cp ${CONFDIR}/gitignore_global ~/.gitignore_global

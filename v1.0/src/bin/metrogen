@@ -1,0 +1,20 @@
+#!/bin/bash
+
+argnum=$#
+
+if [ $argnum == 0 ]
+then
+  echo
+  echo "  This scripts accepts a beamer document name as an argument"
+  echo "  and generates a new metropolis beamer document template"
+  echo
+  echo "  Usage:"
+  echo "        $ metrogen nameOfNewBeamerDocument"
+  echo
+else
+  fname="$1"
+  PATH_TO_BEAMER_TEMPLATE=${HOME}/repo/config/conf/unix/beamer-template
+  cp ${PATH_TO_BEAMER_TEMPLATE}/beamer-template.tex ${fname}.tex
+  cp ${PATH_TO_BEAMER_TEMPLATE}/.gitignore .
+  cp ${PATH_TO_BEAMER_TEMPLATE}/Makefile .
+fi

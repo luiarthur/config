@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo
+cat /etc/*-release
+echo
+
+echo "$HOSTNAME:"
+
+echo -n "  CPU: "
+cat /proc/cpuinfo | grep 'model name' | cut -d ':' -f 2 | uniq -c | sed 's/^ *//'
+
+echo -n "  Memory: "
+cat /proc/meminfo | grep 'MemTotal' | cut -d ':' -f 2 | sed 's/^ *//' | cut -d ' ' -f 1 | awk '{$1=$1/(1024^2); print $1,"GB";}'
+
+echo -n "  Uptime:"
+uptime
+
+echo 
+df -h | head -2 | sed "s/^/  /"
+#df -h | sed -n '4p' | sed "s/^/  /"
+
+echo

@@ -1,39 +1,53 @@
-current_dir=$PWD
+#!/bin/bash
 
 # Install conda if not installed.
-if [[ `which conda` == "" ]]
-then
-  mkdir -p ~/tmp/conda-install
-  cd ~/tmp/conda-install
-  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh 
-  bash Miniconda3-latest-Linux-x86_64.sh 
-  rm -rf ~/tmp/conda-install
-fi
+install_conda() {
+  echo "Conda not installed. Installing Conda."
+  
+  # Do things in ~/tmp.
+  cd ~/tmp && {
+    # Script name.
+    fname=Miniconda3-latest-Linux-x86_64.sh
 
+    # Download installation script.
+    echo "Downloading installation script."
+    wget https://repo.anaconda.com/miniconda/${fname}
 
-# Install tree if not installed.
-# TODO: Get latest appimage?
-[[ `which tree` ]] || conda install -c conda-forge tree
+    # Run installation script.
+    echo "Installing Conda."
+    bash ${fname}
 
-# Install htop if not installed.
-# TODO: Get latest appimage?
-[[ `which htop` ]] || conda install -c conda-forge htop
+    # Remove install script.
+    rm ~/tmp/${fname}
+
+    cd -
+  }
+}
+
+# Install conda if needed.
+[[ `which conda` ]] || install_conda
+conda config --set auto_stack 1
+
+# Command line utils to install:
+install_cmd_line_utils() {
+  cmd_line_utils=""
+  for util in $@
+  do
+    [[ `which $util` ]] || cmd_line_utils="$cmd_line_utils $util"
+  done
+  conda install -c conda-forge $cmd_line_utils
+}
+install_cmd_line_utils htop tree tmux ncurses
 
 # Install neovim if not installed.
-# [[ `which neovim` ]] || conda install -c conda-forge neovim
-[[ `which neovim` ]] || wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O ~/bin/nvim
-chmod +x ~/bin/nvim
+[[ `which neovim` ]] || {
+  wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O ~/bin/nvim
+  chmod +x ~/bin/nvim
+}
 
 # Download nvim-config and setup.
 git clone https://github.com/luiarthur/nvim-config ~/repo/nvim-config
-cd ~/repo/nvim-config && make install
-cd $current_dir
-
-# Install tmux if not installed.
-# [[ `which neovim` ]] || conda install -c conda-forge tmux
-# TODO: Get latest appimage?
-[[ `which tmux` ]] || wget https://github.com/tmux/tmux/releases/download/3.1b/tmux-3.1b-x86_64.AppImage -O ~/bin/tmux
-chmod +x ~/bin/tmux
+cd ~/repo/nvim-config && { make install; cd -; }
 
 # Install tmux plugin manager.
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

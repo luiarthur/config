@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# SED Command.
+if [[ "$OSTYPE" == "darwin"* ]]
+then
+  sed_cmd=gsed
+elif [[ "OSTYPE" == "linux-gnu"* ]]
+then
+  sed_cmd=sed
+else
+  echo "Error: OSTYPE is neither darwin* nor linux-gnu*. Don't know what sed command to use."
+  exit 1
+fi
+
+git add .
+git commit -m 'yes'
+git push
+
+source ~/.bashColors
+
+topDir=`git rev-parse --show-toplevel`
+sizeOfTopDir=$( echo `du -sh $topDir` | cut -d " " -f1 )
+sizeOfDir=$( echo `du -sh` | cut -d " " -f1 )
+sizeOfRepo=$( git count-objects -vH | grep 'size-pack' | $sed_cmd -r 's/\.([0-9]+)//g' | cut -d' ' -f2- | $sed_cmd 's/[iB\ ]//g' )
+
+printf "${BLUE}Size of dir:     $sizeOfDir\n"
+printf        "Size of top dir: $sizeOfTopDir\n"
+printf "${BOLD}Size of repo:    $sizeOfRepo\n"
+printf "${ORANGE}$(date)${NC}\n"

@@ -1,0 +1,57 @@
+#!/bin/bash
+
+argnum=$#
+
+if [ $argnum == 0 ]
+then
+  echo
+  echo "  This scripts accepts a project name as an argument"
+  echo "  and generates a new sbt project."
+  echo
+  echo "  Usage:"
+  echo "        $ sbtGen nameOfNewProject"
+  echo
+else
+  projName="$1"
+  mkdir -p $projName/src/{main,test}/{java,resources,scala}
+  mkdir $projName/lib $projName/project $projName/target
+
+  # create an initial build.sbt file
+  echo "name := \"$projName\"
+
+version := \"0.1.0\"
+
+scalaVersion := \"2.11.8\"
+
+libraryDependencies ++= Seq(
+  \"org.scalatest\" %% \"scalatest\" % \"3.0.0\" % \"test\"
+)
+" > $projName/build.sbt
+
+  echo "import org.scalatest.FunSuite
+class TestSuite extends FunSuite {
+}" > $projName/src/test/scala/TestSuite.scala
+
+  echo " *.class
+*.log
+
+# sbt specific
+.cache
+.history
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+.idea" > $projName/.gitignore
+
+
+fi
+
+exit 0
