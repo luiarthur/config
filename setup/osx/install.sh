@@ -21,6 +21,7 @@ install_conda() {
 
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
+conda config --set auto_stack 1
 
 # Install basic libraries if needed.
 basic_libs="ncurses htop tree tmux wget"
