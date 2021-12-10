@@ -29,7 +29,7 @@ touch ~/.pythonhistory
 # Copy configuration files
 cp ${CONFOSXDIR}/profile ~/.profile
 cp ${CONFDIR}/tmux.conf ~/.tmux.conf
-cp -r ${CONFDIR}/vim/* ~/.vim/
+# cp -r ${CONFDIR}/vim/* ~/.vim/
 # cp -f ${CONFOSXDIR}/vimrc ~/.vimrc
 cp ${CONFDIR}/git-prompt.sh ~/.git-prompt.sh
 cp ${CONFDIR}/gitconfig ~/.gitconfig
