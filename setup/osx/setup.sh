@@ -64,7 +64,7 @@ ln -s ${BINDIR}/bib2json ~/bin/bib2json
 # Install brew
 # git clone https://github.com/mxcl/homebrew.git ~/lib/homebrew
 # curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-# mkdir -p ~/lib/homebrew && cd ~/lib/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+# mkdir -p ~/lib/homebrew && cd ~/lib/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar -xz --strip 1 -C homebrew
 # cd
 
 # Install Vundle
