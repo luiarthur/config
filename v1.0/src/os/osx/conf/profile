@@ -38,5 +38,12 @@ source ~/.git-prompt.sh
 # alias vi="mvim -v"
 # alias vim="mvim -v"
 
+# Bash completion.
+if [ `which brew` ]; then
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+  fi
+fi
+
 # Makefile completion.
 complete -W "\`grep -oE '^[a-zA-Z0-9_.-]+:([^=]|$)' ?akefile | sed 's/[^a-zA-Z0-9_.-]*$//'\`" make
