@@ -1,13 +1,14 @@
 #! This file belongs in ~/.ssh/config
 
-### Example for adding server name
-### Now you can ssh into server by 
-### $ ssh citrisdance 
+### EXAMPLE ###
+# The following makes `ssh alui` a shorthand for 
+# `ssh alui@servername.domain.com -X`.
 
-# Host citrisdance
-# HostName citrisdance.soe.ucsc.edu
-# User alui2
+# Host servername
+# HostName servername.domain.com
+# User alui
 # ForwardX11 yes
+### END OF EXAMPLE ###
 
 # Host my-aws-instance
 # HostName <public-ip-address-of-aws-instance>
@@ -19,10 +20,6 @@
 # LocalCommand echo "Forwarding host:8004 to localhost:8004"
 
 
+### Command for adding public key to correct path on server. ###
 
-
-
-### Example add my computer to authorized keys in servers
-
-#cat ~/.ssh/id_rsa.pub | ssh alui2@hyades.ucsc.edu 'cat >> ~/.ssh/authorized_keys2'
-#cat ~/.ssh/id_rsa.pub | ssh alui2@citrisdance.soe.ucsc.edu 'cat >> ~/.ssh/authorized_keys'
+# cat ~/.ssh/id_rsa.pub | ssh username@servername.domain.com 'cat >> ~/.ssh/authorized_keys'
