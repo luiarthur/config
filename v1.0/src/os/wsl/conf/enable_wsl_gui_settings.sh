@@ -1,6 +1,9 @@
 #!/bin/bash
 
-### WSL 2 ###
+# NOTE: Run this when WSL2 Vmmem gets high. Consider putting in crontab.
+# Not as crucial if memory limit is set in `.wslconfig`.
+alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
+
 configure_wsl_specific_settings() {
   # NOTE: Not sure if any of these are still needed since LINUX GUI apps are
   # officially supported in WSL2. I think all of these are set by default in
@@ -23,3 +26,4 @@ configure_wsl_specific_settings() {
 # 
 #     source configure_wsl_specific_settings.sh
 #     configure_wsl_specific_settings
+
