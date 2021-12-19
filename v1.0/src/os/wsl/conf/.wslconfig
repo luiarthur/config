@@ -1,4 +1,4 @@
 [wsl2]
-memory=1.5GB
-swap=0
-localhostForwarding=true
+memory=1500MB  # value must be whole number (no decimals), units include MB, GB.
+# swap=0  # Defaults to 25% of available RAM.
+# localhostForwarding=true  # Not sure if this is really needed.

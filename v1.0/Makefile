@@ -8,3 +8,5 @@ osx:
 
 ubuntu:
 	cd os/ubuntu && bash setup.sh && bash install.sh
+
+wsl: ubuntu
