@@ -11,8 +11,8 @@ mkdir -p $HOME/bin
 install_conda() {
   echo "Conda not installed. Installing Conda."
   
-  # Do things in ~/tmp.
-  cd ~/tmp && {
+  # Do things in /tmp.
+  cd /tmp && {
     # Script name.
     fname=Miniconda3-latest-Linux-x86_64.sh
 
@@ -23,9 +23,6 @@ install_conda() {
     # Run installation script.
     echo "Installing Conda."
     bash ${fname}
-
-    # Remove install script.
-    rm ~/tmp/${fname}
 
     cd -
   }

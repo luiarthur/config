@@ -8,8 +8,8 @@ mkdir -p ~/bin
 [[ `which conda` ]] || {
   echo "Conda not installed. Installing Conda."
   
-  # Do things in ~/tmp.
-  cd ~/tmp && {
+  # Do things in /tmp.
+  cd /tmp && {
     fname=Miniconda3-latest-MacOSX-x86_64.sh
 
     # Download installation script.
@@ -19,7 +19,6 @@ mkdir -p ~/bin
     # Run installation script.
     echo "Installing Conda."
     bash ${fname}
-    rm ${fname}
 
     cd -
   }
@@ -41,12 +40,11 @@ install_cmd_line_utils htop tree tmux ncurses wget
 if [[ `which nvim` == "" ]]
 then
   curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-macos.tar.gz
-  mv nvim-macos.tar.gz ~/tmp
-  cd ~/tmp && {
+  mv nvim-macos.tar.gz /tmp
+  cd /tmp && {
     tar xzf nvim-macos.tar.gz
     mv nvim-osx64 ~/lib
     ln -s ~/lib/nvim-osx64/bin/nvim ~/bin/nvim
-    rm ~/tmp/nvim-macos.tar.gz
     cd -
   }
 fi
