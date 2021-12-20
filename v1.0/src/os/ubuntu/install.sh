@@ -43,14 +43,10 @@ install_cmd_line_utils() {
 }
 install_cmd_line_utils tmux htop tree
 
-# Install neovim
-[[ `which nvim` ]] || {
-  cd ~/tmp && { 
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-    chmod u+x nvim.appimage
-    mv nvim.appimage ~/bin/nvim
-    cd -
-  }
+# Install neovim if not installed.
+[[ `which neovim` ]] || {
+  wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O ~/bin/nvim
+  chmod +x ~/bin/nvim
 }
 
 # Download nvim-config and setup.
