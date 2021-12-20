@@ -24,6 +24,7 @@ configure_wsl_specific_settings() {
 
 # NOTE: If things break, add the following in ~/.bashrc:
 # 
-#     source configure_wsl_specific_settings.sh
-#     configure_wsl_specific_settings
-
+#     [[ -f ~/.wsl-settings.sh ]] && {
+#       source ~/.wsl-settings.sh
+#       configure_wsl_specific_settings
+#     }

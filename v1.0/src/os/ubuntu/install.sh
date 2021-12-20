@@ -33,7 +33,7 @@ install_conda() {
 
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
-# conda config --set auto_stack 1  # includes the PATH from outer most conda env.
+conda config --set auto_stack 1  # includes the PATH from outer most conda env.
 
 # Command line utils to install:
 install_cmd_line_utils() {
@@ -42,7 +42,7 @@ install_cmd_line_utils() {
   do
     [[ `which $util` ]] || cmd_line_utils="$cmd_line_utils $util"
   done
-  echo "sudo apt install -y $cmd_line_utils"
+  sudo apt install -y $cmd_line_utils
 }
 install_cmd_line_utils tmux htop tree
 
