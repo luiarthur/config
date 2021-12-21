@@ -149,8 +149,8 @@ export PYTHONSTARTUP=~/.pythonrc  # python
 
 # Julia
 # export JULIA_HOME=""  # path to `julia-vX.Y.Z/`
+# export PATH=$JULIA_HOME/bin:$PATH
 # export JULIA_DEPOT_PATH=""  # path to `.julia/` [optional]
-# export PATH=JULIA_HOME/bin:$PATH
 
 ############
 ### misc ###
