@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONFDIR="$PWD/../../conf/"
-BINDIR="$PWD/../../conf/"
+BINDIR="$PWD/../../bin/"
 
 # Make directories if needed.
 mkdir -p ~/bin/
