@@ -60,7 +60,7 @@ fi
 [[ -d ~/.tmux/plugins/tpm ]] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install R.
-# conda install -c r
+# conda install -c r r
 
 ############
 ### BREW ###
