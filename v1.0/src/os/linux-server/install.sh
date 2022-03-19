@@ -36,7 +36,9 @@ install_cmd_line_utils() {
 }
 
 # Install tmux plugin manager.
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+[[ -d ~/.tmux/plugins/tpm ]] || {
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
 
 # Install neovim if not installed.
 [[ `which neovim` ]] || [[ `which nvim` ]] || {
@@ -45,12 +47,16 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 }
 
 # Download nvim-config and setup.
-git clone https://github.com/luiarthur/nvim-config ~/repo/nvim-config
-cd ~/repo/nvim-config && { make all; cd -; }
+[[ -d ~/repo/nvim-config ]] || {
+  git clone https://github.com/luiarthur/nvim-config ~/repo/nvim-config
+  cd ~/repo/nvim-config && { make all; cd -; }
+}
 
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
-[[ -f ~/.bashrc ]] && {
-  source ~/.bashrc && conda config --set auto_stack 1
+
+# Since a shell restart is needed ...
+[[ `which conda` ]] && {
+  conda config --set auto_stack 1
   install_cmd_line_utils htop tree tmux ncurses
 }
