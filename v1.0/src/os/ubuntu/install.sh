@@ -30,6 +30,7 @@ install_conda() {
 
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
+source ~/.bashrc
 conda config --set auto_stack 1  # includes the PATH from outer most conda env.
 
 # Command line utils to install:

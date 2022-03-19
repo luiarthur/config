@@ -27,6 +27,7 @@ install_conda() {
 
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
+[[ -f ~/.bashrc ]] && source ~/.bashrc
 conda config --set auto_stack 1
 
 # Command line utils to install:
@@ -52,3 +53,5 @@ cd ~/repo/nvim-config && { make all; cd -; }
 
 # Install tmux plugin manager.
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+[[ -f ~/.bashrc ]] && source ~/.bashrc

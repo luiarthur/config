@@ -23,6 +23,7 @@ mkdir -p ~/bin
     cd -
   }
 }
+[[ -f ~/.profile ]] && source ~/.profile
 conda config --set auto_stack 1
 
 # Install basic libraries if needed.
