@@ -27,8 +27,7 @@ install_conda() {
 
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
-[[ -f ~/.bashrc ]] && source ~/.bashrc && {
-  conda init bash
+[[ -f ~/.bashrc ]] && bash -i ~/.bashrc && {
   conda config --set auto_stack 1
 
   # Command line utils to install:
