@@ -31,7 +31,13 @@ alias taro="tar -zxf"
 alias tma="tmux attach -t"
 alias s="aspell --lang=en_GB -t -c"
 alias chrome="google-chrome"
-alias vi="nvim"
+
+# If running in docker, nvim needs to be run with extra args.
+if [ -f /.dockerenv ]; then
+    alias vi="nvim --appimage-extract-and-run"
+else
+    alias vi="nvim"
+fi
 
 # Print pretty git log. see: https://git-scm.com/docs/pretty-formats or `man
 # git-log`.
