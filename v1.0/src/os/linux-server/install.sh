@@ -27,19 +27,23 @@ install_conda() {
 
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
-[[ -f ~/.bashrc ]] && source ~/.bashrc
-conda config --set auto_stack 1
+[[ -f ~/.bashrc ]] && source ~/.bashrc && {
+  conda config --set auto_stack 1
 
-# Command line utils to install:
-install_cmd_line_utils() {
-  cmd_line_utils=""
-  for util in $@
-  do
-    [[ `which $util` ]] || cmd_line_utils="$cmd_line_utils $util"
-  done
-  conda install -c conda-forge $cmd_line_utils
+  # Command line utils to install:
+  install_cmd_line_utils() {
+    cmd_line_utils=""
+    for util in $@
+    do
+      [[ `which $util` ]] || cmd_line_utils="$cmd_line_utils $util"
+    done
+    conda install -c conda-forge $cmd_line_utils
+  }
+  install_cmd_line_utils htop tree tmux ncurses
 }
-install_cmd_line_utils htop tree tmux ncurses
+
+# Install tmux plugin manager.
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install neovim if not installed.
 [[ `which neovim` ]] || [[ `which nvim` ]] || {
@@ -50,8 +54,3 @@ install_cmd_line_utils htop tree tmux ncurses
 # Download nvim-config and setup.
 git clone https://github.com/luiarthur/nvim-config ~/repo/nvim-config
 cd ~/repo/nvim-config && { make all; cd -; }
-
-# Install tmux plugin manager.
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-[[ -f ~/.bashrc ]] && source ~/.bashrc
