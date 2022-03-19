@@ -48,7 +48,7 @@ install_cmd_line_utils htop tree tmux ncurses
 
 # Download nvim-config and setup.
 git clone https://github.com/luiarthur/nvim-config ~/repo/nvim-config
-cd ~/repo/nvim-config && { make install; cd -; }
+cd ~/repo/nvim-config && { make all; cd -; }
 
 # Install tmux plugin manager.
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

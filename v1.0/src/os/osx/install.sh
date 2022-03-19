@@ -53,7 +53,7 @@ fi
 if [[ ! -d ~/repo/nvim-config ]]
 then
   git clone https://github.com/luiarthur/nvim-config ~/repo/nvim-config
-  cd ~/repo/nvim-config && { make install; cd -; }
+  cd ~/repo/nvim-config && { make all; cd -; }
 fi
 
 # Install tmux plugin manager if needed.
