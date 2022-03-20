@@ -1,16 +1,12 @@
-.PHONY: osx win ubuntu linuxserver
+SHELL := /bin/bash
 
-all:
-	@echo "Nothing to do. See make options."
-
-linuxserver:
-	cd setup/linux_server && ./setup && ./install
-
-ubuntu:
-	cd setup/ubuntu && ./setup && ./install
+linux-server:
+	cd src/os/linux-server && bash setup.sh && bash install.sh
 
 osx:
-	cd setup/osx && bash setup.sh && bash install.sh
+	cd src/os/osx && bash setup.sh && bash install.sh
 
-wsl:
-	cd setup/wsl && ./setup.sh && ./install.sh
+ubuntu:
+	cd src/os/ubuntu && bash setup.sh && bash install.sh
+
+wsl: ubuntu
