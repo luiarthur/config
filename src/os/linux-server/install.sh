@@ -38,6 +38,7 @@ install_cmd_line_utils() {
   done
   conda install -y -c conda-forge $cmd_line_utils
 }
+
 # Install tmux plugin manager.
 [[ -d ~/.tmux/plugins/tpm ]] || {
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
