@@ -2,7 +2,6 @@ SHELL := /bin/bash
 
 linux-server:
 	cd src/os/linux-server && bash setup.sh && bash install.sh
-	# cd src/os/linux-server && bash -i install-util.sh
 
 osx:
 	cd src/os/osx && bash setup.sh && bash install.sh

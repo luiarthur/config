@@ -36,7 +36,7 @@ install_cmd_line_utils() {
   do
     [[ `which $util` ]] || cmd_line_utils="$cmd_line_utils $util"
   done
-  conda install -c conda-forge $cmd_line_utils
+  conda install -y -c conda-forge $cmd_line_utils
 }
 # Install tmux plugin manager.
 [[ -d ~/.tmux/plugins/tpm ]] || {
