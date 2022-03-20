@@ -4,10 +4,14 @@ mkdir -p ~/bin
 mkdir -p ~/lib
 mkdir -p ~/tmp
 
+# Make sure install dir exists.
+CONDA_HOME=$HOME/lib/miniconda3
+mkdir -p $CONDA_HOME
+ 
 # Install conda if not installed.
 install_conda() {
   echo "Conda not installed. Installing Conda."
-  
+ 
   # Do things in /tmp.
   cd /tmp && {
     # Script name.
@@ -19,12 +23,21 @@ install_conda() {
 
     # Run installation script.
     echo "Installing Conda."
-    bash ${fname}
+    bash ${fname} -b -p ${CONDA_HOME}
 
     cd -
   }
 }
 
+# Install command line utilities via conda.
+install_cmd_line_utils() {
+  cmd_line_utils=""
+  for util in $@
+  do
+    [[ `which $util` ]] || cmd_line_utils="$cmd_line_utils $util"
+  done
+  conda install -c conda-forge $cmd_line_utils
+}
 # Install tmux plugin manager.
 [[ -d ~/.tmux/plugins/tpm ]] || {
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -45,5 +58,13 @@ install_conda() {
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
 
-# Install additional packages via conda.
-source install-util.sh
+# Install utility packages via conda.
+export PATH=$CONDA_HOME/bin:$PATH
+if [[ `which conda` ]]; then
+  conda init bash
+  conda config --set auto_stack 1
+  install_cmd_line_utils htop tree tmux ncurses
+else
+  # This should not print.
+  echo "Conda is still not installed?!"
+fi
