@@ -25,15 +25,15 @@ install_conda() {
   }
 }
 
-# Command line utils to install:
-install_cmd_line_utils() {
-  cmd_line_utils=""
-  for util in $@
-  do
-    [[ `which $util` ]] || cmd_line_utils="$cmd_line_utils $util"
-  done
-  conda install -c conda-forge $cmd_line_utils
-}
+# # Command line utils to install:
+# install_cmd_line_utils() {
+#   cmd_line_utils=""
+#   for util in $@
+#   do
+#     [[ `which $util` ]] || cmd_line_utils="$cmd_line_utils $util"
+#   done
+#   conda install -c conda-forge $cmd_line_utils
+# }
 
 # Install tmux plugin manager.
 [[ -d ~/.tmux/plugins/tpm ]] || {

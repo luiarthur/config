@@ -5,7 +5,7 @@ linux-server:
 	make linux-server-util
 
 linux-server-util:
-	cd src/os/linux-server && bash install-util.sh
+	cd src/os/linux-server && bash -i install-util.sh
 
 osx:
 	cd src/os/osx && bash setup.sh && bash install.sh
