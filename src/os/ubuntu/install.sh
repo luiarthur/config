@@ -55,8 +55,8 @@ install_cmd_line_utils tmux htop tree neovim
 
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
-echo "conda config --set auto_activate_base false" >> ~/.bashrc
 export PATH=$CONDA_HOME/bin:$PATH
 if [[ `which conda` ]]; then
+  conda config --set auto_activate_base false
   conda init bash
 fi
