@@ -6,7 +6,7 @@ mkdir -p ~/tmp
 
 # Make sure install dir exists.
 CONDA_HOME=$HOME/lib/miniconda3
-mkdir -p $CONDA_HOME
+mkdir -p $HOME/lib
  
 # Install conda if not installed.
 install_conda() {
