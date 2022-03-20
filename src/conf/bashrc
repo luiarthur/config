@@ -35,7 +35,7 @@ alias chrome="google-chrome"
 # Alias for neovim.
 alias vi="nvim"
 # If running in docker, appimage for nvim needs to be run with extra args.
-if [ -f /.dockerenv && `which nvim` = "$HOME/bin/nvim" ]; then
+if [ -f /.dockerenv ] && [ `which nvim` = "$HOME/bin/nvim" ]; then
     alias vi="nvim --appimage-extract-and-run"
 fi
 
