@@ -55,13 +55,13 @@ install_cmd_line_utils() {
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
 
-# Since a shell restart is needed ...
-bash -c '
-if [[ `which conda` ]]; then
-  conda config --set auto_stack 1
-  install_cmd_line_utils htop tree tmux ncurses
-else
-  cat $HOME/.bashrc
-  echo "Conda is still not installed?!"
-fi
-'
+source install-util.sh
+# # Since a shell restart is needed ...
+# source $HOME/.bashrc
+# if [[ `which conda` ]]; then
+#   conda config --set auto_stack 1
+#   install_cmd_line_utils htop tree tmux ncurses
+# else
+#   cat $HOME/.bashrc
+#   echo "Conda is still not installed?!"
+# fi
