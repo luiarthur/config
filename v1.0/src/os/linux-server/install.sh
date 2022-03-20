@@ -25,16 +25,6 @@ install_conda() {
   }
 }
 
-# # Command line utils to install:
-# install_cmd_line_utils() {
-#   cmd_line_utils=""
-#   for util in $@
-#   do
-#     [[ `which $util` ]] || cmd_line_utils="$cmd_line_utils $util"
-#   done
-#   conda install -c conda-forge $cmd_line_utils
-# }
-
 # Install tmux plugin manager.
 [[ -d ~/.tmux/plugins/tpm ]] || {
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -55,13 +45,5 @@ install_conda() {
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
 
+# Install additional packages via conda.
 source install-util.sh
-# # Since a shell restart is needed ...
-# source $HOME/.bashrc
-# if [[ `which conda` ]]; then
-#   conda config --set auto_stack 1
-#   install_cmd_line_utils htop tree tmux ncurses
-# else
-#   cat $HOME/.bashrc
-#   echo "Conda is still not installed?!"
-# fi
