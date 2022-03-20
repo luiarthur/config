@@ -10,6 +10,7 @@ mkdir -p $HOME/bin
 
 # Make sure install dir exists.
 CONDA_HOME=$HOME/lib/miniconda3
+echo "export PATH=\$CONDA_HOME/bin:\$PATH" >> ~/.bashrc
 mkdir -p $HOME/lib
  
 # Install conda if not installed.
@@ -55,5 +56,3 @@ install_cmd_line_utils tmux htop tree neovim
 
 # Install conda if needed.
 [[ `which conda` ]] || install_conda
-
-
