@@ -1,0 +1,16 @@
+# ~/.Rprofile
+
+# For package generatrion
+options(
+  repos=structure(c(CRAN="https://cloud.r-project.org/")),
+  # devtools
+  devtools.name="Arthur Lui",
+  devtools.desc.author="Arthur Lui <luiarthur@ucsc.edu> [aut, cre]"
+)
+
+# my_scala_lib_dir <- "path-to-scala-libs"
+
+# Save / Load R history
+if (interactive()) {
+  .Last <- function() try(savehistory("~/.Rhistory"))
+}

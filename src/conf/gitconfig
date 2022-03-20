@@ -1,0 +1,22 @@
+[core]
+  excludesfile = ~/.gitignore_global
+[user]
+  email = luiarthur@gmail.com
+  name = Arthur Lui
+[push]
+	default = simple
+
+[difftool]
+    prompt = true
+[diff]
+    tool = nvim
+[difftool "nvim"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[merge]
+  tool = nvim
+[mergetool "nvim"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool]
+  prompt = false
+  keepbackup = false
