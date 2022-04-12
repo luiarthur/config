@@ -25,13 +25,13 @@ cp ${CONFDIR}/startup.jl ~/.julia/config/startup.jl
 
 # Copy these scripts to `~/bin`
 cp ${BINDIR}/resources ~/bin
-ln -s ${BINDIR}/dirsize ~/bin/dirsize
-ln -s ${BINDIR}/gush ~/bin/gush
-ln -s ${BINDIR}/pdfPage ~/bin/pdfPage
-ln -s ${BINDIR}/zipit ~/bin/zipit
-ln -s ${BINDIR}/captainslog ~/bin/captainslog
-ln -s ${BINDIR}/jltag ~/bin/jltag
-ln -s ${BINDIR}/bib2json ~/bin/bib2json
+cp -s ${BINDIR}/dirsize ~/bin/dirsize
+cp -s ${BINDIR}/gush ~/bin/gush
+cp -s ${BINDIR}/pdfPage ~/bin/pdfPage
+cp -s ${BINDIR}/zipit ~/bin/zipit
+cp -s ${BINDIR}/captainslog ~/bin/captainslog
+cp -s ${BINDIR}/jltag ~/bin/jltag
+cp -s ${BINDIR}/bib2json ~/bin/bib2json
 
 # top
 # - To configure top to be human-readable, press `E` in top, then
