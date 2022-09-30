@@ -5,7 +5,7 @@ options(
   repos=structure(c(CRAN="https://cloud.r-project.org/")),
   # devtools
   devtools.name="Arthur Lui",
-  devtools.desc.author="Arthur Lui <luiarthur@ucsc.edu> [aut, cre]"
+  devtools.desc.author="Arthur Lui <myemail@domain.com> [aut, cre]"
 )
 
 # my_scala_lib_dir <- "path-to-scala-libs"
