@@ -4,7 +4,7 @@
 if [[ "$OSTYPE" == "darwin"* ]]
 then
   sed_cmd=gsed
-elif [[ "OSTYPE" == "linux-gnu"* ]]
+elif [[ "$OSTYPE" == "linux-gnu"* ]]
 then
   sed_cmd=sed
 else
