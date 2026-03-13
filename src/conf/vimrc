@@ -1,6 +1,7 @@
 " Basics
-set number                  " Show line numbers on side.
 syntax enable               " Syntax highlighting
+set belloff=all             " Suppress bell sounds
+set number                  " Show line numbers on side.
 set hlsearch                " Highlight search items
 set incsearch               " Highlight search items as you type
 set showmatch               " Show matches for parenthesis, etc.
@@ -8,9 +9,8 @@ set expandtab               " Use softtabs
 set tabstop=2 shiftwidth=2  " Set tab width
 set autoindent              " Automaticall indent lines
 set nobackup                " Don't create .swp
-set belloff=all             " Don't want bell sounds.
-set clipboard=unnamed       " Copy to clipboard.
 set autoread                " Reload if file is changed outside of vim
+set clipboard=unnamed       " Copy to clipboard
 set t_Co=256
 
 call plug#begin()
@@ -19,8 +19,9 @@ Plug 'luiarthur/tmux.vim'
 Plug 'luiarthur/tab-complete.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'NoahTheDuke/vim-just'
+Plug 'cespare/vim-toml', { 'branch': 'main'}
+Plug 'Yggdroot/indentLine'
 call plug#end()
-
 
 " Color scheme.
 silent! colorscheme noir
@@ -30,6 +31,9 @@ vmap < <gv
 vmap > >gv
 vmap <s-tab> <gv
 vmap <tab> >gv
+
+" Redraw vim. Helpful when ruff messages appear.
+nnoremap <F12> :redraw!<CR>
 
 " disable F1 for help
 nmap <F1> <nop>
@@ -51,36 +55,35 @@ augroup return_cursor_to_last_position
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
-" Activate spell checking for markdown files.
-augroup markdown_spelling
+" Copy and paste between vim sessions.
+" Copy the current visual selection to ~/.vbuf.
+" vmap <C-S-y> :w! ~/.vbuf<CR>     " copy the current visual selection to ~/.vbuf
+" nmap <C-S-p> :r ~/.vbuf<CR>      " paste the contents of the buffer file
+
+" Set spell check for md files.
+augroup markdownSpell
     autocmd!
-    autocmd FileType markdown setlocal spell
-    autocmd BufRead,BufNewFile *.md setlocal spell
+    autocmd FileType markdown setlocal spell spelllang=en_us
+    autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
 augroup END
 
-" Redraw vim. Helpful when ruff messages appear. 
-nnoremap <F12> :redraw!<CR>
-
-" Copy and paste between vim sessions. (Deprecate)
-vmap <C-S-y> :w! ~/.vbuf<CR>     " copy the current visual selection to ~/.vbuf
-nmap <C-S-p> :r ~/.vbuf<CR>      " paste the contents of the buffer file
-
-" Format and lint current python file on write.
-if executable('ruff')
-  function RuffFmt()
-    !ruff check --fix --silent --unfixable="F401" --select "I" %
-    !ruff format --silent %
-  endfunction
-
-  autocmd BufWritePost *.py silent :call RuffFmt()
-endif
-
-" Run just --fmt
 if executable('just')
   function JustFmt()
     !just --fmt --unstable --quiet -f %
   endfunction
   autocmd BufWritePost *.just,justfile,.justfile silent :call JustFmt()
+endif
+
+" Format and lint current python file on write.
+if executable('ruff')
+  function RuffFmt()
+    " --unfixable="F401" (don't remove unused imports)
+    " --select I (sort imports)
+    !ruff check --fix --silent --unfixable="F401" --select I %
+    !ruff format --silent %
+  endfunction
+
+  autocmd BufWritePost *.py silent :call RuffFmt()
 endif
 
 augroup justfile_settings
@@ -92,11 +95,15 @@ augroup END
 let g:rustfmt_autosave = 1
 
 " vim bindings for copy/paste between vim sessions on linux server.
-vnoremap <C-y> "ay  :wv<CR>0
-vnoremap <C-d> "ad  :wv<CR>0
-nnoremap <C-y> "ayy :wv<CR>0
-nnoremap <C-d> "add :wv<CR>0
-nnoremap <C-p> :rv<CR>"ap
+vnoremap <C-y> :w! ~/.vbuf<CR> :echo 'yanked selection'<CR>0
+vnoremap <C-d> :w! ~/.vbuf<CR>gv"_d :echo 'yanked deletion'<CR>0
+nnoremap <C-y> :.w! ~/.vbuf<CR> :echo 'yanked current line'<CR>0
+nnoremap <C-d> :.w! ~/.vbuf<CR>dd :echo 'yanked and deleted line'<CR>0
+nnoremap <C-p> :r ~/.vbuf<CR>
 
-" Create missing directories when needed
+let g:indentLine_char = '│'
+let g:indentLine_conceallevel = 0
+
+" Create missing directories when needed.e.g.
+"   vi ~/dir/does/not/yet/exist/new.txt
 autocmd BufWritePre * call mkdir(expand('<afile>:p:h'), 'p')
