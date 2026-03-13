@@ -56,10 +56,14 @@ export TERM="screen-256color"
 export screenrc=$HOME/.config/screen/screenrc  # Screen config path
 
 # Git Prompt
-PROMPT_COLOR=210  # LIGHT CORAL
-git_state() { [[ -z `git status -s 2> /dev/null` ]] || echo "+" }
+PROMPT_COLOR_DIR=247  # grey
+PROMPT_COLOR_GIT=9  # light red
+ARROW=$'\u276f'
+git_state() { [[ -z `git status -s 2> /dev/null` ]] || echo '+' }
 precmd_vcs_info() { GIT_STATE=$(git_state) && vcs_info }
 precmd_functions+=( precmd_vcs_info )
-PROMPT='%F{245}%1~${vcs_info_msg_0_}${GIT_STATE}%f> '
+PROMPT="%F{$PROMPT_COLOR_DIR}%1~"
+PROMPT=$PROMPT'${vcs_info_msg_0_}${GIT_STATE}%f'
+PROMPT=$PROMPT"%F{${PROMPT_COLOR_DIR}}"${ARROW}"%f "
 zstyle ':vcs_info:git:*' enable git
-zstyle ':vcs_info:git:*' formats " %F{${PROMPT_COLOR}}%r:%b"
+zstyle ':vcs_info:git:*' formats " %F{$PROMPT_COLOR_GIT}%b"
