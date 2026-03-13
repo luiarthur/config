@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Function to print color blocks
+print-color-block() {
+  local color_code=$1
+  local fgbg=$2
+  local padding=$(( (5 - ${#color_code}) / 2 ))
+  printf "\033[$fgbg;5;${color_code}m%${padding}s%s%$((5 - ${#color_code} - padding))s\033[0m" "" "$color_code" ""
+}
+
+# Loop through all 256 colors
+print-256colors() {
+  local fgbg=$1
+  for i in {1..256}; do
+    # Print the color block
+    print-color-block $i $fgbg
+    # Newline after every 8 colors
+    if (( i % 8 == 0 )); then
+      echo
+    fi
+  done
+}
+
+print-256colors 38 # foreground
+echo
+print-256colors 48 # background

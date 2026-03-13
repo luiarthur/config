@@ -1,0 +1,8 @@
+# This file belongs in: ~/.screenrc
+
+# Always show status bar.
+hardstatus alwayslastline
+
+# Disable screen locking.
+bind ^x
+bind x

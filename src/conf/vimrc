@@ -1,0 +1,103 @@
+
+" Basics
+set number                  " Show line numbers on side.
+syntax enable               " Syntax highlighting
+set hlsearch                " Highlight search items
+set incsearch               " Highlight search items as you type
+set showmatch               " Show matches for parenthesis, etc.
+set expandtab               " Use softtabs
+set tabstop=2 shiftwidth=2  " Set tab width
+set autoindent              " Automaticall indent lines
+set nobackup                " Don't create .swp
+set belloff=all             " Don't want bell sounds.
+set clipboard=unnamed       " Copy to clipboard.
+set autoread                " Reload if file is changed outside of vim
+set t_Co=256
+
+call plug#begin()
+Plug 'luiarthur/red.vim'
+Plug 'luiarthur/tmux.vim'
+Plug 'luiarthur/tab-complete.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'NoahTheDuke/vim-just'
+call plug#end()
+
+
+" Color scheme.
+silent! colorscheme noir
+
+" Indenting / unindenting in visual mode
+vmap < <gv  
+vmap > >gv
+vmap <s-tab> <gv
+vmap <tab> >gv
+
+" disable F1 for help
+nmap <F1> <nop>
+
+" Toggle folding with F9. 
+set foldmethod=manual " enables folding by visual selection select
+inoremap <F9> <C-O>za
+nnoremap <F9> za
+onoremap <F9> <C-C>za
+vnoremap <F9> zf
+
+" Reset syntax highlight
+noremap <F10> <ESC>:syntax sync fromstart<CR>
+inoremap <F10> <C-o>:syntax sync fromstart<CR>
+
+" Return to last position
+augroup return_cursor_to_last_position
+    autocmd!
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
+
+" Activate spell checking for markdown files.
+augroup markdown_spelling
+    autocmd!
+    autocmd FileType markdown setlocal spell
+    autocmd BufRead,BufNewFile *.md setlocal spell
+augroup END
+
+" Redraw vim. Helpful when ruff messages appear. 
+nnoremap <F12> :redraw!<CR>
+
+" Copy and paste between vim sessions. (Deprecate)
+vmap <C-S-y> :w! ~/.vbuf<CR>     " copy the current visual selection to ~/.vbuf
+nmap <C-S-p> :r ~/.vbuf<CR>      " paste the contents of the buffer file
+
+" Format and lint current python file on write.
+if executable('ruff')
+  function RuffFmt()
+    !ruff check --fix --silent --unfixable="F401" --select "I" %
+    !ruff format --silent %
+  endfunction
+
+  autocmd BufWritePost *.py silent :call RuffFmt()
+endif
+
+" Run just --fmt
+if executable('just')
+  function JustFmt()
+    !just --fmt --unstable --quiet -f %
+  endfunction
+  autocmd BufWritePost *.just,justfile,.justfile silent :call JustFmt()
+endif
+
+augroup justfile_settings
+    autocmd!
+    autocmd FileType just setlocal tabstop=4 shiftwidth=4
+augroup END
+
+" Rust format on save.
+let g:rustfmt_autosave = 1
+
+" vim bindings for copy/paste between vim sessions on linux server.
+vnoremap <C-y> "ay  :wv<CR>0
+vnoremap <C-d> "ad  :wv<CR>0
+nnoremap <C-y> "ayy :wv<CR>0
+nnoremap <C-d> "add :wv<CR>0
+nnoremap <C-p> :rv<CR>"ap
+
+" Create missing directories when needed
+autocmd BufWritePre * call mkdir(expand('<afile>:p:h'), 'p')

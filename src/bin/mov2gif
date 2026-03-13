@@ -1,0 +1,11 @@
+#/bin/bash
+
+# USAGE:
+#
+# To convert a file `mymovie.mov` to a GIF with the name `output.gif`, do:
+# 
+# mov2gif mymovie.mov output.gif
+
+IN_MOV=$1
+OUT_GIF=$2
+ffmpeg -i "$IN_MOV" -pix_fmt rgb8 -r 10 "$OUT_GIF" && gifsicle -O3 "$OUT_GIF" -o "$OUT_GIF"

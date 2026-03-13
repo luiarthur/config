@@ -1,0 +1,64 @@
+fpath+=("$HOME/.zsh/completions")
+
+# Functions
+source_if_exists() { [[ ! -f $1 ]] || source $1; }
+port-info() { ss -talnp; }
+
+# Scripts
+source_if_exists ~/.config/unix-config/openai-api.sh
+
+# Turn on zsh features.
+bindkey '^R' history-incremental-search-backward
+bindkey '^F' history-incremental-search-forward
+autoload -U promptinit && promptinit
+autoload -U colors && colors
+autoload -U compinit && compinit
+autoload -Uz vcs_info
+setopt interactivecomments
+setopt COMPLETE_IN_WORD
+setopt extendedglob
+setopt prompt_subst
+if [[ $(uname) == 'Darwin' ]]; then
+  # Better terminal colors for MacOS
+  export LSCOLORS=ExGxBxDxCxegedabagacad
+fi
+
+# History
+setopt APPEND_HISTORY
+HISTFILE=$HOME/.zsh_histfile
+HISTSIZE=1000
+SAVEHIST=1000
+
+# Makefile auto completion.
+zstyle ':completion:*:*:make:*' tag-order 'targets'
+
+# Add paths.
+path+=("$HOME/bin" "$HOME/.local/bin")
+
+# Aliases.
+alias taro="tar -zxf"
+alias tma="tmux attach -t"
+alias ll='ls -AlFh --color=auto'
+alias ls='ls -F --color=auto'
+alias tree='tree -C'
+alias dir="ls -ltrh --color=auto"
+alias cdtemp='cd $(mktemp -d)'
+
+# Interactive commands for not overwriting files.
+alias mv="/bin/mv -i"
+alias cp="/bin/cp -i"
+alias rm="/bin/rm -i"
+alias crontab="/usr/bin/crontab -i"
+
+# Default environment variables.
+export EDITOR=vi  # Default Editor.
+export screenrc=$HOME/.config/screen/screenrc
+
+# Git Prompt
+PROMPT_COLOR=210  # LIGHT CORAL
+git_state() { [[ -z `git status -s 2> /dev/null` ]] || echo "+" }
+precmd_vcs_info() { GIT_STATE=$(git_state) && vcs_info }
+precmd_functions+=( precmd_vcs_info )
+PROMPT='%F{245}%1~${vcs_info_msg_0_}${GIT_STATE}%f> '
+zstyle ':vcs_info:git:*' enable git
+zstyle ':vcs_info:git:*' formats " %F{${PROMPT_COLOR}}%r:%b"

@@ -1,18 +1,11 @@
-# config
-Configuration files for Unix-based systems
+# Configs
 
-## Dependencies
+## System requirements
+* `just`: Install via `uv tool install -p 3.12 rust-just`
 
-- Git
-    - This repository assumes that git is already installed.
-- `~/repo/`
-    - This repository should reside in `~/repo/`.
+## Usage
+Clone this repo, then in the repo, run
 
-## Directory Structure
-
-- `os/`
-  - `ubuntu/` (for personal Ubuntu machines)
-  - `linux_server/` (for Linux servers)
-  - `osx/` (for Macs)
-- `conf/` (contains configuration files e.g. `bashrc`, `vimrc`, `tmux.conf`, `pythonrc`, etc.)
-- `bin/` (files to be placed in `~/bin/`)
+```sh
+just setup
+```

@@ -1,0 +1,78 @@
+#!/bin/bash
+
+# Functions
+source_if_exists() { [[ ! -f $1 ]] || source $1; }
+port-info() { ss -talnp; }
+
+# Source scripts
+shopt -s nullglob
+if [[ -d "$HOME/.config/unix-config" ]]; then
+  for f in $HOME/.config/unix-config/*.sh; do
+    source $f
+  done
+fi
+shopt -u nullglob 
+
+# Environment variables.
+export EDITOR=vi
+export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+export SCREENRC="$HOME/.config/screen/screenrc"
+export TERM=xterm-256color
+
+# Aliases.
+alias dir="ls -hla"
+alias taro="tar -zxf"
+alias tma="tmux attach -t"
+alias ls='ls -GFh --color=auto'
+alias ll='ls -AlF'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias rgrep='rgrep --color=auto'
+alias cdtemp='cd $(mktemp -d)'
+tarc() { [[ -z "$1" ]] || tar -I zstd -cf ${1}.tar.zst $1; }
+
+# Interactive commands for not overwriting files.
+alias mv="/bin/mv -i"
+alias cp="/bin/cp -i"
+alias rm="/bin/rm -i"
+alias crontab="/usr/bin/crontab -i"
+alias gr='cd "$(git rev-parse --show-toplevel)"' # got git repo root
+
+# Create useful Git prompt.
+# PS1="\W> "
+GREY='\[\e[38;5;245m\]' # 38->foreground, 5->256-colors, 245->grey
+NOCOLOR='\[\e[0m\]'
+PS1=${GREY}'\W'${NOCOLOR}'> '
+unset GREY NOCOLOR
+source_if_exists ~/.config/unix-config/git-prompt.sh
+
+# Misc settings.
+shopt -s extglob  # Enable extended globbing
+set -o noclobber  # echo "oops.txt > important.txt" will fail.
+set -o vi  # Use vi-style editing in bash
+shopt -s globstar  # enable `ls **/*` to recursively list.
+bind -m vi-insert "\C-l":clear-screen  # enable ctrl-l for clear screen in vi-insert mode
+shopt -s histappend  # append to the history file, don't overwrite it
+bind '"\e/": history-complete'
+
+# History
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+HISTFILE=~/.bash-history
+
+# Completion files.
+export BASH_COMPLETIONS_DIR="$HOME/.local/share/bash-completions"
+if [ -d $BASH_COMPLETIONS_DIR ]; then
+  for f in ${BASH_COMPLETIONS_DIR}/*; do
+    [ -f "$f" ] && . "$f"
+  done
+fi
+
+# Paths
+export PATH="$HOME/.local/bin":$PATH

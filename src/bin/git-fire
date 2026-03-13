@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Usage:
+# In case of emergency, if possible, run 
+# > git fire
+#
+# Unsaved changes will be saved and pushed to a new branch named:
+#   $USER/fire/some-long-hash
+#
+# Installation:
+# 1. Put this script in: $HOME/bin/git-fire
+# 2. Execute: `chmod +x $HOME/bin/git-fire`
+# 3. Be sure to add $HOME/bin to $PATH
+
+# Name of my temporary branch.
+: ${BRANCH:=$USER/fire-`uuidgen`}
+
+git stash
+git checkout -b $BRANCH
+git stash pop
+git add -A
+git commit -m "Fire! Commit everything."
+git push --set-upstream origin $BRANCH
