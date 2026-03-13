@@ -31,7 +31,7 @@ setup: git::setup && bin::setup tmux::setup
 
 # Run bash in sandbox
 [group("tests")]
-@test:
+@test user-shell="bash":
     #!/bin/sh
     rm -rf {{ test-dir }}
     mkdir -p {{ test-dir }}
@@ -41,17 +41,22 @@ setup: git::setup && bin::setup tmux::setup
         --ro-bind /lib64 /lib64 \
         --ro-bind /bin /bin \
         --ro-bind /etc /etc \
-        --bind /tmp /tmp \
         --ro-bind {{ uv-bin }} /uv-bin \
+        --bind /tmp /tmp \
         --proc /proc \
         --dev /dev \
-        --setenv PATH "/tool-bin:/uv-bin:/usr/bin:/bin" \
+        --clearenv \
+        --setenv PATH "/work/bin:/work/.local/bin:/tool-bin:/uv-bin:/usr/bin:/bin" \
         --setenv HOME /work \
         --ro-bind $PWD /setup \
         --bind {{ test-dir }} /work \
         --chdir /setup \
         --share-net \
-        bash -c "uv tool install rust-just && just setup && /usr/bin/bash"
+        {{ user-shell }} -c "\
+        uv tool install rust-just && \
+        just setup && \
+        vim +PlugInstall +qall && \
+        /usr/bin/{{ user-shell }}"
     rm -rf {{ test-dir }}
 
 # Bump git version

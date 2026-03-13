@@ -1,22 +1,32 @@
 @help:
     just -l -u -f {{ source_file() }}
 
-[linux]
-setup config-dir backup-dir:
-    echo "Configuring linux/bash..."
+[private]
+clean-append-safe-source file-to-source file-to-append:
+    just util::clean-append \
+        "[[ ! -f {{ file-to-source }} ]] || source {{ file-to-source }}" \
+        {{ file-to-append }}
 
-    [[ ! -f ~/.bashrc ]] || touch ~/.bashrc
+[linux]
+[macos]
+setup config-dir backup-dir:
+    echo "Configuring shell..."
 
     mkdir -p \
         {{ config-dir }} \
         {{ backup-dir }} \
         {{ home_dir() }}/.vim \
-        {{ home_dir() }}/.local/share/bash-completions \
         {{ home_dir() }}/.config/tmux \
-        {{ home_dir() }}/.config/screen
+        {{ home_dir() }}/.config/screen \
+        {{ home_dir() }}/.zsh/completions
 
     just util::safe-copy \
         {{ justfile_dir() }}/src/conf/bashrc.local \
+        {{ config-dir }} \
+        {{ backup-dir }}
+
+    just util::safe-copy \
+        {{ justfile_dir() }}/src/conf/zshrc.local \
         {{ config-dir }} \
         {{ backup-dir }}
 
@@ -49,47 +59,10 @@ setup config-dir backup-dir:
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    just util::clean-append \
-        "[[ ! -f {{ config-dir }}/bashrc.local ]] || source {{ config-dir }}/bashrc.local" \
+    just -f {{ source_file() }} clean-append-safe-source \
+        {{ config-dir }}/bashrc.local \
         ~/.bashrc
 
-[macos]
-setup config-dir backup-dir:
-    echo "Configuring macos/zsh..."
-
-    [[ ! -f ~/.zshrc ]] || touch ~/.zshrc
-
-    mkdir -p \
-        {{ config-dir }} \
-        {{ backup-dir }} \
-        {{ home_dir() }}/.vim \
-        {{ home_dir() }}/.zsh/completions \
-        {{ home_dir() }}/.config/tmux
-
-    just util::safe-copy \
-        {{ justfile_dir() }}/src/conf/zshrc.local \
-        {{ config-dir }} \
-        {{ backup-dir }}
-
-    just util::safe-copy \
-        {{ justfile_dir() }}/src/conf/openai-api.sh \
-        {{ config-dir }} \
-        {{ backup-dir }}
-
-    just util::safe-copy \
-        {{ justfile_dir() }}/src/conf/vimrc \
-        {{ home_dir() }}/.vim \
-        {{ backup-dir }}
-
-    just util::safe-copy \
-        {{ justfile_dir() }}/src/conf/tmux.conf \
-        {{ home_dir() }}/.config/tmux \
-        {{ backup-dir }}
-
-    # Install vim.plug, assuming internet access.
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    just util::clean-append \
-        "[[ ! -f {{ config-dir }}/zshrc.local ]] || source {{ config-dir }}/zshrc.local" \
+    just -f {{ source_file() }} clean-append-safe-source \
+        {{ config-dir }}/zshrc.local \
         ~/.zshrc

@@ -107,3 +107,7 @@ let g:indentLine_conceallevel = 0
 " Create missing directories when needed.e.g.
 "   vi ~/dir/does/not/yet/exist/new.txt
 autocmd BufWritePre * call mkdir(expand('<afile>:p:h'), 'p')
+
+" Syntax highlight for user rc files
+autocmd BufNewFile,BufRead bashrc.local set syntax=sh
+autocmd BufNewFile,BufRead zshrc.local set syntax=zsh

@@ -52,9 +52,8 @@ alias crontab="/usr/bin/crontab -i"
 
 # Default environment variables.
 export EDITOR=vi  # Default Editor.
-
-# Screen config path
-export screenrc=$HOME/.config/screen/screenrc
+export TERM="screen-256color"
+export screenrc=$HOME/.config/screen/screenrc  # Screen config path
 
 # Git Prompt
 PROMPT_COLOR=210  # LIGHT CORAL
