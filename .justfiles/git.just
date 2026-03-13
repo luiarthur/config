@@ -9,8 +9,8 @@ gitignore-dest := git-config-dir / "ignore"
 [no-cd]
 setup:
     #!/bin/bash
-    cp {{ gitignore-src }} {{ gitignore-dest }}
     mkdir -p {{ git-config-dir }}
+    cp {{ gitignore-src }} {{ gitignore-dest }}
     read -p "Enter your full name for Git: " full_name
     read -p "Enter your email for Git: " email
     git config --global user.email $email

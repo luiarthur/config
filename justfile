@@ -51,7 +51,7 @@ setup: && bin::setup tmux::setup git::setup
         --bind {{ test-dir }} /work \
         --chdir /setup \
         --share-net \
-        /usr/bin/bash
+        bash -c "uv tool install rust-just && /usr/bin/bash"
     rm -rf {{ test-dir }}
 
 # Bump git version
