@@ -12,7 +12,6 @@ setup config-dir backup-dir:
         {{ backup-dir }} \
         {{ home_dir() }}/.vim \
         {{ home_dir() }}/.local/share/bash-completions \
-        {{ home_dir() }}/.vim/autoload \
         {{ home_dir() }}/.config/tmux \
         {{ home_dir() }}/.config/screen
 
@@ -65,7 +64,7 @@ setup config-dir backup-dir:
         {{ backup-dir }} \
         {{ home_dir() }}/.vim \
         {{ home_dir() }}/.zsh/completions \
-        {{ home_dir() }}/.config/tmux \
+        {{ home_dir() }}/.config/tmux
 
     just util::safe-copy \
         {{ justfile_dir() }}/src/conf/zshrc.local \
