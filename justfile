@@ -55,5 +55,6 @@ setup: && bin::setup tmux::setup git::setup
     rm -rf {{ test-dir }}
 
 # Bump git version
+[group("dev")]
 bump kind:
     uv run bump {{ kind }} -p
