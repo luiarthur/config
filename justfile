@@ -53,3 +53,7 @@ setup: && bin::setup tmux::setup git::setup
         --share-net \
         /usr/bin/bash
     rm -rf {{ test-dir }}
+
+# Bump git version
+bump kind:
+    uv run bump {{ kind }} -p
