@@ -1,5 +1,3 @@
-# This file belongs in: ~/.screenrc
-
 # Always show status bar.
 hardstatus alwayslastline
 
