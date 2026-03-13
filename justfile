@@ -15,8 +15,8 @@ mod conf '.justfiles/conf.just'
 mod bin '.justfiles/bin.just'
 
 current-date := shell("date +'%Y%m%d-%H%M%S'")
-archive-dir := home_dir() / ".config/.unix-config-archive" / current-date
-config-dir := home_dir() / ".config/unix-config"
+archive-dir := home_dir() / ".config/.shell-archive" / current-date
+config-dir := home_dir() / ".config/shell"
 uv-bin := `dirname $(which uv)`
 test-dir := home_dir() / "tmp/test-config"
 
@@ -26,12 +26,12 @@ test-dir := home_dir() / "tmp/test-config"
 
 # Setup environment (config files and executables)
 [group("main")]
-setup: && bin::setup tmux::setup git::setup
+setup: git::setup && bin::setup tmux::setup
     just conf::setup {{ config-dir }} {{ archive-dir }}
 
 # Run bash in sandbox
 [group("tests")]
-@shell:
+@test:
     #!/bin/sh
     rm -rf {{ test-dir }}
     mkdir -p {{ test-dir }}
@@ -51,7 +51,7 @@ setup: && bin::setup tmux::setup git::setup
         --bind {{ test-dir }} /work \
         --chdir /setup \
         --share-net \
-        bash -c "uv tool install rust-just && /usr/bin/bash"
+        bash -c "uv tool install rust-just && just setup && /usr/bin/bash"
     rm -rf {{ test-dir }}
 
 # Bump git version

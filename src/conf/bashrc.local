@@ -1,11 +1,17 @@
+# Basic prompt
+GREY='\[\e[38;5;245m\]' # 38->foreground, 5->256-colors, 245->grey
+NOCOLOR='\[\e[0m\]'
+PS1=${GREY}'\W'${NOCOLOR}'> '
+unset GREY NOCOLOR
+
 # Functions
 source_if_exists() { [[ ! -f $1 ]] || source $1; }
 port-info() { ss -talnp; }
 
 # Source scripts
 shopt -s nullglob
-if [[ -d "$HOME/.config/unix-config" ]]; then
-  for f in $HOME/.config/unix-config/*.sh; do
+if [[ -d "$HOME/.config/shell" ]]; then
+  for f in $HOME/.config/shell/*.sh; do
     source $f
   done
 fi
@@ -38,14 +44,6 @@ alias rm="/bin/rm -i"
 alias crontab="/usr/bin/crontab -i"
 alias gr='cd "$(git rev-parse --show-toplevel)"' # got git repo root
 
-# Create useful Git prompt.
-# PS1="\W> "
-GREY='\[\e[38;5;245m\]' # 38->foreground, 5->256-colors, 245->grey
-NOCOLOR='\[\e[0m\]'
-PS1=${GREY}'\W'${NOCOLOR}'> '
-unset GREY NOCOLOR
-source_if_exists ~/.config/unix-config/git-prompt.sh
-
 # Misc settings.
 shopt -s extglob  # Enable extended globbing
 set -o noclobber  # echo "oops.txt > important.txt" will fail.
@@ -63,14 +61,3 @@ HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
 HISTFILE=~/.bash-history
-
-# Completion files.
-export BASH_COMPLETIONS_DIR="$HOME/.local/share/bash-completions"
-if [ -d $BASH_COMPLETIONS_DIR ]; then
-  for f in ${BASH_COMPLETIONS_DIR}/*; do
-    [ -f "$f" ] && . "$f"
-  done
-fi
-
-# Paths
-export PATH="$HOME/.local/bin":$PATH

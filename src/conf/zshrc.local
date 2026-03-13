@@ -5,7 +5,7 @@ source_if_exists() { [[ ! -f $1 ]] || source $1; }
 port-info() { ss -talnp; }
 
 # Scripts
-source_if_exists ~/.config/unix-config/openai-api.sh
+source_if_exists ~/.config/shell/openai-api.sh
 
 # Turn on zsh features.
 bindkey '^R' history-incremental-search-backward
@@ -52,6 +52,8 @@ alias crontab="/usr/bin/crontab -i"
 
 # Default environment variables.
 export EDITOR=vi  # Default Editor.
+
+# Screen config path
 export screenrc=$HOME/.config/screen/screenrc
 
 # Git Prompt
