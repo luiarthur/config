@@ -57,4 +57,4 @@ setup: && bin::setup tmux::setup git::setup
 # Bump git version
 [group("dev")]
 bump kind:
-    uv run bump {{ kind }} -p
+    bump {{ kind }} -p
