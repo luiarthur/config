@@ -43,6 +43,7 @@ alias ls='ls -F --color=auto'
 alias tree='tree -C'
 alias dir="ls -ltrh --color=auto"
 alias cdtemp='cd $(mktemp -d)'
+alias vi=vim
 
 # Interactive commands for not overwriting files.
 alias mv="/bin/mv -i"

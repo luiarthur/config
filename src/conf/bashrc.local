@@ -35,6 +35,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias rgrep='rgrep --color=auto'
 alias cdtemp='cd $(mktemp -d)'
+alias vi=vim
 tarc() { [[ -z "$1" ]] || tar -I zstd -cf ${1}.tar.zst $1; }
 
 # Interactive commands for not overwriting files.
