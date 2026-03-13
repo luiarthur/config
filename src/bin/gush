@@ -1,5 +1,5 @@
-#!/bin/zsh
+#!/bin/bash
 
-git add .
+git add -A
 git commit -m 'yes'
 git push
