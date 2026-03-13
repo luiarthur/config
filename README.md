@@ -25,3 +25,16 @@ Then run
 ```sh
 just test
 ```
+
+## Dev
+Install the following tools for bumping versions
+
+```sh
+uv tool install bump-cli
+```
+
+Then, bump with
+
+```sh
+just bump patch  # or minor, major, etc
+```
