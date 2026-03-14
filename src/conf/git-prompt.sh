@@ -11,7 +11,7 @@ _() {
   local NOCOLOR='\[\e[0m\]'
   local PROMPT_GIT_COLOR='\[\e[1;38;5;9m\]' # light red
   local PROMPT_DIR_COLOR='\[\e[1;38;5;245m\]' # grey
-  local ARROW=$'\xe2\x9d\xaf'
+  local ARROW=$'\u276f'
 
   # NOTE: PS1 contains the *names* of functions and not their
   # return values. An echo of PS1 will make this clear. This is why the
