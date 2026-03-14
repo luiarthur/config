@@ -13,8 +13,10 @@ setup: install-tmux-resurrect
 [macos]
 install-tmux-resurrect:
     mkdir -p {{ tmux-plugins-dir }}
-    git clone https://github.com/tmux-plugins/tmux-resurrect \
-            {{ tmux-plugins-dir }}/tmux-resurrect
     just -f {{ justfile() }} util::clean-append \
             "{{ tmux-resurrect-cmd }}" \
             {{ home_dir() }}/.config/tmux/tmux.conf
+    [[ -d {{ tmux-plugins-dir }}/tmux-resurrect ]] || \
+        git clone \
+        https://github.com/tmux-plugins/tmux-resurrect \
+        {{ tmux-plugins-dir }}/tmux-resurrect
