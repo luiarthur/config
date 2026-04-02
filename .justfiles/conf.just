@@ -4,7 +4,7 @@
 [private]
 clean-append-safe-source file-to-source file-to-append:
     just util::clean-append \
-        "[[ ! -f {{ file-to-source }} ]] || source {{ file-to-source }}" \
+        "[ ! -f {{ file-to-source }} ] || source {{ file-to-source }}" \
         {{ file-to-append }}
 
 [linux]

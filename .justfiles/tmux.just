@@ -16,7 +16,7 @@ install-tmux-resurrect:
     just -f {{ justfile() }} util::clean-append \
             "{{ tmux-resurrect-cmd }}" \
             {{ home_dir() }}/.config/tmux/tmux.conf
-    [[ -d {{ tmux-plugins-dir }}/tmux-resurrect ]] || \
+    [ -d {{ tmux-plugins-dir }}/tmux-resurrect ] || \
         git clone \
         https://github.com/tmux-plugins/tmux-resurrect \
         {{ tmux-plugins-dir }}/tmux-resurrect

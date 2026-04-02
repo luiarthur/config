@@ -5,7 +5,7 @@
 [no-cd]
 backup file-to-backup backup-dir:
     #!/bin/sh
-    if [[ -f {{ file-to-backup }} ]]; then
+    if [ -f {{ file-to-backup }} ]; then
       mkdir -p {{ backup-dir }}
       echo "backing up {{ file-to-backup }} to {{ backup-dir }}"
       cp {{ file-to-backup }} {{ backup-dir }}
@@ -20,6 +20,6 @@ safe-copy src-path dest-path backup-dir:
 # Clean append a phrase to a file
 [no-cd]
 @clean-append phrase file-path:
-    [[ -f {{ file-path }} ]] || touch {{ file-path }}
+    [ -f {{ file-path }} ] || touch {{ file-path }}
     grep -qxF "{{ phrase }}" {{ file-path }} || \
         (echo >> {{ file-path }} && echo "{{ phrase }}" >> {{ file-path }})
