@@ -1,4 +1,4 @@
--- Arthur Lui's nvim config
+-- Arthur Lui's nvim confg
 
 -- Leader key
 vim.g.mapleader = " " 
@@ -27,6 +27,9 @@ vim.diagnostic.config({
   virtual_text = { prefix = "*" },
 })
 
+-- Tab completion
+vim.keymap.set("i", "<Tab>", "<C-x><C-o>", { noremap = true })
+
 -- Plugins
 vim.pack.add({
     "https://github.com/luiarthur/red.vim",
@@ -34,12 +37,9 @@ vim.pack.add({
 		"https://github.com/neovim/nvim-lspconfig",
 })
 
--- Colorscheme
-vim.cmd.colorscheme("noir")
-
 -- Options
 vim.opt.showmatch = true -- show matching parenthesis, etc
-vim.opt.updatetime = 500 -- milliseconds
+vim.opt.updatetime = 1000 -- milliseconds
 vim.opt.guicursor = "a:blinkon0"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.laststatus = 0
@@ -53,6 +53,9 @@ vim.opt.number = true
 vim.opt.termguicolors = false
 vim.opt.ruler = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+-- Colorscheme
+vim.cmd.colorscheme("noir")
 
 -- Return to last cursor position
 vim.api.nvim_create_autocmd("BufReadPost", {
@@ -71,6 +74,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.py",
   callback = function()
     vim.lsp.buf.format()
+    vim.lsp.buf.code_action({
+      context = { only = { "source.organizeImports" } },
+      apply = true,
+    })
   end,
 })
 
@@ -95,16 +102,17 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
--- Copy/paste between sessions
-vim.keymap.set({ "n" }, "<C-y>", '"+yy')
-vim.keymap.set({ "v" }, "<C-y>", '"+y')
-vim.keymap.set({ "n" }, "<C-d>", '"+dd')
-vim.keymap.set({ "v" }, "<C-d>", '"+d')
-vim.keymap.set({ "n", "v" }, "<C-p>", '"+p')
-
 -- Markdown
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   group = vim.api.nvim_create_augroup("markdownSpell", { clear = true }),
   command = "setlocal spell spelllang=en_us",
 })
+
+
+-- Copy/paste between sessions
+vim.keymap.set({ "n" }, "<C-y>", '"+yy')
+vim.keymap.set({ "v" }, "<C-y>", '"+y')
+vim.keymap.set({ "n" }, "<C-d>", '"+dd')
+vim.keymap.set({ "v" }, "<C-d>", '"+d')
+vim.keymap.set({ "n", "v" }, "<C-p>", '"+p')
