@@ -67,9 +67,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- Enable lsp
-vim.lsp.enable("ruff")
-vim.lsp.enable("ty")
-vim.lsp.enable("just")
+vim.lsp.enable("ruff")  -- uv tool install ruff
+vim.lsp.enable("ty")  -- uv tool install ty
+vim.lsp.enable("just")  -- requires just-lsp binary
+vim.lsp.enable("gopls")  -- requires gopls binary
+vim.lsp.enable("rust_analyzer")  -- requires rust-analyzer binary
 
 -- Ruff settings
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -80,6 +82,22 @@ vim.api.nvim_create_autocmd("BufWritePre", {
       context = { only = { "source.organizeImports" } },
       apply = true,
     })
+  end,
+})
+
+-- Go settings
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
+
+-- Rust settings
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.rs",
+  callback = function()
+    vim.lsp.buf.format()
   end,
 })
 
