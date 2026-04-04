@@ -31,31 +31,33 @@ vim.diagnostic.config({
 vim.pack.add({
     "https://github.com/luiarthur/red.vim",
     "https://github.com/luiarthur/tmux.vim",
-		"https://github.com/neovim/nvim-lspconfig",
+    "https://github.com/neovim/nvim-lspconfig",
+    {
+      src = "https://github.com/Saghen/blink.cmp",
+      version = vim.version.range("1.*")
+    },
 })
-
--- Tab completion
-vim.keymap.set("i", "<Tab>", "<C-x><C-o>", { noremap = true })
-
--- Colorscheme
-vim.cmd.colorscheme("noir")
 
 -- Options
 vim.opt.showmatch = true -- show matching parenthesis, etc
-vim.opt.updatetime = 500 -- milliseconds
+vim.opt.updatetime = 1000 -- milliseconds
 vim.opt.guicursor = "a:blinkon0"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.laststatus = 0
 vim.opt.autoread = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 vim.opt.pumheight = 8      -- max number of items shown
 vim.opt.pummaxwidth = 50   -- max width of the menu
 vim.opt.mouse = "a"
 vim.opt.number = true
-vim.opt.termguicolors = false
 vim.opt.ruler = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
+
+-- Colorscheme
+vim.opt.termguicolors = false
+vim.cmd.colorscheme("noir")
 
 -- Return to last cursor position
 vim.api.nvim_create_autocmd("BufReadPost", {
@@ -102,6 +104,18 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+-- Markdown
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  group = vim.api.nvim_create_augroup("markdownSpell", { clear = true }),
+  command = "setlocal spell spelllang=en_us",
+})
+
+-- Update packages with :PackUpdate
+vim.api.nvim_create_user_command('PackUpdate', function()
+  vim.pack.update(nil, { force = true } )
+end, {})
+
 -- Copy/paste between sessions
 vim.keymap.set({ "n" }, "<C-y>", '"+yy')
 vim.keymap.set({ "v" }, "<C-y>", '"+y')
@@ -109,9 +123,39 @@ vim.keymap.set({ "n" }, "<C-d>", '"+dd')
 vim.keymap.set({ "v" }, "<C-d>", '"+d')
 vim.keymap.set({ "n", "v" }, "<C-p>", '"+p')
 
--- Markdown
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  group = vim.api.nvim_create_augroup("markdownSpell", { clear = true }),
-  command = "setlocal spell spelllang=en_us",
+-- Completions
+require("blink.cmp").setup({
+  keymap = {
+    preset = "super-tab", -- complete with tab
+    ["<C-d>"] = { "scroll_documentation_down", "fallback" },
+    ["<C-u>"] = { "scroll_documentation_up", "fallback" },
+  },
+  completion = {
+    documentation = {
+      auto_show = true,
+      auto_show_delay_ms = 200,
+      window = {
+        border = "double",
+      }
+    },
+    menu = {
+      draw = {
+        columns = {
+          { "kind" },
+          { "label", "label_description", gap = 1 },
+        },
+      },
+    },
+  },
+  sources = {
+    default = { "lsp", "path", "snippets", "buffer" },
+  },
+  signature = { enabled = true }
+})
+local caps = require("blink.cmp").get_lsp_capabilities()
+vim.lsp.config("lua_ls", { capabilities = caps })
+vim.lsp.enable("lua_ls")
+vim.api.nvim_set_hl(0, "BlinkCmpDoc", {
+  -- color for documentation window
+  ctermfg = 255, ctermbg = 236
 })
