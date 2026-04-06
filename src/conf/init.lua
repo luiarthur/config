@@ -1,7 +1,7 @@
 -- Arthur Lui's nvim config
 
 -- Leader key
-vim.g.mapleader = " " 
+vim.g.mapleader = " "
 
 -- Filetypes
 vim.filetype.add({
@@ -21,7 +21,7 @@ vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 -- Diagnostics
 vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>dn', function() vim.diagnostic.jump({ count = 1 }) end)
-vim.keymap.set( 'n', '<leader>dp', function() vim.diagnostic.jump({ count = -1 }) end)
+vim.keymap.set('n', '<leader>dp', function() vim.diagnostic.jump({ count = -1 }) end)
 vim.diagnostic.config({
   update_in_insert = true,
   virtual_text = { prefix = "*" },
@@ -29,35 +29,35 @@ vim.diagnostic.config({
 
 -- Plugins
 vim.pack.add({
-    "https://github.com/luiarthur/red.vim",
-    "https://github.com/luiarthur/tmux.vim",
-    "https://github.com/neovim/nvim-lspconfig",
-    {
-      src = "https://github.com/Saghen/blink.cmp",
-      version = vim.version.range("1.*")
-    },
+  "https://github.com/luiarthur/themes.nvim",
+  "https://github.com/luiarthur/tmux.vim",
+  "https://github.com/neovim/nvim-lspconfig",
+  {
+    src = "https://github.com/Saghen/blink.cmp",
+    version = vim.version.range("1.*")
+  },
 })
 
 -- Options
-vim.opt.showmatch = true -- show matching parenthesis, etc
+vim.opt.guicursor = "n-v-c:block-blinkon0,i:block-blinkwait200-blinkon200-blinkoff200"
+vim.opt.showmatch = true  -- show matching parenthesis, etc
 vim.opt.updatetime = 1000 -- milliseconds
-vim.opt.guicursor = "a:blinkon0"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.laststatus = 0
 vim.opt.autoread = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.opt.pumheight = 8      -- max number of items shown
-vim.opt.pummaxwidth = 50   -- max width of the menu
+vim.opt.pumheight = 8    -- max number of items shown
+vim.opt.pummaxwidth = 50 -- max width of the menu
 vim.opt.mouse = "a"
 vim.opt.number = true
 vim.opt.ruler = true
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.termguicolors = true
 
 -- Colorscheme
-vim.opt.termguicolors = false
-vim.cmd.colorscheme("noir")
+vim.cmd.colorscheme("usa")
 
 -- Return to last cursor position
 vim.api.nvim_create_autocmd("BufReadPost", {
@@ -67,11 +67,39 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- Enable lsp
-vim.lsp.enable("ruff")  -- uv tool install ruff
-vim.lsp.enable("ty")  -- uv tool install ty
-vim.lsp.enable("just")  -- requires just-lsp binary
-vim.lsp.enable("gopls")  -- requires gopls binary
-vim.lsp.enable("rust_analyzer")  -- requires rust-analyzer binary
+vim.lsp.enable("ruff")          -- requires ruff
+vim.lsp.enable("ty")            --requires ty
+vim.lsp.enable("just")          --requires just
+vim.lsp.enable("gopls")         --requires gopls
+vim.lsp.enable("rust_analyzer") --requires rust-analyzer
+vim.lsp.enable("lua_ls")        --requires lua-language-server
+
+-- Lua settings
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      format = {
+        enable = true,
+      },
+      diagnostics = {
+        globals = { "vim", },
+      },
+      workspace = {
+        checkThirdParty = false,
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.lua",
+  callback = function()
+    vim.lsp.buf.format()
+  end,
+})
 
 -- Ruff settings
 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -131,7 +159,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Update packages with :PackUpdate
 vim.api.nvim_create_user_command('PackUpdate', function()
-  vim.pack.update(nil, { force = true } )
+  vim.pack.update(nil, { force = true })
 end, {})
 
 -- Copy/paste between sessions
@@ -172,8 +200,3 @@ require("blink.cmp").setup({
 })
 local caps = require("blink.cmp").get_lsp_capabilities()
 vim.lsp.config("lua_ls", { capabilities = caps })
-vim.lsp.enable("lua_ls")
-vim.api.nvim_set_hl(0, "BlinkCmpDoc", {
-  -- color for documentation window
-  ctermfg = 255, ctermbg = 236
-})
