@@ -18,6 +18,13 @@ vim.filetype.add({
 -- Format
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
 
+-- Options for file explorer
+vim.g.netrw_banner = 0       -- hide banner
+vim.g.netrw_liststyle = 3    -- tree view
+vim.g.netrw_browse_split = 4 -- reuse previous window
+vim.g.netrw_winsize = 25     -- dir tree should be 25%
+vim.keymap.set('n', '<leader>b', function() vim.cmd("Lexplore") end)
+
 -- Diagnostics
 vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>dn', function() vim.diagnostic.jump({ count = 1 }) end)
