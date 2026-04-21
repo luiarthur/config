@@ -33,3 +33,4 @@ setup:
     git config --global fetch.prune true
     git config --global fetch.pruneTags true
     git config --global fetch.all true
+    git config --global pull.rebase false
